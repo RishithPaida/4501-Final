@@ -14,6 +14,11 @@ config/name="4501-Final"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+God="*res://Scripts/God.gd"
+BuildingGod="*res://Scripts/BuildingGod.gd"
+
 [input]
 
 scroll_up={

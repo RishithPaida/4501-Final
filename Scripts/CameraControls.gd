@@ -1,8 +1,8 @@
 extends Node3D
 
 # Sensitivity factors for mouse movement.
-var sensitivity_x = 1.0
-var sensitivity_y = 1.0
+var sensitivity_x = 0.5
+var sensitivity_y = 0.5
 var zoom_sensitivity = 2.0
 
 # Threshold distance from the edge of the screen to start moving the camera.
