@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://x8tfgp16kvyg"]
+
+[ext_resource type="Script" path="res://Scripts/InterfaceGod.gd" id="1_kttu8"]
+[ext_resource type="Script" path="res://Scripts/MouseArea.gd" id="2_n8ouk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5c6pi"]
+size = Vector2(1919, 111.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e3p0p"]
+radius = 21.0238
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -98.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_kttu8")
+
+[node name="UI Area" type="Area2D" parent="."]
+position = Vector2(591, 468)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI Area"]
+position = Vector2(375, -433)
+shape = SubResource("RectangleShape2D_5c6pi")
+
+[node name="Area2D" type="Area2D" parent="." groups=["mouse_area"]]
+script = ExtResource("2_n8ouk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_e3p0p")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -117.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="BuildTownHallButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 320.0
+offset_top = -101.0
+offset_right = 435.0
+offset_bottom = -14.0
+grow_vertical = 0
+text = "Town Hall"
+
+[connection signal="area_entered" from="UI Area" to="." method="_on_ui_area_area_entered"]
+[connection signal="area_exited" from="UI Area" to="." method="_on_ui_area_area_exited"]
+[connection signal="button_down" from="Panel/BuildTownHallButton" to="." method="_on_build_town_hall_button_button_down"]

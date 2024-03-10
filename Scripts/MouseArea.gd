@@ -1,12 +1,5 @@
-extends Node
+extends Area2D
 
-enum State  {
-	Play,
-	Build,
-	Combat
-}
-
-var Curr_State = State.Play
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,4 +8,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	global_position = get_global_mouse_position()
+	

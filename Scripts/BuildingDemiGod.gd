@@ -1,12 +1,5 @@
 extends Node
 
-enum State  {
-	Play,
-	Build,
-	Combat
-}
-
-var Curr_State = State.Play
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
