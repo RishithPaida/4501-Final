@@ -29,3 +29,12 @@ func _process(delta):
 	if mouse_position.x < edge_threshold or mouse_position.x > viewport_size.x - edge_threshold or mouse_position.y < edge_threshold or mouse_position.y > viewport_size.y - edge_threshold:
 		position.x += direction.x * sensitivity_x
 		position.z += direction.y * sensitivity_y # In Godot 3D, Z is often used for forward/backward movement.
+	
+	#zoom controls
+	if Input.is_action_just_pressed("scroll_up"):
+		print($Camera.global_position.distance_to(global_position))
+		if $Camera.global_position.distance_to(global_position) > 0.5:
+			$Camera.global_position -= $Camera.global_transform.basis.z * zoom_sensitivity
+	if Input.is_action_just_pressed("scroll_down"):
+		if $Camera.global_position.distance_to(global_position) < 100:
+			$Camera.global_position += $Camera.global_transform.basis.z * zoom_sensitivity

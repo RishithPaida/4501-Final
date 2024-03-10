@@ -32,17 +32,17 @@ environment = SubResource("Environment_jphdd")
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="Floor" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_5saq8")
 surface_material_override/0 = SubResource("StandardMaterial3D_v3q64")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+[node name="TestUnit" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.804432, 0)
 mesh = SubResource("CapsuleMesh_1si6t")
 
 [node name="MaxZoomPoint" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.89448, 5.0791)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 5)
 script = ExtResource("1_k16rd")
 
-[node name="Camera3D" type="Camera3D" parent="MaxZoomPoint"]
+[node name="Camera" type="Camera3D" parent="MaxZoomPoint"]
 transform = Transform3D(1, 0, 0, 0, 0.79653, 0.604599, 0, -0.604599, 0.79653, 0, 0, 0)
