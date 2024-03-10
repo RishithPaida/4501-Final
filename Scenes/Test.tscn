@@ -1,6 +1,5 @@
-[gd_scene load_steps=10 format=3 uid="uid://k2xfap81tes4"]
+[gd_scene load_steps=9 format=3 uid="uid://k2xfap81tes4"]
 
-[ext_resource type="PackedScene" uid="uid://bej3fdfwiy5em" path="res://Scenes/Townhall.tscn" id="1_4hxa1"]
 [ext_resource type="PackedScene" uid="uid://duj0jarfvkgt3" path="res://Scenes/Goblin.tscn" id="2_lrcm3"]
 [ext_resource type="PackedScene" uid="uid://dwqdc3uym0exy" path="res://Scenes/Camera.tscn" id="3_rv4do"]
 [ext_resource type="PackedScene" uid="uid://x8tfgp16kvyg" path="res://Scenes/Interface.tscn" id="4_ggmv6"]
@@ -36,9 +35,6 @@ shadow_enabled = true
 [node name="Floor" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_5saq8")
 surface_material_override/0 = SubResource("StandardMaterial3D_v3q64")
-
-[node name="Townhall" parent="." instance=ExtResource("1_4hxa1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.550348, 3.04596)
 
 [node name="Goblin" parent="." instance=ExtResource("2_lrcm3")]
 

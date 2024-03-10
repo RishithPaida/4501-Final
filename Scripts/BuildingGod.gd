@@ -34,8 +34,8 @@ func _process(delta):
 		var from = camera.project_ray_origin(get_viewport().get_mouse_position())
 		var to = from + camera.project_ray_normal(get_viewport().get_mouse_position()) * 1000
 		var mouse_pos = Plane(Vector3.UP, transform.origin.y).intersects_ray(from, to)
-		Curr_Selected_Building.position = Vector3(mouse_pos.x,mouse_pos.y,mouse_pos.z)
-
+		Curr_Selected_Building.position = Vector3(round(mouse_pos.x),round(mouse_pos.y),round(mouse_pos.z))
+		
 		
 		if can_build:
 			Curr_Selected_Building.get_node("MeshInstance3D").material_override = green_shade

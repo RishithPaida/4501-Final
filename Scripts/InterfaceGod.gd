@@ -16,12 +16,10 @@ func _on_build_town_hall_button_button_down():
 
 
 func _on_ui_area_area_entered(area):
-	print("entered")
 	if area.is_in_group("mouse_area"):
 		BuildingGod.can_build = false
 
 
 func _on_ui_area_area_exited(area):
-	print("exited")
 	if area.is_in_group("mouse_area"):
 		BuildingGod.can_build = true
