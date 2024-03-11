@@ -9,7 +9,10 @@ var red_shade = ShaderMaterial
 var original_material
 
 #Load the buildings
-var TownHall : PackedScene = ResourceLoader.load("res://Scenes/Townhall.tscn")
+var TownHall : PackedScene = ResourceLoader.load("res://Scenes/Buildings/Townhall.tscn")
+var ManaPump : PackedScene = ResourceLoader.load("res://Scenes/Buildings/ManaPump.tscn")
+var Barracks : PackedScene = ResourceLoader.load("res://Scenes/Buildings/Barracks.tscn")
+
 
 var Curr_Selected_Building : StaticBody3D
 
@@ -56,6 +59,12 @@ func _process(delta):
 		
 func Build_Town_Hall():
 	Build(TownHall)
+
+func Build_Mana_Pump():
+	Build(ManaPump)
+	
+func Build_Barracks():
+	Build(Barracks)
 	
 func Build(building):
 	if Curr_Selected_Building != null:

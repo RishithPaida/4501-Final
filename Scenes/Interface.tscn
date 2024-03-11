@@ -55,6 +55,32 @@ offset_bottom = -14.0
 grow_vertical = 0
 text = "Town Hall"
 
+[node name="BuildManaPumpButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 593.0
+offset_top = -99.0
+offset_right = 708.0
+offset_bottom = -12.0
+grow_vertical = 0
+text = "Mana Pump"
+
+[node name="BuildBarracksButton3" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 456.0
+offset_top = -101.0
+offset_right = 571.0
+offset_bottom = -14.0
+grow_vertical = 0
+text = "Barracks"
+
 [connection signal="area_entered" from="UI Area" to="." method="_on_ui_area_area_entered"]
 [connection signal="area_exited" from="UI Area" to="." method="_on_ui_area_area_exited"]
 [connection signal="button_down" from="Panel/BuildTownHallButton" to="." method="_on_build_town_hall_button_button_down"]
+[connection signal="button_down" from="Panel/BuildManaPumpButton" to="." method="_on_build_mana_pump_button_button_down"]
+[connection signal="button_down" from="Panel/BuildBarracksButton3" to="." method="_on_build_barracks_button_3_button_down"]
