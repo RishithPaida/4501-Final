@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 
 enum State  {
 	Play,
@@ -11,8 +11,9 @@ var ruby := 30
 var mana := 30
 var food := 30
 
+var RAY_LENGTH = 1000
 var Curr_State = State.Play
-
+var Curr_Hovered_Object
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -21,3 +22,23 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+func _unhandled_input(event):
+	if Curr_State == State.Play:
+		if event is InputEventMouseMotion:
+			# Perform the raycast to see what the mouse is hovering over.
+			_perform_raycast_from_mouse_position(event.position)
+
+func _perform_raycast_from_mouse_position(mouse_position):
+	var from = get_viewport().get_camera_3d().project_ray_origin(mouse_position)
+	var to = from + get_viewport().get_camera_3d().project_ray_normal(mouse_position) * 1000
+	var space_state = get_world_3d().direct_space_state
+
+	# Perform the raycast.
+	var query = PhysicsRayQueryParameters3D.create(from, to)
+	query.exclude = [self]
+	var result = space_state.intersect_ray(query)
+
+	Curr_Hovered_Object = result
+	
+	print("Hovering over: " + Curr_Hovered_Object.collider.name)

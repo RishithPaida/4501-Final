@@ -30,3 +30,8 @@ func _on_area_3d_body_exited(body):
 func set_building_perms():
 	BuildingGod.can_build = (curr_building_collisions == 0)
 
+
+
+func _on_mouse_entered():
+	print("Hovering over: ")
+	pass # Replace with function body.

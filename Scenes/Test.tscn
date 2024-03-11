@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://k2xfap81tes4"]
+[gd_scene load_steps=10 format=3 uid="uid://k2xfap81tes4"]
 
 [ext_resource type="PackedScene" uid="uid://duj0jarfvkgt3" path="res://Scenes/Goblin.tscn" id="2_lrcm3"]
 [ext_resource type="PackedScene" uid="uid://dwqdc3uym0exy" path="res://Scenes/Camera.tscn" id="3_rv4do"]
@@ -23,6 +23,9 @@ size = Vector2(1000, 1000)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3q64"]
 albedo_color = Color(0.196078, 0.196078, 0.196078, 1)
 
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kb71b"]
+points = PackedVector3Array(-500, 0, -500, -500, 0, 500, 500, 0, -500, 500, 0, 500)
+
 [node name="Main" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -35,6 +38,11 @@ shadow_enabled = true
 [node name="Floor" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_5saq8")
 surface_material_override/0 = SubResource("StandardMaterial3D_v3q64")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_kb71b")
 
 [node name="Goblin" parent="." instance=ExtResource("2_lrcm3")]
 
