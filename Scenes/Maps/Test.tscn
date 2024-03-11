@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://k2xfap81tes4"]
 
-[ext_resource type="PackedScene" uid="uid://duj0jarfvkgt3" path="res://Scenes/Units/Goblin.tscn" id="2_lrcm3"]
-[ext_resource type="PackedScene" uid="uid://dwqdc3uym0exy" path="res://Scenes/Camera.tscn" id="3_rv4do"]
-[ext_resource type="PackedScene" uid="uid://x8tfgp16kvyg" path="res://Scenes/Interface.tscn" id="4_ggmv6"]
+[ext_resource type="PackedScene" uid="uid://duj0jarfvkgt3" path="res://Scenes/Units/Goblin.tscn" id="1_letgw"]
+[ext_resource type="PackedScene" uid="uid://dwqdc3uym0exy" path="res://Scenes/UI/Camera.tscn" id="2_145ms"]
+[ext_resource type="PackedScene" uid="uid://x8tfgp16kvyg" path="res://Scenes/UI/Interface.tscn" id="3_arkqv"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gvtm6"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -44,9 +44,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_v3q64")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_kb71b")
 
-[node name="Goblin" parent="." instance=ExtResource("2_lrcm3")]
+[node name="Goblin" parent="." instance=ExtResource("1_letgw")]
 
-[node name="Camera" parent="." instance=ExtResource("3_rv4do")]
+[node name="Camera" parent="." instance=ExtResource("2_145ms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 5)
 
-[node name="Control" parent="." instance=ExtResource("4_ggmv6")]
+[node name="Control" parent="." instance=ExtResource("3_arkqv")]
