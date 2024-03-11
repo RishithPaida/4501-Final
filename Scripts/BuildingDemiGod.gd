@@ -14,17 +14,19 @@ func _process(delta):
 
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("building"):
+		if body != self:
+			curr_building_collisions += 1
+			set_building_perms()
 	
-		curr_building_collisions += 1
-		set_building_perms()
+	
 
 
 func _on_area_3d_body_exited(body):
 	if body.is_in_group("building"):
-		curr_building_collisions -= 1
-		set_building_perms()
+		if body != self:
+			curr_building_collisions -= 1
+			set_building_perms()
 		
 func set_building_perms():
-	print(curr_building_collisions)
-	BuildingGod.can_build = (curr_building_collisions == 1)
+	BuildingGod.can_build = (curr_building_collisions == 0)
 
