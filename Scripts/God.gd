@@ -14,6 +14,8 @@ var food := 30
 var RAY_LENGTH = 1000
 var Curr_State = State.Play
 var Curr_Hovered_Object
+
+var hovering_building = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -21,7 +23,18 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Curr_Hovered_Object:
+		if Curr_Hovered_Object.is_in_group("building"):
+			if not hovering_building:
+				BuildingGod.Curr_Hovered_Building = Curr_Hovered_Object
+				BuildingGod.Highlight_Hovered_Building(Curr_Hovered_Object)
+				hovering_building = true
+		else:
+			if hovering_building:
+				print("dehighlighting")
+				BuildingGod.DeHighlight_Hovered_Building()
+				BuildingGod.Curr_Hovered_Building = null
+				hovering_building = false
 
 func _unhandled_input(event):
 	if Curr_State == State.Play:
@@ -39,6 +52,5 @@ func _perform_raycast_from_mouse_position(mouse_position):
 	query.exclude = [self]
 	var result = space_state.intersect_ray(query)
 
-	Curr_Hovered_Object = result
+	Curr_Hovered_Object = result.collider
 	
-	print("Hovering over: " + Curr_Hovered_Object.collider.name)

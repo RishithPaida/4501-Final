@@ -7,6 +7,7 @@ var red_glow_shader = load("res://Shaders/RedGlow.gdshader")
 var green_shade = ShaderMaterial
 var red_shade = ShaderMaterial
 var original_material
+var dehighlight_material
 
 #Load the buildings
 var TownHall : PackedScene = ResourceLoader.load("res://Scenes/Buildings/Townhall.tscn")
@@ -56,11 +57,8 @@ func _process(delta):
 		if Input.is_action_just_pressed("right_click"):
 			Curr_Selected_Building_To_Build.queue_free()
 			God.Curr_State = God.State.Play
-			
-	if God.Curr_State == God.State.Play:
-		if Curr_Hovered_Building:
-			Curr_Hovered_Building.get_node("MeshInstance3D").material_override = green_shade		
-		
+
+
 func Build_Town_Hall():
 	Build(TownHall)
 
@@ -78,3 +76,10 @@ func Build(building):
 	
 	get_tree().root.add_child(Curr_Selected_Building_To_Build)
 	God.Curr_State = God.State.Build
+
+func Highlight_Hovered_Building(building):
+	dehighlight_material = Curr_Hovered_Building.get_node("MeshInstance3D").material_override
+	Curr_Hovered_Building.get_node("MeshInstance3D").material_override = green_shade
+	
+func DeHighlight_Hovered_Building():
+	Curr_Hovered_Building.get_node("MeshInstance3D").material_override = dehighlight_material
