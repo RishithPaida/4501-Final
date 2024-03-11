@@ -15,6 +15,9 @@ points = PackedVector3Array(-0.4, -0.5, 0, -0.368285, -0.30002, -0.0363352, -0.3
 
 [node name="ManaPump" type="StaticBody3D" groups=["building"]]
 script = ExtResource("1_g8abx")
+woodcost = 2
+foodcost = 5
+rubycost = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

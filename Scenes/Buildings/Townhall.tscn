@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bej3fdfwiy5em"]
+[gd_scene load_steps=6 format=3 uid="uid://bej3fdfwiy5em"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingDemiGod.gd" id="1_fuail"]
+[ext_resource type="PackedScene" uid="uid://duj0jarfvkgt3" path="res://Scenes/Units/Goblin.tscn" id="2_tuhgu"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dsipb"]
 points = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
@@ -10,9 +11,13 @@ points = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ss8wf"]
 albedo_color = Color(0.184314, 1, 1, 1)
 
-[node name="Townhall" type="StaticBody3D" groups=["building"]]
+[node name="Townhall" type="StaticBody3D" groups=["building", "townhall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.550348, 0)
 script = ExtResource("1_fuail")
+Unit = ExtResource("2_tuhgu")
+woodcost = 5
+foodcost = 2
+manacost = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.441849, 0)
@@ -30,6 +35,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ss8wf")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.441849, 0)
 shape = SubResource("ConvexPolygonShape3D_dsipb")
 
-[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[node name="SpawnPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.33951, 0, 0)
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

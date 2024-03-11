@@ -16,7 +16,7 @@ var Barracks : PackedScene = ResourceLoader.load("res://Scenes/Buildings/Barrack
 
 var Curr_Hovered_Building : StaticBody3D
 var Curr_Selected_Building_To_Build : StaticBody3D
-
+var Curr_Selected_Building : StaticBody3D
 
 var can_build := true
 # Called when the node enters the scene tree for the first time.
@@ -47,16 +47,21 @@ func _process(delta):
 		else:
 			Curr_Selected_Building_To_Build.get_node("MeshInstance3D").material_override = red_shade
 			
-		if can_build:
+		if can_build and Check_If_Affordable(Curr_Selected_Building_To_Build):
 			if Input.is_action_just_pressed("left_click"):
 				var building := Curr_Selected_Building_To_Build.duplicate()
 				get_tree().root.add_child(building)
 				building.position = Curr_Selected_Building_To_Build.position
+				Purchase_Building(building)
 				building.get_node("MeshInstance3D").material_override = original_material
 
 		if Input.is_action_just_pressed("right_click"):
 			Curr_Selected_Building_To_Build.queue_free()
 			God.Curr_State = God.State.Play
+	
+	if God.Curr_State == God.State.Play:
+		if Curr_Hovered_Building and Input.is_action_just_pressed("left_click"):
+			Curr_Selected_Building = Curr_Hovered_Building
 
 
 func Build_Town_Hall():
@@ -83,3 +88,21 @@ func Highlight_Hovered_Building(building):
 	
 func DeHighlight_Hovered_Building():
 	Curr_Hovered_Building.get_node("MeshInstance3D").material_override = dehighlight_material
+
+func Check_If_Affordable(building) -> bool:
+	if God.wood - building.woodcost < 0:
+		return false
+	if God.food - building.foodcost < 0:
+		return false
+	if God.ruby - building.rubycost < 0:
+		return false
+	if God.mana - building.manacost < 0:
+		return false
+		
+	return true
+	
+func Purchase_Building(building):
+	God.wood -= building.woodcost
+	God.food -= building.foodcost
+	God.ruby -= building.rubycost
+	God.mana -= building.manacost

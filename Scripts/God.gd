@@ -3,7 +3,8 @@ extends Node3D
 enum State  {
 	Play,
 	Build,
-	Combat
+	Combat,
+	Spawn
 }
 
 var wood := 30
@@ -31,7 +32,6 @@ func _process(delta):
 				hovering_building = true
 		else:
 			if hovering_building:
-				print("dehighlighting")
 				BuildingGod.DeHighlight_Hovered_Building()
 				BuildingGod.Curr_Hovered_Building = null
 				hovering_building = false

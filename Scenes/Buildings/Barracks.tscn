@@ -12,6 +12,10 @@ points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 
 
 [node name="Barracks" type="StaticBody3D" groups=["building"]]
 script = ExtResource("1_uf2p1")
+woodcost = 3
+foodcost = 5
+rubycost = 1
+manacost = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
