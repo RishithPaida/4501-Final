@@ -29,8 +29,9 @@ material_override = SubResource("ShaderMaterial_1nhal")
 mesh = SubResource("PlaneMesh_ittb4")
 skeleton = NodePath("../..")
 script = ExtResource("4_svful")
-chunkSize = 50.0
+chunkSize = 100.0
 heightRatio = 20.0
+colShapeSizeRatio = 1.0
 
 [node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Terrain"]
 collision_layer = 3
