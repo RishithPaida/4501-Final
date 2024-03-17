@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://chvpbsmyhohgd"
+path="res://.godot/imported/tileHigh_forest.obj-8a10c30a7c9089da002458b7041d3b54.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tileHigh_forest.obj-8a10c30a7c9089da002458b7041d3b54.mesh"]
+
+source_file="res://Assets/terrain_models/forest/tileHigh_forest.obj"
+dest_files=["res://.godot/imported/tileHigh_forest.obj-8a10c30a7c9089da002458b7041d3b54.mesh", "res://.godot/imported/tileHigh_forest.obj-8a10c30a7c9089da002458b7041d3b54.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

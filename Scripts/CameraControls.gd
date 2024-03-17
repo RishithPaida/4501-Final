@@ -34,5 +34,5 @@ func _process(delta):
 		if $Camera.global_position.distance_to(global_position) > 0.5:
 			$Camera.global_position -= $Camera.global_transform.basis.z * zoom_sensitivity
 	if Input.is_action_just_pressed("scroll_down"):
-		if $Camera.global_position.distance_to(global_position) < 100:
+		if $Camera.global_position.distance_to(global_position) < 50:
 			$Camera.global_position += $Camera.global_transform.basis.z * zoom_sensitivity

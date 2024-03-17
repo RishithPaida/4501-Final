@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bu5ug6jsltwfa"
+path="res://.godot/imported/character_bearHead.obj-cd7c47df40c892c4c758d2f002444a53.mesh"
+
+[deps]
+
+files=["res://.godot/imported/character_bearHead.obj-cd7c47df40c892c4c758d2f002444a53.mesh"]
+
+source_file="res://Assets/unit_models/allies/farmers/character_bearHead.obj"
+dest_files=["res://.godot/imported/character_bearHead.obj-cd7c47df40c892c4c758d2f002444a53.mesh", "res://.godot/imported/character_bearHead.obj-cd7c47df40c892c4c758d2f002444a53.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

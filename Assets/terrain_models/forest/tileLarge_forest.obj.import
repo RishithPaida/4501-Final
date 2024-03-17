@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cmp3c3mdnjqkb"
+path="res://.godot/imported/tileLarge_forest.obj-6098aeb54ffe6b28106ef6ea94043124.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tileLarge_forest.obj-6098aeb54ffe6b28106ef6ea94043124.mesh"]
+
+source_file="res://Assets/terrain_models/forest/tileLarge_forest.obj"
+dest_files=["res://.godot/imported/tileLarge_forest.obj-6098aeb54ffe6b28106ef6ea94043124.mesh", "res://.godot/imported/tileLarge_forest.obj-6098aeb54ffe6b28106ef6ea94043124.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

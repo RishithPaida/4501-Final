@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dt70h14ebwrv6"
+path="res://.godot/imported/flag_teamRed.obj-ab08b7111e4e2b8ee9ca0fa3668a1f59.mesh"
+
+[deps]
+
+files=["res://.godot/imported/flag_teamRed.obj-ab08b7111e4e2b8ee9ca0fa3668a1f59.mesh"]
+
+source_file="res://Assets/building_models/flags/flag_teamRed.obj"
+dest_files=["res://.godot/imported/flag_teamRed.obj-ab08b7111e4e2b8ee9ca0fa3668a1f59.mesh", "res://.godot/imported/flag_teamRed.obj-ab08b7111e4e2b8ee9ca0fa3668a1f59.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,11 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cmyb0fc77fuwp"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingDemiGod.gd" id="1_g8abx"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_pl3wa"]
-top_radius = 0.25
-bottom_radius = 0.4
-height = 1.0
+[ext_resource type="ArrayMesh" uid="uid://dgojjf6bsai3" path="res://Assets/building_models/buildings/well.obj" id="2_0lj4c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rnp8y"]
 albedo_color = Color(0.862745, 0.682353, 0.976471, 1)
@@ -20,8 +16,7 @@ foodcost = 5
 rubycost = 1
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("CylinderMesh_pl3wa")
+mesh = ExtResource("2_0lj4c")
 surface_material_override/0 = SubResource("StandardMaterial3D_rnp8y")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

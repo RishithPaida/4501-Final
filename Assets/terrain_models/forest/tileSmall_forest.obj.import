@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cxm0mfoyotmkt"
+path="res://.godot/imported/tileSmall_forest.obj-a9d44d0cf8e81bc94839950ad8d526e3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tileSmall_forest.obj-a9d44d0cf8e81bc94839950ad8d526e3.mesh"]
+
+source_file="res://Assets/terrain_models/forest/tileSmall_forest.obj"
+dest_files=["res://.godot/imported/tileSmall_forest.obj-a9d44d0cf8e81bc94839950ad8d526e3.mesh", "res://.godot/imported/tileSmall_forest.obj-a9d44d0cf8e81bc94839950ad8d526e3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

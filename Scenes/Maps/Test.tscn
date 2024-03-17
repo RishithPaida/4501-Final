@@ -1,22 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://k2xfap81tes4"]
+[gd_scene load_steps=10 format=3 uid="uid://k2xfap81tes4"]
 
 [ext_resource type="PackedScene" uid="uid://duj0jarfvkgt3" path="res://Scenes/Units/Goblin.tscn" id="1_letgw"]
+[ext_resource type="PackedScene" uid="uid://bp7g3li82hkcv" path="res://Scenes/QOL/Environment.tscn" id="2_45h5i"]
 [ext_resource type="PackedScene" uid="uid://dwqdc3uym0exy" path="res://Scenes/UI/Camera.tscn" id="2_145ms"]
 [ext_resource type="PackedScene" uid="uid://x8tfgp16kvyg" path="res://Scenes/UI/Interface.tscn" id="3_arkqv"]
 [ext_resource type="PackedScene" uid="uid://bm564i3o33xhg" path="res://Scenes/Maps/Heightmap.tscn" id="4_wktcc"]
-
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gvtm6"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-
-[sub_resource type="Sky" id="Sky_wrnm1"]
-sky_material = SubResource("ProceduralSkyMaterial_gvtm6")
-
-[sub_resource type="Environment" id="Environment_jphdd"]
-background_mode = 2
-sky = SubResource("Sky_wrnm1")
-tonemap_mode = 2
-glow_enabled = true
+[ext_resource type="PackedScene" uid="uid://bq4o0287mqije" path="res://Scenes/resources/RubyClump.tscn" id="6_ievp1"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5saq8"]
 size = Vector2(100, 100)
@@ -31,11 +20,10 @@ points = PackedVector3Array(-500, 0, -500, -500, 0, 500, 500, 0, -500, 500, 0, 5
 
 [node name="Heightmap" parent="." instance=ExtResource("4_wktcc")]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_jphdd")
+[node name="Environment" parent="." instance=ExtResource("2_45h5i")]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+transform = Transform3D(0.76179, -0.561033, 0.323911, 1.47563e-08, 0.499998, 0.866027, -0.647825, -0.65973, 0.380893, 0, 0, 0)
 shadow_enabled = true
 
 [node name="Goblin" parent="." instance=ExtResource("1_letgw")]
@@ -57,3 +45,15 @@ collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
 shape = SubResource("ConvexPolygonShape3D_kb71b")
+
+[node name="Resources" type="Node3D" parent="."]
+transform = Transform3D(-1.58458, 0, -1.22029, 0, 2, 0, 1.22029, 0, -1.58458, 0, 6, 0)
+
+[node name="RubyClump" parent="Resources" instance=ExtResource("6_ievp1")]
+transform = Transform3D(0.103644, 0, -0.994613, 0, 0.999998, 0, 0.994613, 0, 0.103644, -2.73469, -2.50858, -4.28823)
+
+[node name="RubyClump2" parent="Resources" instance=ExtResource("6_ievp1")]
+transform = Transform3D(0.429153, 0, -0.615084, 0, 0.75, 0, 0.615084, 0, 0.429153, -1.95799, -2.57317, -2.24929)
+
+[node name="RubyClump3" parent="Resources" instance=ExtResource("6_ievp1")]
+transform = Transform3D(-0.624163, 0, -0.648398, 0, 0.9, 0, 0.648398, 0, -0.624163, -2.3416, -2.70142, -6.09197)

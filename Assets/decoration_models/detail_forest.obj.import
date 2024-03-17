@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cjs75lwur5uma"
+path="res://.godot/imported/detail_forest.obj-06c941299451966a4e0c55be686bf6fd.mesh"
+
+[deps]
+
+files=["res://.godot/imported/detail_forest.obj-06c941299451966a4e0c55be686bf6fd.mesh"]
+
+source_file="res://Assets/decoration_models/detail_forest.obj"
+dest_files=["res://.godot/imported/detail_forest.obj-06c941299451966a4e0c55be686bf6fd.mesh", "res://.godot/imported/detail_forest.obj-06c941299451966a4e0c55be686bf6fd.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

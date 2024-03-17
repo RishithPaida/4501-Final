@@ -20,6 +20,7 @@ config/icon="res://Assets/icon.svg"
 God="*res://Scripts/God.gd"
 BuildingGod="*res://Scripts/BuildingGod.gd"
 ControlGod="*res://Scripts/ControlGod.gd"
+UnitGod="*res://Scripts/UnitGod.gd"
 
 [display]
 

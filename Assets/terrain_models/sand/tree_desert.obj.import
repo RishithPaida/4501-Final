@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bjj7ecmk2q5b3"
+path="res://.godot/imported/tree_desert.obj-d62bc1a8e93f787a627fb3fbb8666aae.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tree_desert.obj-d62bc1a8e93f787a627fb3fbb8666aae.mesh"]
+
+source_file="res://Assets/terrain_models/sand/tree_desert.obj"
+dest_files=["res://.godot/imported/tree_desert.obj-d62bc1a8e93f787a627fb3fbb8666aae.mesh", "res://.godot/imported/tree_desert.obj-d62bc1a8e93f787a627fb3fbb8666aae.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://bq4o0287mqije"]
+
+[ext_resource type="Script" path="res://Scenes/resources/ResourceDemiGod.gd" id="1_h6hum"]
+[ext_resource type="ArrayMesh" uid="uid://tsnhho40qone" path="res://Assets/building_models/resources/diamond_teamRed.obj" id="2_mpaw5"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_wcggq"]
+height = 0.75
+radius = 0.75
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_61xfl"]
+height = 0.75
+radius = 0.75
+
+[node name="RubyClump" type="StaticBody3D" groups=["resource"]]
+script = ExtResource("1_h6hum")
+
+[node name="model" type="MeshInstance3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="model"]
+transform = Transform3D(-0.65, 1.99314e-07, 0, -9.81473e-08, -1.32, 0, 0, 0, 0.64, 0.0232135, 0.493467, 0.152392)
+mesh = ExtResource("2_mpaw5")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="model"]
+transform = Transform3D(-0.548236, -0.315138, 0.156018, 0.298807, -0.678956, 0, 0.22886, 0.131554, 0.373742, 0.615381, 0.310982, -0.0173767)
+mesh = ExtResource("2_mpaw5")
+skeleton = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="model"]
+transform = Transform3D(0.381169, -0.14164, 0.00956361, -0.0491036, -0.985006, -0.0883628, 0.022887, 0.245612, -0.348856, 0.365969, 0.357864, -0.0673349)
+mesh = ExtResource("2_mpaw5")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="model"]
+transform = Transform3D(-0.176821, -0.180997, 0.438541, -0.0974693, -0.729827, -0.147459, 0.480287, -0.214746, 0.131526, 0.4256, 0.666486, 0.146224)
+mesh = ExtResource("2_mpaw5")
+skeleton = NodePath("../MeshInstance3D3")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="model"]
+transform = Transform3D(-0.511546, 0.147008, 0.0119816, -0.0971463, -0.729721, -0.147839, -0.0179928, -0.239624, 0.45756, -0.481557, 0.303258, -0.0647241)
+mesh = ExtResource("2_mpaw5")
+skeleton = NodePath("../MeshInstance3D3")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="model"]
+transform = Transform3D(-0.135569, 0.387836, 0.0304315, -0.0666605, -0.784305, 0.0166941, 0.0346768, 0.00854519, 0.151064, -0.250651, 0.365588, 0.0524271)
+mesh = ExtResource("2_mpaw5")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="model"]
+transform = Transform3D(0.025253, -0.0186619, 0.184389, 0.0802709, -0.423866, -0.0162144, 0.183638, 0.187844, -0.0182688, -0.157049, 0.149509, -0.161102)
+mesh = ExtResource("2_mpaw5")
+skeleton = NodePath("../MeshInstance3D6")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="model"]
+transform = Transform3D(0.025253, -0.0186619, 0.184389, 0.115654, -0.377277, -0.0195654, 0.163678, 0.269462, -0.0146237, 0.473907, 0.0960133, -0.161102)
+mesh = ExtResource("2_mpaw5")
+skeleton = NodePath("../MeshInstance3D6")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="model"]
+transform = Transform3D(-0.145286, -0.116489, -0.120494, 0.101419, -0.386195, -0.0436868, -0.0970053, -0.229302, 0.134791, 0.514445, 0.149509, 0.217478)
+mesh = ExtResource("2_mpaw5")
+skeleton = NodePath("../MeshInstance3D6")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="model"]
+transform = Transform3D(0.041539, -0.386718, 0.0286115, 0.0365088, -0.0449902, -0.134197, 0.114327, 0.154875, 0.0324585, 0.81521, 0.0335143, -0.074796)
+mesh = ExtResource("2_mpaw5")
+skeleton = NodePath("../MeshInstance3D6")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="model"]
+transform = Transform3D(-0.0429298, -0.123168, 0.165337, 0.125262, -0.180798, 0.0138154, 0.0638398, 0.271924, 0.0840754, 0.634986, 0.0321104, -0.161102)
+mesh = ExtResource("2_mpaw5")
+skeleton = NodePath("../MeshInstance3D6")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="model"]
+transform = Transform3D(0.102191, 0.375375, 0.0556734, 0.173348, -0.235323, -0.0148191, 0.0176444, 0.137887, -0.176853, -0.714336, 0.147361, -0.0587113)
+mesh = ExtResource("2_mpaw5")
+skeleton = NodePath("../MeshInstance3D6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
+shape = SubResource("CylinderShape3D_wcggq")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_61xfl")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

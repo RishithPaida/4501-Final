@@ -1,9 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwqdc3uym0exy"]
+[gd_scene load_steps=4 format=3 uid="uid://dwqdc3uym0exy"]
 
 [ext_resource type="Script" path="res://Scripts/CameraControls.gd" id="1_c0hma"]
+[ext_resource type="Material" uid="uid://c11hcwrxcakjn" path="res://Assets/post_processing/pixelation_effect.tres" id="2_7qurl"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_hjn6o"]
+material = ExtResource("2_7qurl")
 
 [node name="MaxZoomPoint" type="Node3D"]
 script = ExtResource("1_c0hma")
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.469472, 0.882948, 0, -0.882948, 0.469472, 0, 0, 0)
+
+[node name="ThickLinesQuad" type="MeshInstance3D" parent="Camera"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, -1)
+mesh = SubResource("QuadMesh_hjn6o")

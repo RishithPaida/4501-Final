@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dgojjf6bsai3"
+path="res://.godot/imported/well.obj-c6da2442a0f0c9f742de26764f9aa22c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/well.obj-c6da2442a0f0c9f742de26764f9aa22c.mesh"]
+
+source_file="res://Assets/building_models/buildings/well.obj"
+dest_files=["res://.godot/imported/well.obj-c6da2442a0f0c9f742de26764f9aa22c.mesh", "res://.godot/imported/well.obj-c6da2442a0f0c9f742de26764f9aa22c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

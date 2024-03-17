@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dw7dkw3t14kuo"]
+
+[ext_resource type="Shader" path="res://Scenes/QOL/Transition.gdshader" id="1_xm50f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gkuf7"]
+shader = ExtResource("1_xm50f")
+shader_parameter/progress = null
+shader_parameter/multiplier = 3.0
+shader_parameter/angle = 0.0
+shader_parameter/anchor = Vector2(0.5, 0.5)
+shader_parameter/anchorOffset = 1.0
+shader_parameter/diamondPixelSize = 10.0
+
+[node name="Transition" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_gkuf7")
+offset_right = 1920.0
+offset_bottom = 1080.0

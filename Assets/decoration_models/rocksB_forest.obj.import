@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c3a3efnyp0kig"
+path="res://.godot/imported/rocksB_forest.obj-e68fbbfb6edc3585baf12d48cc8b8bc0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rocksB_forest.obj-e68fbbfb6edc3585baf12d48cc8b8bc0.mesh"]
+
+source_file="res://Assets/decoration_models/rocksB_forest.obj"
+dest_files=["res://.godot/imported/rocksB_forest.obj-e68fbbfb6edc3585baf12d48cc8b8bc0.mesh", "res://.godot/imported/rocksB_forest.obj-e68fbbfb6edc3585baf12d48cc8b8bc0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://7ssww7vmu240"
+path="res://.godot/imported/tileHigh_desert.obj-16439381f7a73e3555acb833dd7e3e5d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/tileHigh_desert.obj-16439381f7a73e3555acb833dd7e3e5d.mesh"]
+
+source_file="res://Assets/terrain_models/sand/tileHigh_desert.obj"
+dest_files=["res://.godot/imported/tileHigh_desert.obj-16439381f7a73e3555acb833dd7e3e5d.mesh", "res://.godot/imported/tileHigh_desert.obj-16439381f7a73e3555acb833dd7e3e5d.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
