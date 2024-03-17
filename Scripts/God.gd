@@ -24,7 +24,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print (Curr_Hovered_Object.name)
 	if Curr_Hovered_Object:
 		if Curr_Hovered_Object.is_in_group("building"):
 			if not hovering_building:

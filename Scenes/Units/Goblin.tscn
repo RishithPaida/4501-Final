@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://duj0jarfvkgt3"]
+[gd_scene load_steps=5 format=3 uid="uid://duj0jarfvkgt3"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tupu5"]
 
@@ -9,13 +9,28 @@ height = 3.98
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oj0st"]
 albedo_color = Color(0.470588, 0.294118, 0.129412, 1)
 
-[node name="Goblin" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ybblc"]
+radius = 0.272314
+height = 1.01992
 
-[node name="TestUnit" type="MeshInstance3D" parent="."]
+[node name="Goblin" type="Node3D" groups=["allyUnit"]]
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." groups=["allyUnit"]]
+collision_layer = 3
+collision_mask = 3
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+
+[node name="TestUnit" type="MeshInstance3D" parent="RigidBody3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.804432, 0)
 mesh = SubResource("CapsuleMesh_tupu5")
+skeleton = NodePath("../..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="TestUnit"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/TestUnit"]
 transform = Transform3D(1.37685, 0, 0, 0, 0.143602, 0, 0, 0, 1.29943, 0, 0.894018, 0)
 mesh = SubResource("CylinderMesh_23dyn")
 surface_material_override/0 = SubResource("StandardMaterial3D_oj0st")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.790729, 0)
+shape = SubResource("CapsuleShape3D_ybblc")
