@@ -11,30 +11,37 @@ height = 3.98
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oj0st"]
 albedo_color = Color(0.470588, 0.294118, 0.129412, 1)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ec476"]
-radius = 0.27149
-height = 0.924631
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ybblc"]
+radius = 0.272314
+height = 1.01992
 
 [node name="Goblin" type="Node3D" groups=["allyUnit"]]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." groups=["allyUnit"]]
+[node name="RigidBody3D" type="RigidBody3D" parent="." groups=["allyUnit"]]
+collision_layer = 3
+collision_mask = 3
+axis_lock_linear_x = true
+axis_lock_linear_z = true
 script = ExtResource("1_8etkx")
+speed = null
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D"]
-navigation_layers = 3
-avoidance_enabled = true
-keep_y_velocity = false
-
-[node name="TestUnit" type="MeshInstance3D" parent="CharacterBody3D"]
+[node name="TestUnit" type="MeshInstance3D" parent="RigidBody3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.804432, 0)
 mesh = SubResource("CapsuleMesh_tupu5")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/TestUnit"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/TestUnit"]
 transform = Transform3D(1.37685, 0, 0, 0, 0.143602, 0, 0, 0, 1.29943, 0, 0.894018, 0)
 mesh = SubResource("CylinderMesh_23dyn")
 surface_material_override/0 = SubResource("StandardMaterial3D_oj0st")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.790729, 0)
-shape = SubResource("CapsuleShape3D_ec476")
+shape = SubResource("CapsuleShape3D_ybblc")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="RigidBody3D"]
+navigation_layers = 3
+avoidance_enabled = true
+keep_y_velocity = false
+
+[connection signal="velocity_computed" from="RigidBody3D/NavigationAgent3D" to="RigidBody3D" method="_on_velocity_computed"]

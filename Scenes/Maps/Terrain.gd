@@ -12,6 +12,7 @@ func _ready():
 	colShape.shape = shape
 	mesh.size = Vector2(chunkSize, chunkSize)
 	updateTerrain(heightRatio, colShapeSizeRatio)
+	get_tree().get_nodes_in_group("NavMesh")[0].bake_navigation_mesh(true)
 
 func updateTerrain(_heightRatio, _colShapeSizeRatio):
 	material_override.set("shader_param/heightRatio", _heightRatio)

@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bm564i3o33xhg"]
+[gd_scene load_steps=8 format=3 uid="uid://bm564i3o33xhg"]
 
 [ext_resource type="Shader" path="res://Scenes/Maps/Terrain.gdshader" id="1_kfytw"]
 [ext_resource type="Texture2D" uid="uid://dchm3fjvcamu" path="res://Assets/icon.svg" id="2_oo7s2"]
-[ext_resource type="Texture2D" uid="uid://drb2m8j4bg7h" path="res://Assets/heightmap.exr" id="3_3elq1"]
+[ext_resource type="Texture2D" uid="uid://d22rm2ptgq1yu" path="res://Assets/heightmap.exr" id="3_3elq1"]
 [ext_resource type="Script" path="res://Scenes/Maps/Terrain.gd" id="4_svful"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_ojik1"]
+agent_max_climb = 10.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nhal"]
 render_priority = 0
@@ -18,15 +21,19 @@ subdivide_depth = 100
 
 [node name="Heightmap" type="Node3D"]
 
-[node name="Terrain" type="MeshInstance3D" parent="."]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." groups=["NavMesh"]]
+navigation_mesh = SubResource("NavigationMesh_ojik1")
+
+[node name="Terrain" type="MeshInstance3D" parent="NavigationRegion3D"]
 material_override = SubResource("ShaderMaterial_1nhal")
 mesh = SubResource("PlaneMesh_ittb4")
+skeleton = NodePath("../..")
 script = ExtResource("4_svful")
 chunkSize = 50.0
 heightRatio = 20.0
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Terrain"]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Terrain"]
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Terrain/StaticBody3D"]

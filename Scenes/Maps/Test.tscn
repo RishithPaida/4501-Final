@@ -19,7 +19,7 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5saq8"]
-size = Vector2(1000, 1000)
+size = Vector2(100, 100)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3q64"]
 albedo_color = Color(0.196078, 0.196078, 0.196078, 1)
@@ -29,23 +29,14 @@ points = PackedVector3Array(-500, 0, -500, -500, 0, 500, 500, 0, -500, 500, 0, 5
 
 [node name="Main" type="Node3D"]
 
+[node name="Heightmap" parent="." instance=ExtResource("4_wktcc")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_jphdd")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
-
-[node name="Floor" type="MeshInstance3D" parent="."]
-mesh = SubResource("PlaneMesh_5saq8")
-surface_material_override/0 = SubResource("StandardMaterial3D_v3q64")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_kb71b")
 
 [node name="Goblin" parent="." instance=ExtResource("1_letgw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.63561, 0)
@@ -55,4 +46,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 5)
 
 [node name="Control" parent="." instance=ExtResource("3_arkqv")]
 
-[node name="Heightmap" parent="." instance=ExtResource("4_wktcc")]
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.815, 0)
+mesh = SubResource("PlaneMesh_5saq8")
+surface_material_override/0 = SubResource("StandardMaterial3D_v3q64")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_kb71b")
