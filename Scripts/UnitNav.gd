@@ -25,8 +25,9 @@ func _physics_process(delta):
 					currentTask = Task.Selected
 			
 		Task.Selected:
-			if(God.Curr_Selected_Unit.name != self.name):
-				currentTask = Task.Idle
+			if(God.Curr_Selected_Unit):
+				if(God.Curr_Selected_Unit.name == self.name):
+					currentTask = Task.Selected
 			
 			if(God.Curr_Selected_Position != Vector3.ZERO):
 				navAgent.set_target_position(God.Curr_Selected_Position)
@@ -36,6 +37,7 @@ func _physics_process(delta):
 		Task.Walking:
 			if(navAgent.is_navigation_finished()):
 				Task.Idle #If they are going to harvest the ressource then we can change it
+				#print("Made it!")
 			
 			if(God.Curr_Selected_Unit):
 				if(God.Curr_Selected_Unit.name == self.name):

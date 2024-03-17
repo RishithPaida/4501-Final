@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scenes/Maps/Terrain.gd" id="4_svful"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_ojik1"]
-agent_max_climb = 10.0
+vertices_per_polygon = 10.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1nhal"]
 render_priority = 0
