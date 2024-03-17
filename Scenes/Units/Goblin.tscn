@@ -34,3 +34,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_oj0st")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.790729, 0)
 shape = SubResource("CapsuleShape3D_ybblc")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="RigidBody3D"]
+navigation_layers = 3
+avoidance_enabled = true
+keep_y_velocity = false
+
+[connection signal="velocity_computed" from="RigidBody3D/NavigationAgent3D" to="RigidBody3D" method="_on_velocity_computed"]

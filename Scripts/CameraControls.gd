@@ -1,8 +1,7 @@
 extends Node3D
 
 # Sensitivity factors for mouse movement.
-var sensitivity_x = 0.5
-var sensitivity_y = 0.5
+var sensitivity = 30
 var zoom_sensitivity = 2.0
 var RAY_LENGTH = 1000
 # Threshold distance from the edge of the screen to start moving the camera.
@@ -27,8 +26,8 @@ func _process(delta):
 	
 	# Apply the calculated direction to the camera's position, with sensitivity adjustments.
 	if mouse_position.x < edge_threshold or mouse_position.x > viewport_size.x - edge_threshold or mouse_position.y < edge_threshold or mouse_position.y > viewport_size.y - edge_threshold:
-		position.x += direction.x * sensitivity_x
-		position.z += direction.y * sensitivity_y # In Godot 3D, Z is often used for forward/backward movement.
+		position.x += direction.x * sensitivity * delta
+		position.z += direction.y * sensitivity * delta # In Godot 3D, Z is often used for forward/backward movement.
 	
 	#zoom controls
 	if Input.is_action_just_pressed("scroll_up"):

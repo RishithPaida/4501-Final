@@ -15,6 +15,9 @@ var food := 30
 var RAY_LENGTH = 1000
 var Curr_State = State.Play
 var Curr_Hovered_Object
+var Curr_Selected_Unit
+
+var Curr_Selected_Position : Vector3 = Vector3.ZERO
 
 var hovering_building = false
 # Called when the node enters the scene tree for the first time.
