@@ -41,7 +41,7 @@ func _physics_process(delta):
 			
 			if(God.Curr_Selected_Unit):
 				if(God.Curr_Selected_Unit.name == self.name):
-					if(God.Curr_Selected_Position != navAgent.get_target_position()):
+					if(God.Curr_Selected_Position != navAgent.get_target_position()) and (God.Curr_Selected_Position != Vector3.ZERO):
 						print("resetting target pos")
 						navAgent.set_target_position(God.Curr_Selected_Position)
 			
