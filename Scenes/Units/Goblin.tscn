@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://duj0jarfvkgt3"]
+[gd_scene load_steps=8 format=3 uid="uid://duj0jarfvkgt3"]
 
 [ext_resource type="Script" path="res://Scripts/UnitNav.gd" id="1_8etkx"]
 
@@ -14,6 +14,14 @@ albedo_color = Color(0.470588, 0.294118, 0.129412, 1)
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ec476"]
 radius = 0.27149
 height = 0.924631
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_aibxm"]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0itqe"]
+albedo_color = Color(0.701961, 0.458824, 0.235294, 1)
 
 [node name="Goblin" type="Node3D" groups=["allyUnit"]]
 
@@ -38,3 +46,8 @@ surface_material_override/0 = SubResource("StandardMaterial3D_oj0st")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.790729, 0)
 shape = SubResource("CapsuleShape3D_ec476")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.707641, 0.286827)
+mesh = SubResource("CylinderMesh_aibxm")
+surface_material_override/0 = SubResource("StandardMaterial3D_0itqe")
