@@ -1,15 +1,15 @@
-OathKeeper
+# OathKeeper
 Rishi Paida	101202445
 Rhys Martin	101220597
 Josh Rivera	101192903
 
-Instructions:
+## Instructions:
 Once the game starts, you begin with a townhall building. Left click the building to create resource gatherers which allow you to collect from the natural resources on the map. 
 The gatherers can be tasked with collecting resources from the gems nearby, and will automatically return to your townhall to deposit the resources they have gathered. 
 
 This prototype showcases the core foundation of our game
 
-Features:
+### Features:
 - Camera can be panned by moving mouse to edge of screen
 - Camera can zoom in and zoom out using the scroll wheel, with limits
 - Collision
