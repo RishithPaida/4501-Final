@@ -34,6 +34,7 @@ func _physics_process(delta):
 			pass
 		Task.Delivering:
 			print("Finished harvesting")
+			print(resourcesHolding)
 			currentTask = Task.Idle
 		Task.GettingResources:
 			if(position.distance_to(harvestUnit.global_position) > 7):
