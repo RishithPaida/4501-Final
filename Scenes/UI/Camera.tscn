@@ -11,7 +11,6 @@ script = ExtResource("1_c0hma")
 
 [node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.469472, 0.882948, 0, -0.882948, 0.469472, 0, 0, 0)
-current = true
 
 [node name="ThickLinesQuad" type="MeshInstance3D" parent="Camera"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, -1)

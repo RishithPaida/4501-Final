@@ -9,6 +9,8 @@ var curr_building_collisions = 0
 @export var rubycost : int
 @export var manacost : int
 
+var Goblin : PackedScene = ResourceLoader.load("res://Scenes/Units/Goblin.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -34,3 +36,11 @@ func _on_area_3d_body_exited(body):
 func set_building_perms():
 	BuildingGod.can_build = (curr_building_collisions == 0)
 
+func Spawn():
+	var goblin = Goblin.instance()
+	goblin.Home = $SpawnPoint
+	get_tree().root.add_child(goblin)
+	goblin.global_translation = $SpawnPoint.global_translation
+	
+func SayHi():
+	print("HI :3")

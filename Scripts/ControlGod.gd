@@ -37,7 +37,7 @@ func _process(delta):
 				if Input.is_action_just_pressed("left_click"):
 					God.Curr_Selected_Building = God.Curr_Hovered_Object
 					God.Curr_State = God.State.DisplayingBuildingUI
-					print("selected Building: " + God.Curr_Selected_Building.name ) 
+					print("selected Building: " + str(God.Curr_Selected_Building.name) ) 
 			else:
 				
 				if Input.is_action_just_pressed("left_click"):

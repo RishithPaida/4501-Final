@@ -21,7 +21,6 @@ func _ready() -> void:
 
 func _physics_process(delta):
 	if not is_on_floor():
-		print("Not on floor")
 		velocity.y -= gravity * delta
 		move_and_slide()
 		
