@@ -1,7 +1,7 @@
 # OathKeeper
-Rishi Paida	101202445
-Rhys Martin	101220597
-Josh Rivera	101192903
+- Rishi Paida	101202445
+- Rhys Martin	101220597
+- Josh Rivera	101192903
 
 ## Instructions:
 Once the game starts, you begin with a townhall building. Left click the building to create resource gatherers which allow you to collect from the natural resources on the map. 
