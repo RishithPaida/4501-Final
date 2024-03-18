@@ -3,13 +3,13 @@ extends CharacterBody3D
 enum Task{
 	Idle,
 	Selected,
-	GettingRessources,
+	GettingResources,
 	Walking,
 	Delivering
 }
 
 var currentTask = Task.Idle
-var ressourcesHolding = 0
+var resourcesHolding = 0
 var Home
 
 var harvestUnit
@@ -33,16 +33,18 @@ func _physics_process(delta):
 		Task.Idle:
 			pass
 		Task.Delivering:
-			pass
-		Task.GettingRessources:
-			if(position.distance_to(harvestUnit.position) > 1):
+			print("Finished harvesting")
+			currentTask = Task.Idle
+		Task.GettingResources:
+			if(position.distance_to(harvestUnit.global_position) > 7):
+				print(position.distance_to(harvestUnit.global_position))
 				walk()
 			else:
 				if runOnce:
 					runOnce = false
 					await get_tree().create_timer(2).timeout
 					runOnce = true
-					ressourcesHolding = 20
+					resourcesHolding = 20
 					currentTask = Task.Delivering
 		Task.Walking:
 			if(navAgent.is_navigation_finished()):
@@ -54,8 +56,11 @@ func moveTo(pos : Vector3):
 	currentTask = Task.Walking
 	navAgent.set_target_position(pos)
 	
-func harvest(ressource):
-	pass
+func harvest(resource):
+	harvestUnit = resource
+	moveTo(harvestUnit.global_position)
+	currentTask = Task.GettingResources
+	print("Going to harvest!")
 	
 func walk():
 	var targetPos = navAgent.get_next_path_position()
