@@ -38,9 +38,9 @@ func set_building_perms():
 
 func Spawn():
 	var goblin = Goblin.instance()
-	goblin.Home = $SpawnPoint
+	goblin.Home = God.Curr_Selected_Building
 	get_tree().root.add_child(goblin)
-	goblin.global_translation = $SpawnPoint.global_translation
+	goblin.global_translation = God.Curr_Selected_Building.get_node("SpawnPoint").global_translation
 	
 func SayHi():
 	print("HI :3")

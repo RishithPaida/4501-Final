@@ -9,6 +9,8 @@ enum Task{
 
 var currentTask = Task.Idle
 var ressourcesHolding = 0
+var Home
+
 @export var speed = 2
 
 @onready var navAgent : NavigationAgent3D = $NavigationAgent3D
