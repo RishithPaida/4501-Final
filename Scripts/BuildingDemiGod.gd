@@ -41,6 +41,7 @@ func Spawn():
 	var goblin = Goblin.instantiate()
 	get_tree().root.add_child(goblin)
 	goblin.global_position = God.Curr_Selected_Building.get_node("SpawnPoint").global_position
+	goblin.Home = God.Curr_Selected_Building.get_node("SpawnPoint").global_position
 	
 func SayHi():
 	print("HI :3")

@@ -41,6 +41,8 @@ func _process(delta):
 			if Input.is_action_just_pressed("right_click") and (God.Curr_Selected_Unit.is_in_group("allyUnit")):
 				if(God.Curr_Hovered_Object.is_in_group("resource")):
 					God.Curr_Selected_Unit.harvest(God.Curr_Hovered_Object)
+				elif (God.Curr_Hovered_Object.is_in_group("townhall")):
+					God.Curr_Selected_Unit.setDeliver()
 				else:
 					God.Curr_Selected_Unit.moveTo(result.position)
 					print("Move Unit")

@@ -5,11 +5,11 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wcggq"]
 height = 0.75
-radius = 1.2
+radius = 0.499484
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_61xfl"]
 height = 0.75
-radius = 1.2
+radius = 0.454363
 
 [node name="RubyClump" type="StaticBody3D" groups=["resource"]]
 script = ExtResource("1_h6hum")

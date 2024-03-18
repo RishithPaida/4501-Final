@@ -33,25 +33,34 @@ func _physics_process(delta):
 		Task.Idle:
 			pass
 		Task.Delivering:
-			print("Finished harvesting")
-			print(resourcesHolding)
-			currentTask = Task.Idle
+			if(global_position.distance_to(Home) > 1):
+				#print(position.distance_to(Home.global_position))
+				walk()
+			else:
+				print("Dropped off!")
+				God.ruby += resourcesHolding
+				resourcesHolding = 0
+				harvest(harvestUnit)
 		Task.GettingResources:
-			if(position.distance_to(harvestUnit.global_position) > 7):
-				print(position.distance_to(harvestUnit.global_position))
+			if(position.distance_to(harvestUnit.global_position) > 2):
+				#print(position.distance_to(harvestUnit.global_position))
 				walk()
 			else:
 				if runOnce:
 					runOnce = false
 					await get_tree().create_timer(2).timeout
 					runOnce = true
-					resourcesHolding = 20
+					resourcesHolding = 10
+					moveTo(Home)
 					currentTask = Task.Delivering
+					print("Harvested!")
 		Task.Walking:
 			if(navAgent.is_navigation_finished()):
 				Task.Idle
 			
 			walk()
+	
+	#print(currentTask)
 
 func moveTo(pos : Vector3):
 	currentTask = Task.Walking
@@ -68,3 +77,8 @@ func walk():
 	var direction = global_position.direction_to(targetPos)
 	velocity = direction * speed
 	move_and_slide()
+	
+
+func setDeliver():
+	moveTo(Home)
+	currentTask = Task.Delivering
