@@ -55,9 +55,10 @@ anchor_bottom = 1.0
 offset_left = 265.0
 offset_top = -101.704
 offset_right = 380.0
-offset_bottom = -14.7037
+offset_bottom = -14.7036
 grow_vertical = 0
 scale = Vector2(1, 0.965436)
+disabled = true
 text = "Town Hall"
 
 [node name="BuildManaPumpButton" type="Button" parent="BuildingPanel"]
@@ -68,7 +69,7 @@ anchor_bottom = 1.0
 offset_left = 521.0
 offset_top = -101.704
 offset_right = 636.0
-offset_bottom = -14.7037
+offset_bottom = -14.7036
 grow_vertical = 0
 text = "Mana Pump"
 
@@ -80,17 +81,43 @@ anchor_bottom = 1.0
 offset_left = 393.0
 offset_top = -101.704
 offset_right = 508.0
-offset_bottom = -14.7037
+offset_bottom = -14.7036
 grow_vertical = 0
 text = "Barracks"
 
-[node name="Resources" type="Control" parent="BuildingPanel"]
-anchors_preset = 0
-offset_top = 19.0
-offset_right = 40.0
-offset_bottom = 59.0
+[node name="TownHallPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -117.0
+offset_bottom = -0.00012207
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="BuildingPanel/Resources"]
+[node name="SpawnGathererButton" type="Button" parent="TownHallPanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 265.0
+offset_top = -101.704
+offset_right = 380.0
+offset_bottom = -14.7037
+grow_vertical = 0
+scale = Vector2(1, 0.965436)
+text = "Spawn 
+Gatherer"
+
+[node name="Resources" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 49.0
+offset_top = 3.70367
+offset_right = 89.0
+offset_bottom = 43.7037
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Resources"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -101,11 +128,11 @@ offset_bottom = 45.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="wood" type="Label" parent="BuildingPanel/Resources/VBoxContainer"]
+[node name="wood" type="Label" parent="Resources/VBoxContainer"]
 layout_mode = 2
 text = "wood:"
 
-[node name="woodval" type="Label" parent="BuildingPanel/Resources/VBoxContainer/wood"]
+[node name="woodval" type="Label" parent="Resources/VBoxContainer/wood"]
 layout_mode = 2
 offset_left = 102.0
 offset_top = 1.0
@@ -113,11 +140,11 @@ offset_right = 272.0
 offset_bottom = 24.0
 text = "100"
 
-[node name="ruby" type="Label" parent="BuildingPanel/Resources/VBoxContainer"]
+[node name="ruby" type="Label" parent="Resources/VBoxContainer"]
 layout_mode = 2
 text = "ruby:"
 
-[node name="rubyval" type="Label" parent="BuildingPanel/Resources/VBoxContainer/ruby"]
+[node name="rubyval" type="Label" parent="Resources/VBoxContainer/ruby"]
 layout_mode = 2
 offset_left = 102.0
 offset_top = 1.0
@@ -125,11 +152,11 @@ offset_right = 272.0
 offset_bottom = 24.0
 text = "100"
 
-[node name="mana" type="Label" parent="BuildingPanel/Resources/VBoxContainer"]
+[node name="mana" type="Label" parent="Resources/VBoxContainer"]
 layout_mode = 2
 text = "mana:"
 
-[node name="manaval" type="Label" parent="BuildingPanel/Resources/VBoxContainer/mana"]
+[node name="manaval" type="Label" parent="Resources/VBoxContainer/mana"]
 layout_mode = 2
 offset_left = 102.0
 offset_top = 1.0
@@ -137,11 +164,11 @@ offset_right = 272.0
 offset_bottom = 24.0
 text = "100"
 
-[node name="food" type="Label" parent="BuildingPanel/Resources/VBoxContainer"]
+[node name="food" type="Label" parent="Resources/VBoxContainer"]
 layout_mode = 2
 text = "food:"
 
-[node name="foodval" type="Label" parent="BuildingPanel/Resources/VBoxContainer/food"]
+[node name="foodval" type="Label" parent="Resources/VBoxContainer/food"]
 layout_mode = 2
 offset_left = 102.0
 offset_top = 1.0
@@ -154,3 +181,4 @@ text = "100"
 [connection signal="button_down" from="BuildingPanel/BuildTownHallButton" to="." method="_on_build_town_hall_button_button_down"]
 [connection signal="button_down" from="BuildingPanel/BuildManaPumpButton" to="." method="_on_build_mana_pump_button_button_down"]
 [connection signal="button_down" from="BuildingPanel/BuildBarracksButton3" to="." method="_on_build_barracks_button_3_button_down"]
+[connection signal="button_down" from="TownHallPanel/SpawnGathererButton" to="." method="_on_spawn_gatherer_button_button_down"]
