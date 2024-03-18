@@ -16,12 +16,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if selected:
-		if is_in_group("townhall"):
-			
-			God.Curr_State = God.State.Spawn
-		elif is_in_group("barracks"):
-			pass
+	pass
 
 func _on_area_3d_body_entered(body):
 	if body.is_in_group("building"):

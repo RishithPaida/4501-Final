@@ -1,7 +1,7 @@
 extends Node3D
 
 var Curr_Selected_Building
-
+var Curr_Selected_Unit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,7 +33,13 @@ func _process(delta):
 					God.Curr_Selected_Position = Vector3.ZERO
 					
 			
+			elif(God.Curr_Hovered_Object.is_in_group("building")):
+				if Input.is_action_just_pressed("left_click"):
+					God.Curr_Selected_Building = God.Curr_Hovered_Object
+					God.Curr_State = God.State.DisplayingBuildingUI
+					print("selected Building: " + God.Curr_Selected_Building.name ) 
 			else:
+				
 				if Input.is_action_just_pressed("left_click"):
 					print("Unselected unit")
 					God.Curr_Selected_Unit = null
@@ -42,6 +48,8 @@ func _process(delta):
 		
 		if God.Curr_Selected_Unit:
 			if Input.is_action_just_pressed("right_click"):
+				#if Curr_Selected_Resource:
+					#God.Curr_Selected_Unit.collect(Curr_Selected_Resource)
 				print("Move Unit")
 				God.Curr_Selected_Position = result.position
 

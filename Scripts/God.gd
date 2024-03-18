@@ -4,7 +4,7 @@ enum State  {
 	Play,
 	Build,
 	Combat,
-	Spawn
+	DisplayingBuildingUI
 }
 
 var wood := 30
@@ -15,6 +15,8 @@ var food := 30
 var RAY_LENGTH = 1000
 var Curr_State = State.Play
 var Curr_Hovered_Object
+
+var Curr_Selected_Building
 var Curr_Selected_Unit
 
 var Curr_Selected_Position : Vector3 = Vector3.ZERO
@@ -27,12 +29,15 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	
 	if Curr_Hovered_Object:
 		if Curr_Hovered_Object.is_in_group("building"):
 			if not hovering_building:
 				BuildingGod.Curr_Hovered_Building = Curr_Hovered_Object
 				BuildingGod.Highlight_Hovered_Building(Curr_Hovered_Object)
 				hovering_building = true
+				
 		else:
 			if hovering_building:
 				BuildingGod.DeHighlight_Hovered_Building()
