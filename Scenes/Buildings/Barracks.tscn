@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://d5gys6o7ujqr"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingDemiGod.gd" id="1_uf2p1"]
-[ext_resource type="ArrayMesh" uid="uid://cfyivpkxo5p7v" path="res://Assets/building_models/buildings/barracks.obj" id="2_wyhnd"]
+[ext_resource type="ArrayMesh" uid="uid://cfyivpkxo5p7v" path="res://Scenes/Buildings/barracks.obj" id="2_wyhnd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_clmj6"]
 resource_name = "Brown"

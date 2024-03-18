@@ -54,5 +54,7 @@ func _on_spawn_gatherer_button_button_down():
 	God.Curr_Selected_Building.Spawn()
 	BuildingGod.DeHighlight_Hovered_Building()
 	God.Curr_State = God.State.Play
+	God.Curr_Selected_Building = null
+	God.Curr_Hovered_Object = null
 	print(God.Curr_State)
 	#God.Curr_Selected_Building.Spawn()

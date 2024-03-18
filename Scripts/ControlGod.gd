@@ -11,7 +11,6 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if God.Curr_State == God.State.Play:
-			
 		var camera = get_viewport().get_camera_3d()
 		var from = camera.project_ray_origin(get_viewport().get_mouse_position())
 		var to = from + camera.project_ray_normal(get_viewport().get_mouse_position()) * 1000
