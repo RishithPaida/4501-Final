@@ -4,10 +4,10 @@ var curr_building_collisions = 0
 @export var selected : bool = false
 @export var Unit : PackedScene
 
-@export var woodcost : int
-@export var foodcost : int
-@export var rubycost : int
-@export var manacost : int
+@export var woodcapacity : int
+@export var foodcapacity : int
+@export var rubycapacity : int
+@export var manacapacity : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

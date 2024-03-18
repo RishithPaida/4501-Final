@@ -21,7 +21,7 @@ func _ready() -> void:
 
 func _physics_process(delta):
 	if not is_on_floor():
-		print("NOt on floor")
+		print("Not on floor")
 		velocity.y -= gravity * delta
 		move_and_slide()
 		
@@ -39,8 +39,12 @@ func _physics_process(delta):
 			if(God.Curr_Selected_Position != Vector3.ZERO):
 				navAgent.set_target_position(God.Curr_Selected_Position)
 				currentTask = Task.Walking
+				
 		Task.GettingRessources:
-			pass
+			if(God.Curr_Selected_Unit):
+				if(God.Curr_Selected_Unit.name == self.name):
+					pass
+					
 		Task.Walking:
 			if(navAgent.is_navigation_finished()):
 				Task.Idle #If they are going to harvest the ressource then we can change it

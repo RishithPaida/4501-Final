@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://d5gys6o7ujqr"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingDemiGod.gd" id="1_uf2p1"]
-[ext_resource type="ArrayMesh" uid="uid://cfyivpkxo5p7v" path="res://Scenes/Buildings/barracks.obj" id="2_r3f81"]
+[ext_resource type="ArrayMesh" uid="uid://cfyivpkxo5p7v" path="res://Assets/building_models/buildings/barracks.obj" id="2_55m5w"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_imjo3"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
@@ -12,7 +12,7 @@ script = ExtResource("1_uf2p1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
-mesh = ExtResource("2_r3f81")
+mesh = ExtResource("2_55m5w")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
