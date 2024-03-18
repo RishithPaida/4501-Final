@@ -37,10 +37,10 @@ func set_building_perms():
 	BuildingGod.can_build = (curr_building_collisions == 0)
 
 func Spawn():
-	var goblin = Goblin.instance()
-	goblin.Home = God.Curr_Selected_Building
+	print(God.Curr_Selected_Building.name)
+	var goblin = Goblin.instantiate()
 	get_tree().root.add_child(goblin)
-	goblin.global_translation = God.Curr_Selected_Building.get_node("SpawnPoint").global_translation
+	goblin.global_position = God.Curr_Selected_Building.get_node("SpawnPoint").global_position
 	
 func SayHi():
 	print("HI :3")

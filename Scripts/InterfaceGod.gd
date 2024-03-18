@@ -52,3 +52,7 @@ func _on_build_town_hall_button_button_down():
 
 func _on_spawn_gatherer_button_button_down():
 	God.Curr_Selected_Building.Spawn()
+	BuildingGod.DeHighlight_Hovered_Building()
+	God.Curr_State = God.State.Play
+	print(God.Curr_State)
+	#God.Curr_Selected_Building.Spawn()
