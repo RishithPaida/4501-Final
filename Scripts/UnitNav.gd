@@ -25,6 +25,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta):
+	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		move_and_slide()
@@ -80,5 +81,7 @@ func walk():
 	
 
 func setDeliver():
+	if(resourcesHolding == 0):
+		return
 	moveTo(Home)
 	currentTask = Task.Delivering
