@@ -18,6 +18,7 @@ var Curr_Hovered_Object
 
 var Curr_Selected_Building
 var Curr_Selected_Unit
+var Curr_Action_Unit
 
 var Curr_Selected_Position : Vector3 = Vector3.ZERO
 

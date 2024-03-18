@@ -4,13 +4,16 @@ enum Task{
 	Idle,
 	Selected,
 	GettingRessources,
-	Walking
+	Walking,
+	Delivering
 }
 
 var currentTask = Task.Idle
 var ressourcesHolding = 0
 var Home
 
+var harvestUnit
+var runOnce = true
 @export var speed = 2
 
 @onready var navAgent : NavigationAgent3D = $NavigationAgent3D
@@ -28,38 +31,34 @@ func _physics_process(delta):
 		
 	match currentTask:
 		Task.Idle:
-			if(God.Curr_Selected_Unit):
-				if(God.Curr_Selected_Unit.name == self.name):
-					currentTask = Task.Selected
-			
-		Task.Selected:
-			if(God.Curr_Selected_Unit):
-				if(God.Curr_Selected_Unit.name == self.name):
-					currentTask = Task.Selected
-			
-			if(God.Curr_Selected_Position != Vector3.ZERO):
-				navAgent.set_target_position(God.Curr_Selected_Position)
-				currentTask = Task.Walking
-				
+			pass
+		Task.Delivering:
+			pass
 		Task.GettingRessources:
-			if(God.Curr_Selected_Unit):
-				if(God.Curr_Selected_Unit.name == self.name):
-					pass
-					
+			if(position.distance_to(harvestUnit.position) > 1):
+				walk()
+			else:
+				if runOnce:
+					runOnce = false
+					await get_tree().create_timer(2).timeout
+					runOnce = true
+					ressourcesHolding = 20
+					currentTask = Task.Delivering
 		Task.Walking:
 			if(navAgent.is_navigation_finished()):
-				Task.Idle #If they are going to harvest the ressource then we can change it
-				#print("Made it!")
+				Task.Idle
 			
-			if(God.Curr_Selected_Unit):
-				if(God.Curr_Selected_Unit.name == self.name):
-					if(God.Curr_Selected_Position != navAgent.get_target_position()) and (God.Curr_Selected_Position != Vector3.ZERO):
-						print("resetting target pos")
-						navAgent.set_target_position(God.Curr_Selected_Position)
-			
-			var targetPos = navAgent.get_next_path_position()
-			var direction = global_position.direction_to(targetPos)
-			velocity = direction * speed
-			
-			#print(targetPos)
-			move_and_slide()
+			walk()
+
+func moveTo(pos : Vector3):
+	currentTask = Task.Walking
+	navAgent.set_target_position(pos)
+	
+func harvest(ressource):
+	pass
+	
+func walk():
+	var targetPos = navAgent.get_next_path_position()
+	var direction = global_position.direction_to(targetPos)
+	velocity = direction * speed
+	move_and_slide()

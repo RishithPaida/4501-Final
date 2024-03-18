@@ -30,27 +30,21 @@ func _process(delta):
 				if Input.is_action_just_pressed("left_click"):
 					print("Set selected unit")
 					God.Curr_Selected_Unit = God.Curr_Hovered_Object
-					God.Curr_Selected_Position = Vector3.ZERO
 					
-			
 			elif(God.Curr_Hovered_Object.is_in_group("building")):
 				if Input.is_action_just_pressed("left_click"):
 					God.Curr_Selected_Building = God.Curr_Hovered_Object
 					God.Curr_State = God.State.DisplayingBuildingUI
 					print("selected Building: " + str(God.Curr_Selected_Building.name) ) 
-			else:
-				
-				if Input.is_action_just_pressed("left_click"):
-					print("Unselected unit")
-					God.Curr_Selected_Unit = null
-					God.Curr_Selected_Position = Vector3.ZERO
 		
 		
 		if God.Curr_Selected_Unit:
-			if Input.is_action_just_pressed("right_click"):
-				#if Curr_Selected_Resource:
-					#God.Curr_Selected_Unit.collect(Curr_Selected_Resource)
-				print("Move Unit")
-				God.Curr_Selected_Position = result.position
+			if Input.is_action_just_pressed("right_click") and (God.Curr_Selected_Unit.is_in_group("allyUnit")):
+				if(God.Curr_Hovered_Object.is_in_group("ressource")):
+					pass #This will be to assign
+				else:
+					God.Curr_Selected_Unit.moveTo(result.position)
+					print("Move Unit")
+
 
 
