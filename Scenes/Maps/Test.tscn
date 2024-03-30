@@ -66,4 +66,4 @@ transform = Transform3D(0.429153, 0, -0.615084, 0, 0.75, 0, 0.615084, 0, 0.42915
 transform = Transform3D(-0.624163, 0, -0.648398, 0, 0.9, 0, 0.648398, 0, -0.624163, -2.3416, -2.70142, -6.09197)
 
 [node name="Townhall" parent="." instance=ExtResource("6_n8msc")]
-transform = Transform3D(1.73205, 0, -1, 0, 2, 0, 1, 0, 1.73205, -1, 1.4, -6)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1, 1.4, -6)
