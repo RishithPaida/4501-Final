@@ -112,14 +112,14 @@ Gatherer"
 
 [node name="Resources" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 1008.0
-offset_top = -478.704
-offset_right = 1048.0
-offset_bottom = -438.704
+offset_left = 49.0
+offset_top = 3.70367
+offset_right = 89.0
+offset_bottom = 43.7037
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Resources"]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -19.0

@@ -36,7 +36,7 @@ metallic = 0.5
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_imjo3"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
-[node name="Barracks" type="StaticBody3D" groups=["building"]]
+[node name="Barracks" type="StaticBody3D" groups=["barracks", "building"]]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 script = ExtResource("1_uf2p1")
 

@@ -11,7 +11,7 @@ radius = 0.499484
 height = 0.75
 radius = 0.454363
 
-[node name="RubyClump" type="StaticBody3D" groups=["resource"]]
+[node name="RubyClump" type="StaticBody3D" groups=["resource", "rubyclump"]]
 script = ExtResource("1_h6hum")
 
 [node name="model" type="MeshInstance3D" parent="."]

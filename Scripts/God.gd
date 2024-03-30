@@ -4,7 +4,6 @@ enum State  {
 	Play,
 	Build,
 	Combat,
-	DisplayingBuildingUI
 }
 
 var wood := 30
@@ -15,6 +14,8 @@ var food := 30
 var RAY_LENGTH = 1000
 var Curr_State = State.Play
 var Curr_Hovered_Object
+
+var Selected_Object = null
 
 var Curr_Selected_Building
 var Curr_Selected_Unit
@@ -30,7 +31,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
 	
 	if Curr_Hovered_Object:
 		if Curr_Hovered_Object.is_in_group("building"):

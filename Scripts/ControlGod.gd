@@ -29,14 +29,19 @@ func _process(delta):
 				if Input.is_action_just_pressed("left_click"):
 					print("Set selected unit")
 					God.Curr_Selected_Unit = God.Curr_Hovered_Object
+					God.Selected_Object = God.Curr_Hovered_Object
 					
 			elif(God.Curr_Hovered_Object.is_in_group("building")):
 				if Input.is_action_just_pressed("left_click"):
 					God.Curr_Selected_Building = God.Curr_Hovered_Object
-					God.Curr_State = God.State.DisplayingBuildingUI
-					print("selected Building: " + str(God.Curr_Selected_Building.name) ) 
-		
-		
+					God.Selected_Object = God.Curr_Hovered_Object
+					
+					print(God.Curr_Hovered_Object.get_name())
+					print("selected Building: " + str(God.Curr_Selected_Building.name) ) 	
+			else:
+				if Input.is_action_just_pressed("left_click"):
+					God.Selected_Object = null
+	
 		if God.Curr_Selected_Unit:
 			if Input.is_action_just_pressed("right_click") and (God.Curr_Selected_Unit.is_in_group("allyUnit")):
 				if(God.Curr_Hovered_Object.is_in_group("resource")):

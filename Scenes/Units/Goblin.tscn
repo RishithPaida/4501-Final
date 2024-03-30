@@ -23,7 +23,7 @@ height = 0.5
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0itqe"]
 albedo_color = Color(0.701961, 0.458824, 0.235294, 1)
 
-[node name="CharacterBody3D" type="CharacterBody3D" groups=["allyUnit"]]
+[node name="CharacterBody3D" type="CharacterBody3D" groups=["allyUnit", "goblin"]]
 script = ExtResource("1_8etkx")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

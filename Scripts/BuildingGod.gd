@@ -63,7 +63,8 @@ func _process(delta):
 				building.position = Curr_Selected_Building_To_Build.position
 				Purchase_Building(building)
 				building.get_node("MeshInstance3D").material_override = original_material
-
+				building.set_name(Curr_Selected_Building_To_Build.get_name())
+				
 		if Input.is_action_just_pressed("right_click"):
 			Curr_Selected_Building_To_Build.queue_free()
 			God.Curr_State = God.State.Play
