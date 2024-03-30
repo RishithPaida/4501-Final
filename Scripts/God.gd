@@ -14,7 +14,7 @@ var food := 30
 var RAY_LENGTH = 1000
 var Curr_State = State.Play
 var Curr_Hovered_Object
-
+var Selected_Units = []
 var Selected_Object = null
 
 var Curr_Selected_Building

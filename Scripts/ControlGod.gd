@@ -25,10 +25,11 @@ func _process(delta):
 		var result = space_state.intersect_ray(query)
 		
 		if(God.Curr_Hovered_Object):
-			if(God.Curr_Hovered_Object.is_in_group("allyUnit")):
+			if(God.Curr_Hovered_Object.is_in_group("allyunit")):
 				if Input.is_action_just_pressed("left_click"):
 					print("Set selected unit")
-					God.Curr_Selected_Unit = God.Curr_Hovered_Object
+					God.Selected_Units.append(God.Curr_Hovered_Object)
+					God.Curr_Hovered_Object.select()
 					God.Selected_Object = God.Curr_Hovered_Object
 					
 			elif(God.Curr_Hovered_Object.is_in_group("building")):
@@ -41,16 +42,20 @@ func _process(delta):
 			else:
 				if Input.is_action_just_pressed("left_click"):
 					God.Selected_Object = null
+					for unit in God.Selected_Units:
+						unit.deselect()
+					God.Selected_Units = []
 	
-		if God.Curr_Selected_Unit:
-			if Input.is_action_just_pressed("right_click") and (God.Curr_Selected_Unit.is_in_group("allyUnit")):
-				if(God.Curr_Hovered_Object.is_in_group("resource")):
-					God.Curr_Selected_Unit.harvest(God.Curr_Hovered_Object)
-				elif (God.Curr_Hovered_Object.is_in_group("townhall")):
-					God.Curr_Selected_Unit.setDeliver()
-				else:
-					God.Curr_Selected_Unit.moveTo(result.position)
-					print("Move Unit")
+		if God.Selected_Units.size() != 0:
+			if Input.is_action_just_pressed("right_click"):
+				for unit in God.Selected_Units:
+					if(God.Curr_Hovered_Object.is_in_group("resource") and unit.is_in_group("goblin")):
+						unit.harvest(God.Curr_Hovered_Object)
+					elif (God.Curr_Hovered_Object.is_in_group("townhall") and unit.is_in_group("goblin")):
+						unit.setDeliver()
+					else:
+						unit.moveTo(result.position)
+						print("Move Unit")
 
 
 

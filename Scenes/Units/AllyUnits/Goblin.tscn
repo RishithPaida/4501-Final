@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://duj0jarfvkgt3"]
 
 [ext_resource type="Script" path="res://Scripts/UnitNav.gd" id="1_maasj"]
-[ext_resource type="Material" path="res://blue.tres" id="2_hu62o"]
+[ext_resource type="Material" uid="uid://48lj57wdb4d4" path="res://Shaders/blue.tres" id="2_hu62o"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tupu5"]
 
@@ -27,7 +27,7 @@ albedo_color = Color(0.701961, 0.458824, 0.235294, 1)
 [sub_resource type="CylinderMesh" id="CylinderMesh_n6irq"]
 height = 0.01
 
-[node name="CharacterBody3D" type="CharacterBody3D" groups=["allyUnit", "goblin"]]
+[node name="CharacterBody3D" type="CharacterBody3D" groups=["allyunit", "goblin"]]
 script = ExtResource("1_maasj")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

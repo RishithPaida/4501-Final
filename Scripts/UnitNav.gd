@@ -85,3 +85,9 @@ func setDeliver():
 		return
 	moveTo(Home)
 	currentTask = Task.Delivering
+
+func select():
+	$SelectionCircle.show()
+ 
+func deselect():
+	$SelectionCircle.hide()
