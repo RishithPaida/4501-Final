@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://duj0jarfvkgt3"]
 
-[ext_resource type="Script" path="res://Scripts/UnitNav.gd" id="1_8etkx"]
-[ext_resource type="Material" uid="uid://48lj57wdb4d4" path="res://blue.tres" id="2_gt6i1"]
+[ext_resource type="Script" path="res://Scripts/UnitNav.gd" id="1_maasj"]
+[ext_resource type="Material" uid="uid://48lj57wdb4d4" path="res://blue.tres" id="2_hu62o"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tupu5"]
 
@@ -28,7 +28,7 @@ albedo_color = Color(0.701961, 0.458824, 0.235294, 1)
 height = 0.01
 
 [node name="CharacterBody3D" type="CharacterBody3D" groups=["allyUnit", "goblin"]]
-script = ExtResource("1_8etkx")
+script = ExtResource("1_maasj")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 navigation_layers = 3
@@ -58,4 +58,4 @@ surface_material_override/0 = SubResource("StandardMaterial3D_0itqe")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.367788, 0)
 visible = false
 mesh = SubResource("CylinderMesh_n6irq")
-surface_material_override/0 = ExtResource("2_gt6i1")
+surface_material_override/0 = ExtResource("2_hu62o")
