@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://x8tfgp16kvyg"]
+[gd_scene load_steps=7 format=3 uid="uid://x8tfgp16kvyg"]
 
+[ext_resource type="FontFile" uid="uid://b1qhc2v2pagr7" path="res://Scenes/Menus/fontpack/Trajan Bold.ttf" id="1_gtamm"]
 [ext_resource type="Script" path="res://Scripts/InterfaceGod.gd" id="1_kttu8"]
 [ext_resource type="Script" path="res://Scripts/MouseArea.gd" id="2_n8ouk"]
+
+[sub_resource type="Theme" id="Theme_wfrgg"]
+Button/fonts/font = ExtResource("1_gtamm")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5c6pi"]
 size = Vector2(1919, 111.5)
@@ -22,6 +26,7 @@ offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(1, 1.08)
+theme = SubResource("Theme_wfrgg")
 script = ExtResource("1_kttu8")
 
 [node name="UI Area" type="Area2D" parent="."]
@@ -38,6 +43,7 @@ script = ExtResource("2_n8ouk")
 shape = SubResource("CircleShape2D_e3p0p")
 
 [node name="BuildingPanel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -58,7 +64,6 @@ offset_right = 380.0
 offset_bottom = -14.7036
 grow_vertical = 0
 scale = Vector2(1, 0.965436)
-disabled = true
 text = "Town Hall"
 
 [node name="BuildManaPumpButton" type="Button" parent="BuildingPanel"]
@@ -86,6 +91,7 @@ grow_vertical = 0
 text = "Barracks"
 
 [node name="TownHallPanel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -175,6 +181,19 @@ offset_top = 1.0
 offset_right = 272.0
 offset_bottom = 24.0
 text = "100"
+
+[node name="BuildModePanel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 476.0
+offset_top = -487.0
+offset_right = 584.0
+offset_bottom = -461.0
+
+[node name="text" type="RichTextLabel" parent="BuildModePanel"]
+layout_mode = 0
+offset_right = 141.0
+offset_bottom = 40.0
+text = " BUILD MODE"
 
 [connection signal="area_entered" from="UI Area" to="." method="_on_ui_area_area_entered"]
 [connection signal="area_exited" from="UI Area" to="." method="_on_ui_area_area_exited"]

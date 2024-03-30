@@ -10,8 +10,9 @@ material = ExtResource("2_7qurl")
 script = ExtResource("1_c0hma")
 
 [node name="Camera" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.469472, 0.882948, 0, -0.882948, 0.469472, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.642788, 0.766045, 0, -0.766045, 0.642788, 0, 0, 0)
 
 [node name="ThickLinesQuad" type="MeshInstance3D" parent="Camera"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, -1)
+visible = false
 mesh = SubResource("QuadMesh_hjn6o")

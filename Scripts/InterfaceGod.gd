@@ -8,6 +8,7 @@ var shared_groups = ['building', 'allyUnit', 'enemyUnit', 'resource']
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	$Resources/VBoxContainer/food/foodval.text = str(God.food)
@@ -29,9 +30,7 @@ func _process(delta):
 		
 		# UI for build mode
 		if God.Curr_State == God.State.Build:
-			for panel in panels:
-				panel.visible = false
-				disable_buttons_in_panel(panel)
+			change_ui(panels, 'buildmode')
 	else:
 		Curr_Interface = God.Selected_Object.get_groups()
 		for group in Curr_Interface:

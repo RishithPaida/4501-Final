@@ -9,7 +9,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_8dge7"]
 
 [node name="Townhall" type="StaticBody3D" groups=["building", "townhall"]]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(1.73205, 0, -1, 0, 2, 0, 1, 0, 1.73205, 0, 0, 0)
 script = ExtResource("1_fuail")
 Unit = ExtResource("2_tuhgu")
 woodcost = 5

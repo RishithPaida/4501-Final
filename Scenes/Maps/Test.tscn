@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://k2xfap81tes4"]
+[gd_scene load_steps=11 format=3 uid="uid://k2xfap81tes4"]
 
 [ext_resource type="PackedScene" uid="uid://bp7g3li82hkcv" path="res://Scenes/QOL/Environment.tscn" id="2_45h5i"]
 [ext_resource type="PackedScene" uid="uid://dwqdc3uym0exy" path="res://Scenes/UI/Camera.tscn" id="2_145ms"]
@@ -6,6 +6,14 @@
 [ext_resource type="PackedScene" uid="uid://bm564i3o33xhg" path="res://Scenes/Maps/Heightmap.tscn" id="4_wktcc"]
 [ext_resource type="PackedScene" uid="uid://bq4o0287mqije" path="res://Scenes/resources/RubyClump.tscn" id="6_ievp1"]
 [ext_resource type="PackedScene" uid="uid://bej3fdfwiy5em" path="res://Scenes/Buildings/Townhall.tscn" id="6_n8msc"]
+
+[sub_resource type="Environment" id="Environment_7c0pw"]
+ssao_enabled = true
+sdfgi_enabled = true
+sdfgi_bounce_feedback = 1.0
+sdfgi_energy = 2.0
+adjustment_enabled = true
+adjustment_contrast = 0.9
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5saq8"]
 size = Vector2(100, 100)
@@ -21,10 +29,12 @@ points = PackedVector3Array(-500, 0, -500, -500, 0, 500, 500, 0, -500, 500, 0, 5
 [node name="Heightmap" parent="." instance=ExtResource("4_wktcc")]
 
 [node name="Environment" parent="." instance=ExtResource("2_45h5i")]
+environment = SubResource("Environment_7c0pw")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.76179, -0.561033, 0.323911, 1.47563e-08, 0.499998, 0.866027, -0.647825, -0.65973, 0.380893, 0, 0, 0)
 shadow_enabled = true
+shadow_normal_bias = 1.0
 
 [node name="Camera" parent="." instance=ExtResource("2_145ms")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 5)
@@ -56,4 +66,4 @@ transform = Transform3D(0.429153, 0, -0.615084, 0, 0.75, 0, 0.615084, 0, 0.42915
 transform = Transform3D(-0.624163, 0, -0.648398, 0, 0.9, 0, 0.648398, 0, -0.624163, -2.3416, -2.70142, -6.09197)
 
 [node name="Townhall" parent="." instance=ExtResource("6_n8msc")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1, 2, -6)
+transform = Transform3D(1.73205, 0, -1, 0, 2, 0, 1, 0, 1.73205, -1, 1.4, -6)
