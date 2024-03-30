@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://blnr4ti1585bx"]
 
-[ext_resource type="Material" path="res://Shaders/orcskin.tres" id="1_r4j38"]
+[ext_resource type="Material" uid="uid://cok7uqxyjypk1" path="res://Shaders/orcskin.tres" id="1_r4j38"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_3e1qn"]
 radius = 1.5

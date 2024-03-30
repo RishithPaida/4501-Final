@@ -93,6 +93,7 @@ func Build(building):
 	God.Curr_State = God.State.Build
 
 func Highlight_Hovered_Building(building):
+	print(Curr_Hovered_Building.get_node("MeshInstance3D").material_override)
 	dehighlight_material = Curr_Hovered_Building.get_node("MeshInstance3D").material_override
 	Curr_Hovered_Building.get_node("MeshInstance3D").material_override = green_shade
 	

@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://mfonp38n8p1t"]
 
-[ext_resource type="Material" path="res://skin.tres" id="1_j0214"]
+[ext_resource type="Material" uid="uid://b0svmnbtos4go" path="res://Shaders/skin.tres" id="1_j0214"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_x0man"]
 size = Vector3(0.5, 1.3, 0.5)
