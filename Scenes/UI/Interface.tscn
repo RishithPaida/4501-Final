@@ -37,6 +37,7 @@ position = Vector2(375, -433)
 shape = SubResource("RectangleShape2D_5c6pi")
 
 [node name="Area2D" type="Area2D" parent="." groups=["mouse_area"]]
+visible = false
 script = ExtResource("2_n8ouk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -118,10 +119,10 @@ Gatherer"
 
 [node name="Resources" type="Control" parent="."]
 anchors_preset = 0
-offset_left = 1008.0
-offset_top = -478.704
-offset_right = 1048.0
-offset_bottom = -438.704
+offset_left = 1793.0
+offset_top = -856.481
+offset_right = 1793.0
+offset_bottom = -856.481
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Resources"]
 layout_mode = 1
@@ -184,10 +185,10 @@ text = "100"
 
 [node name="BuildModePanel" type="Panel" parent="."]
 layout_mode = 0
-offset_left = 476.0
-offset_top = -487.0
-offset_right = 584.0
-offset_bottom = -461.0
+offset_left = 920.0
+offset_top = -872.222
+offset_right = 1028.0
+offset_bottom = -846.222
 
 [node name="text" type="RichTextLabel" parent="BuildModePanel"]
 layout_mode = 0

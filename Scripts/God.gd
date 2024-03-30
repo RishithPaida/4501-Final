@@ -22,6 +22,8 @@ var Curr_Selected_Unit
 var Curr_Action_Unit
 
 var Curr_Selected_Position : Vector3 = Vector3.ZERO
+@onready var previous_window = DisplayServer.window_get_mode()
+@onready var current_window = DisplayServer.window_get_mode()
 
 var hovering_building = false
 # Called when the node enters the scene tree for the first time.
@@ -44,6 +46,18 @@ func _process(delta):
 				BuildingGod.DeHighlight_Hovered_Building()
 				BuildingGod.Curr_Hovered_Building = null
 				hovering_building = false
+				
+func _input(event):
+	if Input.is_action_just_pressed("toggle_fullscreen"):
+		current_window = DisplayServer.window_get_mode()
+		if current_window != 4:
+			previous_window = current_window
+			DisplayServer.window_set_mode(4)
+		else:
+			if previous_window == 4:
+				previous_window = 0
+			DisplayServer.window_set_mode(previous_window)
+			DisplayServer.window_set_size(Vector2i(1152, 648))
 
 func _unhandled_input(event):
 	if Curr_State == State.Play:
@@ -62,4 +76,3 @@ func _perform_raycast_from_mouse_position(mouse_position):
 	var result = space_state.intersect_ray(query)
 
 	Curr_Hovered_Object = result.collider
-	
