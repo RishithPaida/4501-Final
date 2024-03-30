@@ -9,7 +9,7 @@ var curr_building_collisions = 0
 @export var rubycost : int
 @export var manacost : int
 
-var Goblin : PackedScene = ResourceLoader.load("res://Scenes/Units/Goblin.tscn")
+var Goblin : PackedScene = ResourceLoader.load("res://Scenes/Units/AllyUnits/Goblin.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

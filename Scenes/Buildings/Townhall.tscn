@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/BuildingDemiGod.gd" id="1_fuail"]
 [ext_resource type="PackedScene" uid="uid://duj0jarfvkgt3" path="res://Scenes/Units/AllyUnits/Goblin.tscn" id="2_tuhgu"]
 [ext_resource type="ArrayMesh" uid="uid://b4hb2ikntfjyo" path="res://Assets/building_models/buildings/castle.obj" id="3_kqmab"]
-[ext_resource type="Material" uid="uid://48lj57wdb4d4" path="res://blue.tres" id="4_877oc"]
+[ext_resource type="Material" path="res://blue.tres" id="4_877oc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p26ri"]
 

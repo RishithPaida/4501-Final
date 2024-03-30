@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://duj0jarfvkgt3"]
 
 [ext_resource type="Script" path="res://Scripts/UnitNav.gd" id="1_maasj"]
-[ext_resource type="Material" uid="uid://48lj57wdb4d4" path="res://blue.tres" id="2_hu62o"]
+[ext_resource type="Material" path="res://blue.tres" id="2_hu62o"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_tupu5"]
 

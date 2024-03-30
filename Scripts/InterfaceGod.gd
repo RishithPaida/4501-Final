@@ -3,7 +3,7 @@ extends Control
 var Curr_Interface
 
 var children:Array = get_children()
-var shared_groups = ['building', 'allyUnit', 'enemyUnit', 'resource']
+var shared_groups = ['building', 'allyunit', 'enemyUnit', 'resource']
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
