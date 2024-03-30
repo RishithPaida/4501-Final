@@ -1,0 +1,73 @@
+[gd_scene load_steps=10 format=3 uid="uid://bsgvrauwfwqr6"]
+
+[ext_resource type="Material" uid="uid://b0svmnbtos4go" path="res://skin.tres" id="1_okj8y"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_bc0mw"]
+radius = 0.3
+height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_px4uu"]
+albedo_color = Color(0.976471, 0, 0.0745098, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_0heay"]
+radius = 0.25
+height = 0.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_fusv8"]
+radius = 0.3
+height = 0.6
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_b5kb0"]
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihkbn"]
+albedo_color = Color(0.854902, 0, 0.121569, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_busbe"]
+radius = 0.2
+height = 0.4
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uv4bq"]
+height = 2.12739
+
+[node name="CrazyWizard" type="CharacterBody3D"]
+
+[node name="Body" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838395, 0)
+mesh = SubResource("CapsuleMesh_bc0mw")
+surface_material_override/0 = SubResource("StandardMaterial3D_px4uu")
+
+[node name="Foot" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.582858, 0.251422)
+mesh = SubResource("SphereMesh_0heay")
+surface_material_override/0 = ExtResource("1_okj8y")
+
+[node name="Foot2" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.283355, -0.619842, -0.210775)
+mesh = SubResource("SphereMesh_0heay")
+surface_material_override/0 = ExtResource("1_okj8y")
+
+[node name="Head" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.869361, 0)
+mesh = SubResource("SphereMesh_fusv8")
+surface_material_override/0 = ExtResource("1_okj8y")
+
+[node name="Hat" type="MeshInstance3D" parent="Body/Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.230313, 0)
+mesh = SubResource("CylinderMesh_b5kb0")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ihkbn")
+
+[node name="Arm" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.291402, 0.405299)
+mesh = SubResource("SphereMesh_busbe")
+surface_material_override/0 = ExtResource("1_okj8y")
+
+[node name="Arm2" type="MeshInstance3D" parent="Body"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42896, 0.291402, 0.019253)
+mesh = SubResource("SphereMesh_busbe")
+surface_material_override/0 = ExtResource("1_okj8y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.1631, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06874, 0)
+shape = SubResource("CapsuleShape3D_uv4bq")

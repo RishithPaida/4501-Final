@@ -33,7 +33,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	
+	print (Curr_Selected_Building)
 	if Curr_Hovered_Object:
 		if Curr_Hovered_Object.is_in_group("building"):
 			if not hovering_building:
