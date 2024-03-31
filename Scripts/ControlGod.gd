@@ -56,7 +56,8 @@ func _process(delta):
 					elif (God.Curr_Hovered_Object.is_in_group("townhall") and unit.is_in_group("goblin")):
 						unit.setDeliver()
 					else:
-						var variedPos = Vector3(rng.randf_range(-1, 1), 0, rng.randf_range(-1, 1))
+						var variationSize = clamp(0.5 + 0.2 * God.Selected_Units.size(), 0.5, 2.0)
+						var variedPos = Vector3(rng.randf_range(-variationSize, variationSize), 0, rng.randf_range(-variationSize, variationSize))
 						unit.moveTo(result.position + variedPos)
 						print("Move Unit")
 
