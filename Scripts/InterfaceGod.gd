@@ -19,15 +19,7 @@ func _process(delta):
 	var panels = get_panels()
 	# Nothing selected
 	if God.Selected_Object == null:
-		for panel in panels:
-			panel.visible = false
-			disable_buttons_in_panel(panel)
-			
-		$BuildingPanel.visible = true
-		$BuildingPanel/BuildTownHallButton.set_disabled(false)
-		$BuildingPanel/BuildManaPumpButton.set_disabled(false)
-		$BuildingPanel/BuildBarracksButton3.set_disabled(false)
-		
+		change_ui(panels, 'buildingpanel')
 		# UI for build mode
 		if God.Curr_State == God.State.Build:
 			change_ui(panels, 'buildmode')
