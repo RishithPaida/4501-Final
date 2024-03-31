@@ -28,6 +28,7 @@ albedo_color = Color(0.701961, 0.458824, 0.235294, 1)
 height = 0.01
 
 [node name="CharacterBody3D" type="CharacterBody3D" groups=["allyunit", "goblin"]]
+collision_layer = 2
 script = ExtResource("1_maasj")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
