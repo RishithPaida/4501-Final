@@ -34,7 +34,8 @@ func _on_area_3d_body_exited(body):
 			set_building_perms()
 		
 func set_building_perms():
-	BuildingGod.can_build = (curr_building_collisions == 0)
+	BuildingGod.can_build = (curr_building_collisions == 0) 
+
 
 func Spawn():
 	var goblin = Goblin.instantiate()

@@ -53,9 +53,7 @@ func _process(delta):
 		select_units(mouse_position)
 
 func get_unit_under_mouse(m_pos):
-	var result = God._perform_raycast_from_mouse_position(m_pos)
-	if result and result.is_in_group("allyunit"):
-		return result.collider
+	God._get_object_under_mouse_position(m_pos)
 
 
 func select_units(m_pos):
@@ -72,7 +70,6 @@ func select_units(m_pos):
 		for unit in new_selected_units:
 			unit.select()
 		God.Selected_Units = new_selected_units
-		print(God.Selected_Units)
 		
 func get_units_in_box(top_left, bot_right):
 	if top_left.x > bot_right.x:

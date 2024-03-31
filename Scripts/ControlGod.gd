@@ -12,20 +12,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if God.Curr_State == God.State.Play:
-		var camera = get_viewport().get_camera_3d()
-		var from = camera.project_ray_origin(get_viewport().get_mouse_position())
-		var to = from + camera.project_ray_normal(get_viewport().get_mouse_position()) * 1000
-
-		#var mouse_pos = Plane(Vector3.UP, transform.origin.y).intersects_ray(from, to)
-		#Curr_Selected_Building_To_Build.position = Vector3(round(mouse_pos.x),round(mouse_pos.y),round(mouse_pos.z))
-
-		var space_state = get_world_3d().direct_space_state
-		var query = PhysicsRayQueryParameters3D.create(from, to)
-		query.exclude = [self]
-		query.collision_mask = 2
-		var result = space_state.intersect_ray(query)
-		
+	if God.Curr_State == God.State.Play:		
 		if(God.Curr_Hovered_Object != null):
 			if(God.Curr_Hovered_Object.is_in_group("allyunit")):
 				if Input.is_action_just_pressed("left_click"):
@@ -48,9 +35,12 @@ func _process(delta):
 						unit.deselect()
 					God.Selected_Units = []
 	
-		if God.Selected_Units.size() != 0:
-			if Input.is_action_just_pressed("right_click"):
+		if Input.is_action_just_pressed("right_click"):
+			var index = 0
+			if God.Selected_Units.size() != 0:
+				var mouse_position_2d = God._get_curr_mouse_position_2D()
 				for unit in God.Selected_Units:
+					index += 1
 					if(God.Curr_Hovered_Object.is_in_group("resource") and unit.is_in_group("goblin")):
 						unit.harvest(God.Curr_Hovered_Object)
 					elif (God.Curr_Hovered_Object.is_in_group("townhall") and unit.is_in_group("goblin")):
@@ -58,9 +48,6 @@ func _process(delta):
 					else:
 						var variationSize = clamp(0.5 + 0.2 * God.Selected_Units.size(), 0.5, 2.0)
 						var variedPos = Vector3(rng.randf_range(-variationSize, variationSize), 0, rng.randf_range(-variationSize, variationSize))
-						unit.moveTo(result.position + variedPos)
+						print("Calcin path for unit:" + str(index))
+						unit.moveTo(mouse_position_2d + variedPos)
 						print("Move Unit")
-
-
-
-

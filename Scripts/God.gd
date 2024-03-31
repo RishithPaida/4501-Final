@@ -63,9 +63,21 @@ func _unhandled_input(event):
 	if Curr_State == State.Play:
 		if event is InputEventMouseMotion:
 			# Perform the raycast to see what the mouse is hovering over.
-			_perform_raycast_from_mouse_position(event.position)
+			_get_object_under_mouse_position(event.position)
 
-func _perform_raycast_from_mouse_position(mouse_position):
+func _get_curr_mouse_position_2D():
+		var camera = get_viewport().get_camera_3d()
+		var from = camera.project_ray_origin(get_viewport().get_mouse_position())
+		var to = from + camera.project_ray_normal(get_viewport().get_mouse_position()) * 1000
+		var space_state = get_world_3d().direct_space_state
+		var query = PhysicsRayQueryParameters3D.create(from, to)
+		query.exclude = [self]
+		query.collision_mask = 2
+		var result = space_state.intersect_ray(query)
+		return result.position
+	
+	
+func _get_object_under_mouse_position(mouse_position):
 	var from = get_viewport().get_camera_3d().project_ray_origin(mouse_position)
 	var to = from + get_viewport().get_camera_3d().project_ray_normal(mouse_position) * 1000
 	var space_state = get_world_3d().direct_space_state
