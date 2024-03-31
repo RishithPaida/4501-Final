@@ -3,6 +3,8 @@ extends Node3D
 var Curr_Selected_Building
 var Curr_Selected_Unit
 
+var rng = RandomNumberGenerator.new()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -54,8 +56,10 @@ func _process(delta):
 					elif (God.Curr_Hovered_Object.is_in_group("townhall") and unit.is_in_group("goblin")):
 						unit.setDeliver()
 					else:
-						unit.moveTo(result.position)
+						var variedPos = Vector3(rng.randf_range(-1, 1), 0, rng.randf_range(-1, 1))
+						unit.moveTo(result.position + variedPos)
 						print("Move Unit")
+
 
 
 
