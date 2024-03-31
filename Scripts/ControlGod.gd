@@ -26,7 +26,7 @@ func _process(delta):
 		query.collision_mask = 2
 		var result = space_state.intersect_ray(query)
 		
-		if(God.Curr_Hovered_Object):
+		if(God.Curr_Hovered_Object != null):
 			if(God.Curr_Hovered_Object.is_in_group("allyunit")):
 				if Input.is_action_just_pressed("left_click"):
 					print("Set selected unit")

@@ -98,7 +98,8 @@ func Highlight_Hovered_Building(building):
 	Curr_Hovered_Building.get_node("MeshInstance3D").material_override = green_shade
 	
 func DeHighlight_Hovered_Building():
-	Curr_Hovered_Building.get_node("MeshInstance3D").material_override = dehighlight_material
+	if Curr_Hovered_Building != null:
+		Curr_Hovered_Building.get_node("MeshInstance3D").material_override = dehighlight_material
 
 func Check_If_Affordable(building) -> bool:
 	if God.wood - building.woodcost < 0:
