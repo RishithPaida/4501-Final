@@ -23,9 +23,13 @@ var runOnce = true
 @onready var navAgent : NavigationAgent3D = $NavigationAgent3D
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+@onready var health_bar = $SubViewport/HealthBar
 
 func _ready() -> void:
-	pass
+
+	health_bar.max_value = health 
+	
+	
 
 
 func _physics_process(delta):

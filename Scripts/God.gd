@@ -6,10 +6,10 @@ enum State  {
 	Combat,
 }
 
-var wood := 30
-var ruby := 30
-var mana := 30
-var food := 30
+var wood := 3000
+var ruby := 3000
+var mana := 3000
+var food := 3000
 
 var RAY_LENGTH = 1000
 var Curr_State = State.Play
@@ -86,5 +86,6 @@ func _get_object_under_mouse_position(mouse_position):
 	var query = PhysicsRayQueryParameters3D.create(from, to)
 	query.exclude = [self]
 	var result = space_state.intersect_ray(query)
-
-	Curr_Hovered_Object = result.collider
+	
+	if result:	
+		Curr_Hovered_Object = result.collider

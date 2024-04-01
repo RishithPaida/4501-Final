@@ -63,7 +63,6 @@ viewport_path = NodePath("SubViewport")
 collision_layer = 2
 script = ExtResource("1_apm38")
 health = 100
-speed = 2
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838395, 0)
@@ -142,4 +141,3 @@ disable_3d = true
 transparent_bg = true
 
 [node name="HealthBar" parent="SubViewport" instance=ExtResource("4_4o5v5")]
-value = 0.0
