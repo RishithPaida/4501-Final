@@ -48,6 +48,5 @@ func _process(delta):
 					else:
 						var variationSize = clamp(0.5 + 0.2 * God.Selected_Units.size(), 0.5, 2.0)
 						var variedPos = Vector3(rng.randf_range(-variationSize, variationSize), 0, rng.randf_range(-variationSize, variationSize))
-						print("Calcin path for unit:" + str(index))
 						unit.moveTo(mouse_position_2d + variedPos)
 						print("Move Unit")

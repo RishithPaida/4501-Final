@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bsgvrauwfwqr6"]
 
-[ext_resource type="Material" path="res://skin.tres" id="1_okj8y"]
+[ext_resource type="Material" uid="uid://b0svmnbtos4go" path="res://Shaders/skin.tres" id="1_okj8y"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_bc0mw"]
 radius = 0.3

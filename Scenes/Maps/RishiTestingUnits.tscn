@@ -1,0 +1,358 @@
+[gd_scene load_steps=10 format=3 uid="uid://dv3bg4uof04qy"]
+
+[ext_resource type="PackedScene" uid="uid://mfonp38n8p1t" path="res://Scenes/Units/AllyUnits/Knight.tscn" id="1_6vaq1"]
+[ext_resource type="PackedScene" uid="uid://dwqdc3uym0exy" path="res://Scenes/UI/Camera.tscn" id="2_qulvn"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j1and"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_boow7"]
+sky_material = SubResource("ProceduralSkyMaterial_j1and")
+
+[sub_resource type="Environment" id="Environment_8w05m"]
+background_mode = 2
+sky = SubResource("Sky_boow7")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_apsn6"]
+vertices = PackedVector3Array(-99.5, 0.5, -99.5, -99.5, 0.5, 99.5, 99.5, 0.5, 99.5, 99.5, 0.5, -99.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_7xaat"]
+size = Vector2(200, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hlpub"]
+albedo_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mswre"]
+points = PackedVector3Array(-100, 0, -100, -100, 0, 100, 100, 0, -100, 100, 0, 100)
+
+[node name="RishiTestingUnits" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_8w05m")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_apsn6")
+
+[node name="Floor" type="MeshInstance3D" parent="NavigationRegion3D"]
+mesh = SubResource("PlaneMesh_7xaat")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_hlpub")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_mswre")
+
+[node name="MaxZoomPoint" parent="." instance=ExtResource("2_qulvn")]
+
+[node name="Units" type="Node3D" parent="."]
+
+[node name="Knight" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight41" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight42" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight43" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight44" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight45" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight46" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight47" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight48" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight49" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight50" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight51" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight52" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight53" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight54" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight55" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight56" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight57" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight58" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight59" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight60" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight61" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight62" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight63" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight64" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight65" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight66" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight67" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight68" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight69" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight70" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight71" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight72" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight73" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight74" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight75" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight76" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight77" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight78" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight79" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight80" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight81" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight82" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight83" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight84" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight85" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight86" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight87" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight88" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight89" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight90" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight91" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight92" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight93" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight94" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight95" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight96" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight97" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight98" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight99" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight100" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight101" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight102" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight103" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight104" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight105" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight106" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight107" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight108" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight109" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight110" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight111" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight112" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight113" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight114" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight115" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight116" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight117" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight118" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight119" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight120" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight121" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight122" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight123" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight124" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight125" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight126" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight127" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight128" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight129" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight130" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight131" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight132" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight133" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight134" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight135" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight136" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight137" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight138" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight139" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight140" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight141" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight142" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight143" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight144" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight145" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight146" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight147" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight148" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight149" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight150" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight2" parent="Units" instance=ExtResource("1_6vaq1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.91894)
+
+[node name="Knight3" parent="Units" instance=ExtResource("1_6vaq1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.75259)
+
+[node name="Knight4" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight5" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight6" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight7" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight8" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight9" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight10" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight11" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight12" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight13" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight14" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight15" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight16" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight17" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight18" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight19" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight20" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight21" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight22" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight23" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight24" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight25" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight26" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight27" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight28" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight29" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight30" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight31" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight32" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight33" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight34" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight35" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight36" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight37" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight38" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight39" parent="Units" instance=ExtResource("1_6vaq1")]
+
+[node name="Knight40" parent="Units" instance=ExtResource("1_6vaq1")]

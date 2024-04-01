@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://bp7g3li82hkcv" path="res://Scenes/QOL/Environment.tscn" id="2_45h5i"]
 [ext_resource type="PackedScene" uid="uid://dwqdc3uym0exy" path="res://Scenes/UI/Camera.tscn" id="2_145ms"]
 [ext_resource type="PackedScene" uid="uid://x8tfgp16kvyg" path="res://Scenes/UI/Interface.tscn" id="3_arkqv"]
-[ext_resource type="PackedScene" uid="uid://bm564i3o33xhg" path="res://Scenes/Maps/Heightmap.tscn" id="4_wktcc"]
 [ext_resource type="PackedScene" uid="uid://bq4o0287mqije" path="res://Scenes/resources/RubyClump.tscn" id="6_ievp1"]
 [ext_resource type="PackedScene" uid="uid://bej3fdfwiy5em" path="res://Scenes/Buildings/Townhall.tscn" id="6_n8msc"]
 [ext_resource type="Material" uid="uid://c11hcwrxcakjn" path="res://Assets/post_processing/pixelation_effect.tres" id="7_ehnja"]
@@ -16,21 +15,23 @@ sdfgi_energy = 2.0
 adjustment_enabled = true
 adjustment_contrast = 0.9
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_5saq8"]
-size = Vector2(100, 100)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3q64"]
-albedo_color = Color(0.196078, 0.196078, 0.196078, 1)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kb71b"]
-points = PackedVector3Array(-500, 0, -500, -500, 0, 500, 500, 0, -500, 500, 0, 500)
-
 [sub_resource type="QuadMesh" id="QuadMesh_j8xaf"]
 material = ExtResource("7_ehnja")
 
-[node name="Main" type="Node3D"]
+[sub_resource type="NavigationMesh" id="NavigationMesh_anbbj"]
+vertices = PackedVector3Array(-99.5, 0.5, -99.5, -99.5, 0.5, 99.5, 99.5, 0.5, 99.5, 99.5, 0.5, -99.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
 
-[node name="Heightmap" parent="." instance=ExtResource("4_wktcc")]
+[sub_resource type="PlaneMesh" id="PlaneMesh_aqe4g"]
+size = Vector2(200, 200)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bnb0k"]
+albedo_color = Color(0.0941176, 0.0941176, 0.0941176, 1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gsg6c"]
+points = PackedVector3Array(-100, 0, -100, -100, 0, 100, 100, 0, -100, 100, 0, 100)
+
+[node name="Main" type="Node3D"]
 
 [node name="Environment" parent="." instance=ExtResource("2_45h5i")]
 environment = SubResource("Environment_7c0pw")
@@ -44,18 +45,6 @@ shadow_normal_bias = 1.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 5)
 
 [node name="Control" parent="." instance=ExtResource("3_arkqv")]
-
-[node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.815, 0)
-mesh = SubResource("PlaneMesh_5saq8")
-surface_material_override/0 = SubResource("StandardMaterial3D_v3q64")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
-collision_layer = 3
-collision_mask = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
-shape = SubResource("ConvexPolygonShape3D_kb71b")
 
 [node name="Resources" type="Node3D" parent="."]
 transform = Transform3D(-1.58458, 0, -1.22029, 0, 2, 0, 1.22029, 0, -1.58458, 0, 6, 0)
@@ -92,3 +81,17 @@ transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 60,
 [node name="ThickLinesQuad" type="MeshInstance3D" parent="GUI/SubViewportContainer/SubViewport/Camera3D"]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, -1)
 mesh = SubResource("QuadMesh_j8xaf")
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_anbbj")
+
+[node name="Floor" type="MeshInstance3D" parent="NavigationRegion3D"]
+mesh = SubResource("PlaneMesh_aqe4g")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_bnb0k")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/Floor"]
+collision_layer = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Floor/StaticBody3D"]
+shape = SubResource("ConvexPolygonShape3D_gsg6c")

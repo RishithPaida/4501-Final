@@ -53,7 +53,9 @@ func _process(delta):
 		select_units(mouse_position)
 
 func get_unit_under_mouse(m_pos):
-	God._get_object_under_mouse_position(m_pos)
+	var unit = 	God._get_object_under_mouse_position(m_pos)
+	if unit and unit.is_in_group("allyunit"):
+		return unit
 
 
 func select_units(m_pos):
