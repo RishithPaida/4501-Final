@@ -99,7 +99,7 @@ func Preview_Selected_Building():
 	else:
 		off_map = true
 	if(mouse_position_2d):
-		Curr_Selected_Building_To_Build.position = mouse_position_2d
+		Curr_Selected_Building_To_Build.position = Vector3(round(mouse_position_2d.x), mouse_position_2d.y, round(mouse_position_2d.z))
 		
 func Check_If_Affordable(building) -> bool:
 	if God.wood - building.woodcost < 0:
