@@ -16,6 +16,10 @@ var harvestUnit
 var runOnce = true
 @export var speed = 2
 
+@export var health: int
+@export var rubycost: int
+@export var manacost: int
+
 @onready var navAgent : NavigationAgent3D = $NavigationAgent3D
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")

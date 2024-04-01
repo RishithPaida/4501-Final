@@ -76,9 +76,11 @@ func _on_build_barracks_button_3_button_down():
 func _on_build_town_hall_button_button_down():
 	BuildingGod.Build_Town_Hall()
 
-
-func _on_spawn_gatherer_button_button_down():
-	God.Curr_Selected_Building.Spawn()
+func _on_spawn_button_down():
+	var units = God.Curr_Selected_Building.spawnable_units
+	# unit = packedscn
+	for unit in units:
+		God.Curr_Selected_Building.Spawn(unit)
 
 	God.Curr_Hovered_Object = null
 	print(God.Curr_State)

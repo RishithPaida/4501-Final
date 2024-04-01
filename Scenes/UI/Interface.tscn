@@ -106,7 +106,7 @@ offset_bottom = -0.00012207
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="SpawnGathererButton" type="Button" parent="TownHallPanel"]
+[node name="SpawnButton" type="Button" parent="TownHallPanel"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -119,6 +119,31 @@ grow_vertical = 0
 scale = Vector2(1, 0.965436)
 text = "Spawn 
 Gatherer"
+
+[node name="BarracksPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -117.0
+offset_bottom = -0.000183105
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="SpawnButton" type="Button" parent="BarracksPanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 265.0
+offset_top = -101.704
+offset_right = 380.0
+offset_bottom = -14.7037
+grow_vertical = 0
+scale = Vector2(1, 0.965436)
+text = "Spawn 
+Knight"
 
 [node name="Resources" type="Control" parent="."]
 anchors_preset = 0
@@ -204,4 +229,5 @@ text = " BUILD MODE"
 [connection signal="button_down" from="BuildingPanel/BuildTownHallButton" to="." method="_on_build_town_hall_button_button_down"]
 [connection signal="button_down" from="BuildingPanel/BuildManaPumpButton" to="." method="_on_build_mana_pump_button_button_down"]
 [connection signal="button_down" from="BuildingPanel/BuildBarracksButton3" to="." method="_on_build_barracks_button_3_button_down"]
-[connection signal="button_down" from="TownHallPanel/SpawnGathererButton" to="." method="_on_spawn_gatherer_button_button_down"]
+[connection signal="button_down" from="TownHallPanel/SpawnButton" to="." method="_on_spawn_button_down"]
+[connection signal="button_down" from="BarracksPanel/SpawnButton" to="." method="_on_spawn_button_down"]

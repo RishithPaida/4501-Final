@@ -17,10 +17,12 @@ height = 0.01
 [node name="Townhall" type="StaticBody3D" groups=["building", "townhall"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_fuail")
-Unit = ExtResource("2_tuhgu")
-woodcost = 5
-foodcost = 2
-manacost = 1
+health = 1000
+woodcost = 100
+foodcost = 50
+rubycost = 600
+manacost = 250
+spawnable_units = [ExtResource("2_tuhgu")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = ExtResource("3_kqmab")

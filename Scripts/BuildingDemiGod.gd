@@ -2,14 +2,15 @@ extends Node
 
 var curr_building_collisions = 0
 @export var selected : bool = false
-@export var Unit : PackedScene
+
+@export var health : int
 
 @export var woodcost : int
 @export var foodcost : int
 @export var rubycost : int
 @export var manacost : int
 
-var Goblin : PackedScene = ResourceLoader.load("res://Scenes/Units/AllyUnits/Goblin.tscn")
+@export var spawnable_units = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,11 +38,11 @@ func set_building_perms():
 	BuildingGod.can_build = (curr_building_collisions == 0) 
 
 
-func Spawn():
-	var goblin = Goblin.instantiate()
-	get_tree().root.add_child(goblin)
-	goblin.global_position = God.Curr_Selected_Building.get_node("SpawnPoint").global_position
-	goblin.Home = God.Curr_Selected_Building.get_node("SpawnPoint").global_position
+func Spawn(unit):
+	var spawned = unit.instantiate()
+	get_tree().root.add_child(spawned)
+	spawned.global_position = God.Curr_Selected_Building.get_node("SpawnPoint").global_position
+	# spawned.Home = God.Curr_Selected_Building.get_node("SpawnPoint").global_position
 	
 func SayHi():
 	print("HI :3")
