@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://mfonp38n8p1t"]
 
-[ext_resource type="Script" path="res://Scripts/UnitNav.gd" id="1_hxfmr"]
+[ext_resource type="Script" path="res://Scripts/UnitNav.gd" id="1_8pk16"]
 [ext_resource type="Material" uid="uid://b0svmnbtos4go" path="res://Shaders/skin.tres" id="1_j0214"]
 [ext_resource type="Material" uid="uid://48lj57wdb4d4" path="res://Shaders/blue.tres" id="3_uqiff"]
 [ext_resource type="PackedScene" uid="uid://0c6jslptgrnr" path="res://Scenes/UI/HealthBar.tscn" id="4_4o5v5"]
@@ -61,9 +61,8 @@ height = 0.4
 
 [node name="Knight" type="CharacterBody3D" groups=["allyunit", "knight"]]
 collision_layer = 2
-script = ExtResource("1_hxfmr")
+script = ExtResource("1_8pk16")
 health = 100
-attackModeRange = 10
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22672, 0)
@@ -73,7 +72,7 @@ shape = SubResource("CapsuleShape3D_dhai4")
 transform = Transform3D(0.976672, 0.214735, 0, -0.214735, 0.976672, 0, 0, 0, 1, 0.725482, 1.94704, 0.0598077)
 shape = SubResource("ConcavePolygonShape3D_6tvt1")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." groups=["allyUnit", "knight"]]
 avoidance_enabled = true
 height = 4.0
 radius = 1.0

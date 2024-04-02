@@ -4,6 +4,7 @@ var Curr_Interface
 
 var children:Array = get_children()
 var shared_groups = ['building', 'allyunit', 'enemyUnit', 'resource']
+var Curr_Panel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,15 +29,37 @@ func _process(delta):
 		for group in Curr_Interface:
 			if group not in shared_groups:
 				change_ui(panels, group)
-	
+
+# =================================User Interface=================================
+
 func change_ui(panels, group):
 	for panel in panels:
 		if group.to_lower() in panel.get_name().to_lower():
 			panel.visible = true
 			enable_buttons_in_panel(panel)
+			update_labels(panel)
+			Curr_Panel = panel
 		else:
 			panel.visible = false
 			disable_buttons_in_panel(panel)
+
+func update_labels(panel):
+	for child in panel.get_children():
+		if child is VBoxContainer:
+			for stat in child.get_children():
+				for value in stat.get_children():
+					if value.get_name() == 'Health':
+						value.text = str(God.Selected_Object.health)
+					elif value.get_name() == 'ATK':
+						value.text = str(God.Selected_Object.attackSpeed)
+					elif value.get_name() == 'SPD':
+						value.text = str(God.Selected_Object.speed)
+					elif value.get_name() == 'RANGE':
+						value.text = str(God.Selected_Object.range)
+					elif value.get_name() == 'RubyCap':
+						value.text = str(God.Selected_Object.rubycapacity)
+
+# =================================Visibility=================================
 
 func get_panels():
 	var panel_list: Array = []
@@ -59,29 +82,41 @@ func _on_ui_area_area_entered(area):
 	if area.is_in_group("mouse_area"):
 		BuildingGod.can_build = false
 
-
 func _on_ui_area_area_exited(area):
 	if area.is_in_group("mouse_area"):
 		BuildingGod.can_build = true
 
+# =================================Build Buttons=================================
 
 func _on_build_mana_pump_button_button_down():
 	BuildingGod.Build_Mana_Pump()
 
-
 func _on_build_barracks_button_3_button_down():
 	BuildingGod.Build_Barracks()
-
 
 func _on_build_town_hall_button_button_down():
 	BuildingGod.Build_Town_Hall()
 
-func _on_spawn_button_down():
+# =================================Spawn Buttons=================================
+
+func _spawn_unit(unit_type):
+	var children = Curr_Panel.get_children()
 	var units = God.Curr_Selected_Building.spawnable_units
 	# unit = packedscn
 	for unit in units:
-		God.Curr_Selected_Building.Spawn(unit)
+		var temp = unit.instantiate()
+		if temp.is_in_group(unit_type):
+			God.Curr_Selected_Building.Spawn(unit)
+		temp.queue_free()
 
 	God.Curr_Hovered_Object = null
-	print(God.Curr_State)
-	#God.Curr_Selected_Building.Spawn()
+
+func _on_knight_spawn_button_down():
+	_spawn_unit('knight')
+
+func _on_wisp_spawn_button_down():
+	_spawn_unit('wisp')
+
+func _on_spawn_gatherer_button_down():
+	_spawn_unit('gatherer')
+

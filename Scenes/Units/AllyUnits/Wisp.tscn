@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://by2f35dwgm0gt"]
+[gd_scene load_steps=9 format=3 uid="uid://by2f35dwgm0gt"]
 
 [ext_resource type="PackedScene" uid="uid://0c6jslptgrnr" path="res://Scenes/UI/HealthBar.tscn" id="1_hlm5u"]
-[ext_resource type="Script" path="res://Scripts/UnitNav.gd" id="1_hv7v8"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_tctpm"]
 top_radius = 0.0
@@ -26,8 +25,7 @@ points = PackedVector3Array(-0.29966, -0.0143305, 0, -0.298252, -0.0143305, 0.02
 [sub_resource type="ViewportTexture" id="ViewportTexture_j2khk"]
 viewport_path = NodePath("SubViewport")
 
-[node name="Wisp" type="CharacterBody3D"]
-script = ExtResource("1_hv7v8")
+[node name="Wisp" type="CharacterBody3D" groups=["allyUnit", "wisp"]]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.84259, 0)

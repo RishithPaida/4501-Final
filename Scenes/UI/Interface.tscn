@@ -49,6 +49,7 @@ script = ExtResource("2_n8ouk")
 shape = SubResource("CircleShape2D_e3p0p")
 
 [node name="BuildingPanel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -96,6 +97,7 @@ grow_vertical = 0
 text = "Barracks"
 
 [node name="TownHallPanel" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -131,7 +133,7 @@ offset_bottom = -0.000183105
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="SpawnButton" type="Button" parent="BarracksPanel"]
+[node name="KnightSpawnButton" type="Button" parent="BarracksPanel"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -144,6 +146,262 @@ grow_vertical = 0
 scale = Vector2(1, 0.965436)
 text = "Spawn 
 Knight"
+
+[node name="WispSpawnButton" type="Button" parent="BarracksPanel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 393.0
+offset_top = -101.703
+offset_right = 508.0
+offset_bottom = -14.7032
+grow_vertical = 0
+scale = Vector2(1, 0.965436)
+text = "Spawn 
+Wisp"
+
+[node name="BuildModePanel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 920.0
+offset_top = -872.222
+offset_right = 1028.0
+offset_bottom = -846.222
+
+[node name="text" type="RichTextLabel" parent="BuildModePanel"]
+visible = false
+layout_mode = 0
+offset_right = 141.0
+offset_bottom = 40.0
+text = " BUILD MODE"
+
+[node name="GathererPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -117.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GathererPanel"]
+layout_mode = 0
+offset_left = 1763.0
+offset_top = 2.33335
+offset_right = 1823.0
+offset_bottom = 106.333
+
+[node name="Health" type="Label" parent="GathererPanel/VBoxContainer"]
+layout_mode = 2
+text = "Health: "
+
+[node name="Health" type="Label" parent="GathererPanel/VBoxContainer/Health"]
+layout_mode = 0
+offset_left = 76.0
+offset_right = 116.0
+offset_bottom = 23.0
+text = "100
+"
+
+[node name="ATK" type="Label" parent="GathererPanel/VBoxContainer"]
+layout_mode = 2
+text = "ATK:"
+
+[node name="ATK" type="Label" parent="GathererPanel/VBoxContainer/ATK"]
+layout_mode = 0
+offset_left = 76.0
+offset_right = 116.0
+offset_bottom = 23.0
+text = "100
+"
+
+[node name="SPD" type="Label" parent="GathererPanel/VBoxContainer"]
+layout_mode = 2
+text = "SPD:"
+
+[node name="SPD" type="Label" parent="GathererPanel/VBoxContainer/SPD"]
+layout_mode = 0
+offset_left = 76.0
+offset_right = 116.0
+offset_bottom = 23.0
+text = "100
+"
+
+[node name="RANGE" type="Label" parent="GathererPanel/VBoxContainer"]
+layout_mode = 2
+text = "RANGE:"
+
+[node name="RANGE" type="Label" parent="GathererPanel/VBoxContainer/RANGE"]
+layout_mode = 0
+offset_left = 76.0
+offset_right = 116.0
+offset_bottom = 23.0
+text = "100
+"
+
+[node name="KnightPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -117.0
+offset_bottom = -6.10352e-05
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="KnightPanel"]
+layout_mode = 0
+offset_left = 1763.0
+offset_top = 2.33335
+offset_right = 1823.0
+offset_bottom = 106.333
+
+[node name="Health" type="Label" parent="KnightPanel/VBoxContainer"]
+layout_mode = 2
+text = "Health: "
+
+[node name="Health" type="Label" parent="KnightPanel/VBoxContainer/Health"]
+layout_mode = 0
+offset_left = 76.0
+offset_right = 116.0
+offset_bottom = 23.0
+text = "100
+"
+
+[node name="ATK" type="Label" parent="KnightPanel/VBoxContainer"]
+layout_mode = 2
+text = "ATK:"
+
+[node name="ATK" type="Label" parent="KnightPanel/VBoxContainer/ATK"]
+layout_mode = 0
+offset_left = 76.0
+offset_right = 116.0
+offset_bottom = 23.0
+text = "100
+"
+
+[node name="SPD" type="Label" parent="KnightPanel/VBoxContainer"]
+layout_mode = 2
+text = "SPD:"
+
+[node name="SPD" type="Label" parent="KnightPanel/VBoxContainer/SPD"]
+layout_mode = 0
+offset_left = 76.0
+offset_right = 116.0
+offset_bottom = 23.0
+text = "100
+"
+
+[node name="RANGE" type="Label" parent="KnightPanel/VBoxContainer"]
+layout_mode = 2
+text = "RANGE:"
+
+[node name="RANGE" type="Label" parent="KnightPanel/VBoxContainer/RANGE"]
+layout_mode = 0
+offset_left = 76.0
+offset_right = 116.0
+offset_bottom = 23.0
+text = "100
+"
+
+[node name="WispPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -117.0
+offset_bottom = -6.10352e-05
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WispPanel"]
+layout_mode = 0
+offset_left = 1763.0
+offset_top = 2.33335
+offset_right = 1823.0
+offset_bottom = 106.333
+
+[node name="Health" type="Label" parent="WispPanel/VBoxContainer"]
+layout_mode = 2
+text = "Health: "
+
+[node name="Health" type="Label" parent="WispPanel/VBoxContainer/Health"]
+layout_mode = 0
+offset_left = 76.0
+offset_right = 116.0
+offset_bottom = 23.0
+text = "100
+"
+
+[node name="ATK" type="Label" parent="WispPanel/VBoxContainer"]
+layout_mode = 2
+text = "ATK:"
+
+[node name="ATK" type="Label" parent="WispPanel/VBoxContainer/ATK"]
+layout_mode = 0
+offset_left = 76.0
+offset_right = 116.0
+offset_bottom = 23.0
+text = "100
+"
+
+[node name="SPD" type="Label" parent="WispPanel/VBoxContainer"]
+layout_mode = 2
+text = "SPD:"
+
+[node name="SPD" type="Label" parent="WispPanel/VBoxContainer/SPD"]
+layout_mode = 0
+offset_left = 76.0
+offset_right = 116.0
+offset_bottom = 23.0
+text = "100
+"
+
+[node name="RANGE" type="Label" parent="WispPanel/VBoxContainer"]
+layout_mode = 2
+text = "RANGE:"
+
+[node name="RANGE" type="Label" parent="WispPanel/VBoxContainer/RANGE"]
+layout_mode = 0
+offset_left = 76.0
+offset_right = 116.0
+offset_bottom = 23.0
+text = "100
+"
+
+[node name="RubyClumpPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -117.0
+offset_bottom = -0.00012207
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RubyClumpPanel"]
+layout_mode = 0
+offset_left = 1707.0
+offset_top = 15.2964
+offset_right = 1825.0
+offset_bottom = 119.296
+
+[node name="Ruby" type="Label" parent="RubyClumpPanel/VBoxContainer"]
+layout_mode = 2
+text = "Ruby Capacity: "
+
+[node name="RubyCap" type="Label" parent="RubyClumpPanel/VBoxContainer/Ruby"]
+layout_mode = 0
+offset_left = 132.0
+offset_right = 172.0
+offset_bottom = 23.0
+text = "0
+"
 
 [node name="Resources" type="Control" parent="."]
 anchors_preset = 0
@@ -211,23 +469,11 @@ offset_right = 272.0
 offset_bottom = 24.0
 text = "100"
 
-[node name="BuildModePanel" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 920.0
-offset_top = -872.222
-offset_right = 1028.0
-offset_bottom = -846.222
-
-[node name="text" type="RichTextLabel" parent="BuildModePanel"]
-layout_mode = 0
-offset_right = 141.0
-offset_bottom = 40.0
-text = " BUILD MODE"
-
 [connection signal="area_entered" from="UI Area" to="." method="_on_ui_area_area_entered"]
 [connection signal="area_exited" from="UI Area" to="." method="_on_ui_area_area_exited"]
 [connection signal="button_down" from="BuildingPanel/BuildTownHallButton" to="." method="_on_build_town_hall_button_button_down"]
 [connection signal="button_down" from="BuildingPanel/BuildManaPumpButton" to="." method="_on_build_mana_pump_button_button_down"]
 [connection signal="button_down" from="BuildingPanel/BuildBarracksButton3" to="." method="_on_build_barracks_button_3_button_down"]
-[connection signal="button_down" from="TownHallPanel/SpawnButton" to="." method="_on_spawn_button_down"]
-[connection signal="button_down" from="BarracksPanel/SpawnButton" to="." method="_on_spawn_button_down"]
+[connection signal="button_down" from="TownHallPanel/SpawnButton" to="." method="_on_spawn_gatherer_button_down"]
+[connection signal="button_down" from="BarracksPanel/KnightSpawnButton" to="." method="_on_knight_spawn_button_down"]
+[connection signal="button_down" from="BarracksPanel/WispSpawnButton" to="." method="_on_wisp_spawn_button_down"]

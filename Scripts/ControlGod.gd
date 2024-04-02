@@ -26,8 +26,10 @@ func _process(delta):
 					God.Curr_Selected_Building = God.Curr_Hovered_Object
 					God.Selected_Object = God.Curr_Hovered_Object
 					
-					print(God.Curr_Hovered_Object.get_name())
-					print("selected Building: " + str(God.Curr_Selected_Building.name) ) 	
+			elif(God.Curr_Hovered_Object.is_in_group("resource")):
+				if Input.is_action_just_pressed("left_click"):
+					God.Selected_Object = God.Curr_Hovered_Object
+		
 			else:
 				if Input.is_action_just_pressed("left_click"):
 					God.Selected_Object = null
