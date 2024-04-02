@@ -57,7 +57,7 @@ func update_labels(panel):
 					elif value.get_name() == 'RANGE':
 						value.text = str(God.Selected_Object.range)
 					elif value.get_name() == 'RubyCap':
-						value.text = str(God.Selected_Object.rubycapacity)
+						value.text = str(God.Selected_Object.capacity)
 
 # =================================Visibility=================================
 

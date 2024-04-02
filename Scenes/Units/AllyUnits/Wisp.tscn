@@ -1,16 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://by2f35dwgm0gt"]
+[gd_scene load_steps=12 format=3 uid="uid://by2f35dwgm0gt"]
 
 [ext_resource type="PackedScene" uid="uid://0c6jslptgrnr" path="res://Scenes/UI/HealthBar.tscn" id="1_hlm5u"]
+[ext_resource type="Script" path="res://Scripts/UnitNav.gd" id="1_sikac"]
+[ext_resource type="Material" uid="uid://48lj57wdb4d4" path="res://Shaders/blue.tres" id="3_hvs4i"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_tctpm"]
 top_radius = 0.0
-height = 0.5
+bottom_radius = 0.35
+height = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aegt4"]
 albedo_color = Color(0.531501, 0.609713, 0.728803, 1)
-
-[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_usm5v"]
-points = PackedVector3Array(0, -0.25, -0.5, -0.0490407, -0.25, -0.497651, 0, -0.15001, -0.400059, 0.0489429, -0.25, -0.497651, -0.097592, -0.25, -0.490407, -0.0294636, -0.0500196, -0.298649, 0, 0.0499706, -0.200078, 0.0293657, -0.0500196, -0.298649, 0.0974941, -0.25, -0.490407, -0.0581441, 0.0499706, -0.191464, 0, 0.25, 0, -0.145164, -0.25, -0.478563, 0.0580462, 0.0499706, -0.191464, 0.145067, -0.25, -0.478563, -0.191366, -0.25, -0.46202, -0.188626, -0.15001, -0.35278, -0.0943618, 0.0499706, -0.17639, -0.0555991, 0.149961, -0.0832028, -0.0635278, 0.149961, -0.0773297, -0.0707713, 0.149961, -0.0707713, -0.0773297, 0.149961, -0.0635278, -0.0832028, 0.149961, -0.0555991, -0.17639, 0.0499706, -0.0943618, -0.35278, -0.15001, -0.188626, -0.46202, -0.25, -0.191366, -0.191464, 0.0499706, -0.0581441, -0.490407, -0.25, -0.097592, -0.298649, -0.0500196, -0.0294636, -0.200078, 0.0499706, 0, -0.298649, -0.0500196, 0.0293657, -0.490407, -0.25, 0.0974941, -0.191464, 0.0499706, 0.0580462, -0.46202, -0.25, 0.191269, -0.35278, -0.15001, 0.188528, -0.415818, -0.25, 0.277702, -0.231989, -0.0500196, 0.19029, -0.212216, -0.0500196, 0.212118, -0.190388, -0.0500196, 0.231891, -0.2778, -0.25, 0.41572, -0.188626, -0.15001, 0.352682, -0.235709, -0.25, 0.440877, -0.191366, -0.25, 0.461922, -0.145164, -0.25, 0.478465, -0.097592, -0.25, 0.490309, -0.0294636, -0.0500196, 0.298551, 0, -0.25, 0.5, 0.0489429, -0.25, 0.497553, 0.0974941, -0.25, 0.490309, 0.145067, -0.25, 0.478465, 0.191269, -0.25, 0.461922, 0.235611, -0.25, 0.440877, 0.277702, -0.25, 0.41572, 0.31715, -0.25, 0.386453, 0.212118, -0.0500196, 0.212118, 0.386453, -0.25, 0.31715, 0.41572, -0.25, 0.277702, 0.440877, -0.25, 0.235611, 0.461922, -0.25, 0.191269, 0.478465, -0.25, 0.145067, 0.490309, -0.25, 0.0974941, 0.497553, -0.25, 0.0489429, 0.5, -0.25, 0, 0.298551, -0.0500196, -0.0294636, 0.490309, -0.25, -0.097592, 0.478465, -0.25, -0.145164, 0.461922, -0.25, -0.191366, 0.440877, -0.25, -0.235709, 0.352682, -0.15001, -0.188626, 0.41572, -0.25, -0.2778, 0.231891, -0.0500196, -0.190388, 0.212118, -0.0500196, -0.212216, 0.19029, -0.0500196, -0.231989, 0.277702, -0.25, -0.415818, 0.188528, -0.15001, -0.35278, 0.191269, -0.25, -0.46202, -0.235709, -0.25, -0.440975, -0.2778, -0.25, -0.415818, -0.190388, -0.0500196, -0.231989, -0.212216, -0.0500196, -0.212216, -0.231989, -0.0500196, -0.190388, -0.415818, -0.25, -0.2778, -0.440975, -0.25, -0.235709, -0.478563, -0.25, -0.145164, -0.497651, -0.25, -0.0490407, -0.400059, -0.15001, 0, -0.497651, -0.25, 0.0489429, -0.478563, -0.25, 0.145067, -0.440975, -0.25, 0.235611, -0.386551, -0.25, 0.31715, -0.353563, -0.25, 0.353465, -0.317247, -0.25, 0.386453, -0.0490407, -0.25, 0.497553, 0.353465, -0.25, 0.353465, 0.497553, -0.25, -0.0490407, 0.386453, -0.25, -0.317247, 0.353465, -0.25, -0.353563, 0.31715, -0.25, -0.386551, 0.235611, -0.25, -0.440975, -0.317247, -0.25, -0.386551, -0.353563, -0.25, -0.353563, -0.386551, -0.25, -0.317247, -0.5, -0.25, 0)
 
 [sub_resource type="SphereMesh" id="SphereMesh_m5nti"]
 radius = 0.3
@@ -25,16 +25,24 @@ points = PackedVector3Array(-0.29966, -0.0143305, 0, -0.298252, -0.0143305, 0.02
 [sub_resource type="ViewportTexture" id="ViewportTexture_j2khk"]
 viewport_path = NodePath("SubViewport")
 
-[node name="Wisp" type="CharacterBody3D" groups=["allyUnit", "wisp"]]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_2l1rn"]
+height = 2.28674
+radius = 0.1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_spapg"]
+top_radius = 0.4
+bottom_radius = 0.4
+height = 0.01
+
+[node name="Wisp" type="CharacterBody3D" groups=["allyunit", "wisp"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.803554, 0)
+script = ExtResource("1_sikac")
+health = 100
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.84259, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74883, 0)
 mesh = SubResource("CylinderMesh_tctpm")
 surface_material_override/0 = SubResource("StandardMaterial3D_aegt4")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.84259, 0)
-shape = SubResource("ConvexPolygonShape3D_usm5v")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.43715, 0)
@@ -55,3 +63,15 @@ disable_3d = true
 transparent_bg = true
 
 [node name="HealthBar" parent="SubViewport" instance=ExtResource("1_hlm5u")]
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653904, 0)
+shape = SubResource("CylinderShape3D_2l1rn")
+
+[node name="SelectionCircle" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.459888, 0)
+visible = false
+mesh = SubResource("CylinderMesh_spapg")
+surface_material_override/0 = ExtResource("3_hvs4i")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

@@ -65,7 +65,7 @@ func _physics_process(delta):
 				walk()
 			else:
 				print("Dropped off!")
-				God.ruby += resourcesHolding
+				deliver()
 				resourcesHolding = 0
 				harvest(harvestUnit)
 		Task.GettingResources:
@@ -77,7 +77,7 @@ func _physics_process(delta):
 					runOnce = false
 					await get_tree().create_timer(2).timeout
 					runOnce = true
-					resourcesHolding = 10
+					resourcesHolding = harvestUnit.collect()
 					moveTo(Home)
 					currentTask = Task.Delivering
 					print("Harvested!")
@@ -116,7 +116,7 @@ func walk():
 	var targetPos = navAgent.get_next_path_position()
 	var direction = global_position.direction_to(targetPos)
 	
-	look_at(global_position + direction)
+	look_at(global_position + direction * Vector3(1, 0, 1))
 	velocity = direction * speed
 	move_and_slide()
 	
@@ -144,6 +144,12 @@ func attackUnit():
 func hurt(damage):
 	health -= damage
 	health_bar.value = health
+
+func deliver():
+	if harvestUnit.is_in_group("rubyclump"):
+		God.ruby += resourcesHolding
+	elif harvestUnit.is_in_group("tree"):
+		God.wood += resourcesHolding
 
 func select():
 	$SelectionCircle.show()

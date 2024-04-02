@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bq4o0287mqije"]
 
-[ext_resource type="Script" path="res://Scenes/resources/ResourceDemiGod.gd" id="1_h6hum"]
+[ext_resource type="Script" path="res://Scripts/resource.gd" id="1_cas2a"]
 [ext_resource type="ArrayMesh" uid="uid://tsnhho40qone" path="res://Assets/building_models/resources/diamond_teamRed.obj" id="2_mpaw5"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wcggq"]
@@ -12,8 +12,7 @@ height = 0.75
 radius = 0.454363
 
 [node name="RubyClump" type="StaticBody3D" groups=["resource", "rubyclump"]]
-script = ExtResource("1_h6hum")
-rubycapacity = 500
+script = ExtResource("1_cas2a")
 
 [node name="model" type="MeshInstance3D" parent="."]
 

@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://k2xfap81tes4"]
+[gd_scene load_steps=16 format=3 uid="uid://k2xfap81tes4"]
 
 [ext_resource type="PackedScene" uid="uid://bp7g3li82hkcv" path="res://Scenes/QOL/Environment.tscn" id="2_45h5i"]
 [ext_resource type="PackedScene" uid="uid://dwqdc3uym0exy" path="res://Scenes/UI/Camera.tscn" id="2_145ms"]
 [ext_resource type="PackedScene" uid="uid://x8tfgp16kvyg" path="res://Scenes/UI/Interface.tscn" id="3_arkqv"]
+[ext_resource type="PackedScene" uid="uid://8e2dxsytxibj" path="res://Scenes/Buildings/Tree.tscn" id="5_7mao5"]
 [ext_resource type="PackedScene" uid="uid://bq4o0287mqije" path="res://Scenes/resources/RubyClump.tscn" id="6_ievp1"]
 [ext_resource type="PackedScene" uid="uid://bej3fdfwiy5em" path="res://Scenes/Buildings/Townhall.tscn" id="6_n8msc"]
 [ext_resource type="Material" uid="uid://c11hcwrxcakjn" path="res://Assets/post_processing/pixelation_effect.tres" id="7_ehnja"]
@@ -60,6 +61,9 @@ transform = Transform3D(0.429153, 0, -0.615084, 0, 0.75, 0, 0.615084, 0, 0.42915
 
 [node name="RubyClump3" parent="Resources" instance=ExtResource("6_ievp1")]
 transform = Transform3D(-0.624163, 0, -0.648398, 0, 0.9, 0, 0.648398, 0, -0.624163, -2.3416, -3.02385, -6.09197)
+
+[node name="Tree" parent="Resources" instance=ExtResource("5_7mao5")]
+transform = Transform3D(1, 0, -3.27826e-07, 0, 1, 0, 3.27826e-07, 0, 1, -0.475182, -3.14286, -8.24707)
 
 [node name="Townhall" parent="." instance=ExtResource("6_n8msc")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -1, -0.110671, -6)
