@@ -43,9 +43,9 @@ func _process(delta):
 				var mouse_position_2d = God._get_curr_mouse_position_2D()
 				for unit in God.Selected_Units:
 					index += 1
-					if(God.Curr_Hovered_Object.is_in_group("resource") and unit.is_in_group("goblin")):
+					if(God.Curr_Hovered_Object.is_in_group("resource") and unit.is_in_group("gatherer")):
 						unit.harvest(God.Curr_Hovered_Object)
-					elif (God.Curr_Hovered_Object.is_in_group("townhall") and unit.is_in_group("goblin")):
+					elif (God.Curr_Hovered_Object.is_in_group("townhall") and unit.is_in_group("gatherer")):
 						unit.setDeliver()
 					elif God.Curr_Hovered_Object.is_in_group("enemy"):
 						unit.attack(God.Curr_Hovered_Object)
