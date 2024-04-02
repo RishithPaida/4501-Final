@@ -78,7 +78,7 @@ func attack():
 func walk():
 	var targetPos = navAgent.get_next_path_position()
 	var direction = global_position.direction_to(targetPos)
-	look_at(global_position + direction)
+	look_at(global_position + direction * Vector3(1, 0, 1))
 	velocity = direction * speed
 	
 	move_and_slide()

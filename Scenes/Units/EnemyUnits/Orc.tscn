@@ -27,13 +27,16 @@ albedo_color = Color(0.294118, 0.294118, 0.294118, 1)
 albedo_color = Color(0.294118, 0.294118, 0.294118, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fwyd6"]
-radius = 1.76902
+radius = 1.38163
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_2xxno"]
 viewport_path = NodePath("SubViewport")
 
 [node name="Orc" type="CharacterBody3D" groups=["enemyunit", "orc"]]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 script = ExtResource("1_kuw0h")
+speed = 1
+range = 2.5
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.644217, 0, -0.764843, 0, 1, 0, 0.764843, 0, 0.644217, 0, 1, 0)
