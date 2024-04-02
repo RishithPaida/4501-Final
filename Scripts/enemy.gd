@@ -55,6 +55,10 @@ func _process(delta):
 						attack()
 						
 						print("Attacked!")
+						
+				elif global_position.distance_to(targetUnit.global_position) > attackModeRange:
+					targetUnit = null
+					currentTask = Task.Idle
 				else:
 					navAgent.set_target_position(targetUnit.global_position)
 					walk()
@@ -74,6 +78,7 @@ func attack():
 func walk():
 	var targetPos = navAgent.get_next_path_position()
 	var direction = global_position.direction_to(targetPos)
+	look_at(global_position + direction)
 	velocity = direction * speed
 	
 	move_and_slide()

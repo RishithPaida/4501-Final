@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://blnr4ti1585bx"]
+[gd_scene load_steps=12 format=3 uid="uid://blnr4ti1585bx"]
 
 [ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_kuw0h"]
 [ext_resource type="Material" uid="uid://cok7uqxyjypk1" path="res://Shaders/orcskin.tres" id="1_r4j38"]
+[ext_resource type="PackedScene" uid="uid://0c6jslptgrnr" path="res://Scenes/UI/HealthBar.tscn" id="3_quw6l"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_3e1qn"]
 radius = 1.5
@@ -28,11 +29,14 @@ albedo_color = Color(0.294118, 0.294118, 0.294118, 1)
 [sub_resource type="SphereShape3D" id="SphereShape3D_fwyd6"]
 radius = 1.76902
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_2xxno"]
+viewport_path = NodePath("SubViewport")
+
 [node name="Orc" type="CharacterBody3D" groups=["enemyunit", "orc"]]
 script = ExtResource("1_kuw0h")
 
 [node name="Body" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(0.644217, 0, -0.764843, 0, 1, 0, 0.764843, 0, 0.644217, 0, 1, 0)
 mesh = SubResource("SphereMesh_3e1qn")
 surface_material_override/0 = SubResource("StandardMaterial3D_tkkya")
 
@@ -43,13 +47,13 @@ skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("1_r4j38")
 
 [node name="Ear" type="MeshInstance3D" parent="Body/Head"]
-transform = Transform3D(0.5, -0.521187, -0.691639, 0, 0.798636, -0.601815, 0.866025, 0.300907, 0.399318, -0.490723, 0.930433, 0.538906)
+transform = Transform3D(0.602854, -0.466687, -0.647124, -0.11653, 0.750884, -0.650073, 0.789295, 0.467308, 0.398291, -0.490723, 0.925024, 0.538906)
 mesh = SubResource("CylinderMesh_u5gf7")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_2ohh2")
 
 [node name="Ear2" type="MeshInstance3D" parent="Body/Head"]
-transform = Transform3D(0.5, 0.521187, -0.691639, 0, 0.798636, 0.601815, 0.866025, -0.300907, 0.399318, 0.692861, 0.939067, -0.550287)
+transform = Transform3D(0.8944, 0.383942, -0.229429, -0.102351, 0.675037, 0.730651, 0.4354, -0.630011, 0.64305, 0.514577, 0.823068, -0.730896)
 mesh = SubResource("CylinderMesh_u5gf7")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_a0wlb")
@@ -57,3 +61,17 @@ surface_material_override/0 = SubResource("StandardMaterial3D_a0wlb")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6591, 0)
 shape = SubResource("SphereShape3D_fwyd6")
+
+[node name="HealthDisplay" type="Sprite3D" parent="."]
+transform = Transform3D(0.663877, 0, 0, 0, 0.667339, 0, 0, 0, 0.707986, 0, 4.00816, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_2xxno")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+
+[node name="HealthBar" parent="SubViewport" instance=ExtResource("3_quw6l")]
+value = 0.0
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]

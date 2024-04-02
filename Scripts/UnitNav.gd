@@ -115,8 +115,9 @@ func harvest(resource):
 func walk():
 	var targetPos = navAgent.get_next_path_position()
 	var direction = global_position.direction_to(targetPos)
-	velocity = direction * speed
 	
+	look_at(global_position + direction)
+	velocity = direction * speed
 	move_and_slide()
 	
 	

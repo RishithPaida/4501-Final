@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://k2xfap81tes4"]
+[gd_scene load_steps=15 format=3 uid="uid://k2xfap81tes4"]
 
 [ext_resource type="PackedScene" uid="uid://bp7g3li82hkcv" path="res://Scenes/QOL/Environment.tscn" id="2_45h5i"]
 [ext_resource type="PackedScene" uid="uid://dwqdc3uym0exy" path="res://Scenes/UI/Camera.tscn" id="2_145ms"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bej3fdfwiy5em" path="res://Scenes/Buildings/Townhall.tscn" id="6_n8msc"]
 [ext_resource type="Material" uid="uid://c11hcwrxcakjn" path="res://Assets/post_processing/pixelation_effect.tres" id="7_ehnja"]
 [ext_resource type="PackedScene" uid="uid://bsgvrauwfwqr6" path="res://Scenes/Units/EnemyUnits/CrazyWizard.tscn" id="7_fvopb"]
+[ext_resource type="PackedScene" uid="uid://blnr4ti1585bx" path="res://Scenes/Units/EnemyUnits/Orc.tscn" id="8_4omkm"]
 
 [sub_resource type="Environment" id="Environment_7c0pw"]
 ssao_enabled = true
@@ -20,8 +21,9 @@ adjustment_contrast = 0.9
 material = ExtResource("7_ehnja")
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_anbbj"]
-vertices = PackedVector3Array(-99.5, 0.5, -99.5, -99.5, 0.5, 99.5, 99.5, 0.5, 99.5, 99.5, 0.5, -99.5)
+vertices = PackedVector3Array(-99.5, 0.02, -99.5, -99.5, 0.02, 99.5, 99.5, 0.02, 99.5, 99.5, 0.02, -99.5)
 polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+cell_height = 0.01
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_aqe4g"]
 size = Vector2(200, 200)
@@ -99,10 +101,10 @@ collision_layer = 3
 shape = SubResource("ConvexPolygonShape3D_gsg6c")
 
 [node name="CrazyWizard" parent="." instance=ExtResource("7_fvopb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13.0169)
-
-[node name="CrazyWizard2" parent="." instance=ExtResource("7_fvopb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.18353, 0, 13.2961)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.9454, 0, 13.0169)
 
 [node name="CrazyWizard3" parent="." instance=ExtResource("7_fvopb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1545, 0, 7.22514)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.0992, 0, 7.22514)
+
+[node name="Orc" parent="." instance=ExtResource("8_4omkm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.2926)
