@@ -18,6 +18,8 @@ var Curr_Hovered_Building : StaticBody3D
 var Curr_Selected_Building_Scene :PackedScene
 var Curr_Selected_Building_To_Build : StaticBody3D
 
+
+
 var can_build := true
 # Called when the node enters the scene tree for the first time.
 
@@ -69,10 +71,11 @@ func Build(building):
 func Place_Selected_Building(building):
 	if can_build and Check_If_Affordable(Curr_Selected_Building_To_Build):
 		var my_building = Curr_Selected_Building_Scene.instantiate()
-		get_tree().root.add_child(my_building)
+		get_tree().get_nodes_in_group("buildingHolder")[0].add_child(my_building)
 		my_building.position = Curr_Selected_Building_To_Build.position
 		Purchase_Building(my_building)
 		my_building.set_name(Curr_Selected_Building_To_Build.get_name())
+		get_tree().get_nodes_in_group("NavMesh")[0].bake_navigation_mesh(true)
 	else:
 		#print("TOO POOR")
 		pass

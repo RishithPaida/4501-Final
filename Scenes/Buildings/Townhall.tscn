@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://48lj57wdb4d4" path="res://Shaders/blue.tres" id="4_877oc"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p26ri"]
+size = Vector3(0.5, 1, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8dge7"]
 
@@ -29,7 +30,7 @@ mesh = ExtResource("3_kqmab")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -0.000162601, 1.01037, -0.00256205)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
 shape = SubResource("BoxShape3D_p26ri")
 
 [node name="Area3D" type="Area3D" parent="." groups=["building"]]

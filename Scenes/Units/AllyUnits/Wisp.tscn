@@ -29,10 +29,9 @@ viewport_path = NodePath("SubViewport")
 height = 2.28674
 radius = 0.1
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_spapg"]
-top_radius = 0.4
-bottom_radius = 0.4
-height = 0.01
+[sub_resource type="TorusMesh" id="TorusMesh_yo8sn"]
+inner_radius = 0.253
+outer_radius = 0.326
 
 [node name="Wisp" type="CharacterBody3D" groups=["allyunit", "wisp"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.803554, 0)
@@ -68,10 +67,10 @@ transparent_bg = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653904, 0)
 shape = SubResource("CylinderShape3D_2l1rn")
 
-[node name="SelectionCircle" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.459888, 0)
-visible = false
-mesh = SubResource("CylinderMesh_spapg")
-surface_material_override/0 = ExtResource("3_hvs4i")
-
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="SelectionCircle" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.453892, 0)
+visible = false
+mesh = SubResource("TorusMesh_yo8sn")
+surface_material_override/0 = ExtResource("3_hvs4i")

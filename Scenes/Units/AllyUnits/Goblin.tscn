@@ -25,8 +25,9 @@ height = 0.5
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0itqe"]
 albedo_color = Color(0.701961, 0.458824, 0.235294, 1)
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_n6irq"]
-height = 0.01
+[sub_resource type="TorusMesh" id="TorusMesh_u4uj3"]
+inner_radius = 0.253
+outer_radius = 0.326
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_af4xn"]
 
@@ -38,6 +39,7 @@ collision_layer = 2
 script = ExtResource("1_maasj")
 health = 50
 rubycost = 25
+range = 3.0
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 navigation_layers = 3
@@ -66,7 +68,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_0itqe")
 [node name="SelectionCircle" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.367788, 0)
 visible = false
-mesh = SubResource("CylinderMesh_n6irq")
+mesh = SubResource("TorusMesh_u4uj3")
 surface_material_override/0 = ExtResource("2_hu62o")
 
 [node name="Area3D" type="Area3D" parent="."]
