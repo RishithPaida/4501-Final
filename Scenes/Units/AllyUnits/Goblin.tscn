@@ -33,14 +33,11 @@ height = 0.01
 [sub_resource type="ViewportTexture" id="ViewportTexture_6hfo3"]
 viewport_path = NodePath("SubViewport")
 
-[node name="CharacterBody3D" type="CharacterBody3D" groups=["allyunit", "goblin"]]
+[node name="CharacterBody3D" type="CharacterBody3D" groups=["allyunit", "gatherer"]]
 collision_layer = 2
 script = ExtResource("1_maasj")
 health = 50
 rubycost = 25
-canAttack = false
-attackDamage = 10.0
-attackModeRange = 3
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 navigation_layers = 3
