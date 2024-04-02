@@ -19,6 +19,7 @@ func _process(delta):
 	
 	var panels = get_panels()
 	# Nothing selected
+	
 	if God.Selected_Object == null:
 		change_ui(panels, 'buildingpanel')
 		# UI for build mode
@@ -29,7 +30,10 @@ func _process(delta):
 		for group in Curr_Interface:
 			if group not in shared_groups:
 				change_ui(panels, group)
-
+	# Top layer
+	if God.Selected_Units.size() > 1:
+		change_ui(panels, 'selectedunits')
+		
 # =================================User Interface=================================
 
 func change_ui(panels, group):
@@ -38,10 +42,15 @@ func change_ui(panels, group):
 			panel.visible = true
 			enable_buttons_in_panel(panel)
 			update_labels(panel)
+			show_selected_units(panel)
 			Curr_Panel = panel
 		else:
 			panel.visible = false
 			disable_buttons_in_panel(panel)
+
+func show_selected_units(panel):
+	for child in panel.get_children():
+		pass
 
 func update_labels(panel):
 	for child in panel.get_children():
@@ -59,15 +68,6 @@ func update_labels(panel):
 					elif value.get_name() == 'RubyCap':
 						value.text = str(God.Selected_Object.capacity)
 
-# =================================Visibility=================================
-
-func get_panels():
-	var panel_list: Array = []
-	for child in get_children():
-		if child is Panel:
-			panel_list.append(child)
-	return panel_list
-
 func enable_buttons_in_panel(panel_node):
 	for child in panel_node.get_children():
 		if child is Button:
@@ -77,6 +77,14 @@ func disable_buttons_in_panel(panel_node):
 	for child in panel_node.get_children():
 		if child is Button:
 			child.disabled = true
+# =================================Visibility=================================
+
+func get_panels():
+	var panel_list: Array = []
+	for child in get_children():
+		if child is Panel:
+			panel_list.append(child)
+	return panel_list
 
 func _on_ui_area_area_entered(area):
 	if area.is_in_group("mouse_area"):

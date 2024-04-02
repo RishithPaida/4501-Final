@@ -72,6 +72,9 @@ func select_units(m_pos):
 		for unit in new_selected_units:
 			unit.select()
 		God.Selected_Units = new_selected_units
+		if new_selected_units.size() == 1:
+			for unit in God.Selected_Units:
+				God.Selected_Object = unit
 		
 func get_units_in_box(top_left, bot_right):
 	if top_left.x > bot_right.x:

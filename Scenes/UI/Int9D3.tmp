@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://x8tfgp16kvyg"]
+[gd_scene load_steps=9 format=3 uid="uid://x8tfgp16kvyg"]
 
 [ext_resource type="FontFile" uid="uid://b1qhc2v2pagr7" path="res://Scenes/Menus/fontpack/Trajan Bold.ttf" id="1_gtamm"]
 [ext_resource type="Script" path="res://Scripts/InterfaceGod.gd" id="1_kttu8"]
 [ext_resource type="Script" path="res://Scripts/MouseArea.gd" id="2_n8ouk"]
 [ext_resource type="Script" path="res://Scenes/UI/Container.gd" id="4_to488"]
-[ext_resource type="Texture2D" uid="uid://ccjl5h2tjm483" path="res://Assets/unit_models/allies/farmers/gatherer.png" id="5_xvnum"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_xbuhx"]
 color = Color(1, 1, 0, 1)
@@ -469,42 +468,33 @@ offset_right = 272.0
 offset_bottom = 24.0
 text = "100"
 
-[node name="TEMP" type="Panel" parent="."]
-visible = false
+[node name="SelectedUnitsPanel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 508.0
-offset_top = -117.0
-offset_right = -714.0
+offset_top = -302.63
+offset_bottom = -185.63
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Container" type="Container" parent="TEMP"]
+[node name="Container" type="Container" parent="SelectedUnitsPanel"]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("4_to488")
 
-[node name="GridContainer" type="GridContainer" parent="TEMP/Container"]
+[node name="GridContainer" type="GridContainer" parent="SelectedUnitsPanel/Container"]
 layout_mode = 2
 
-[node name="ReferenceRect" type="ReferenceRect" parent="TEMP"]
+[node name="ReferenceRect" type="ReferenceRect" parent="SelectedUnitsPanel"]
 layout_mode = 0
 offset_left = 45.0
 offset_top = 11.1111
 offset_right = 119.0
 offset_bottom = 80.1111
 border_color = Color(0, 0.847059, 0.27451, 1)
-editor_only = false
-
-[node name="TextureRect" type="TextureRect" parent="TEMP/ReferenceRect"]
-layout_mode = 0
-offset_right = 74.0
-offset_bottom = 69.0
-texture = ExtResource("5_xvnum")
 
 [connection signal="area_entered" from="UI Area" to="." method="_on_ui_area_area_entered"]
 [connection signal="area_exited" from="UI Area" to="." method="_on_ui_area_area_exited"]
