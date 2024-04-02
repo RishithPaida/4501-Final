@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://mfonp38n8p1t"]
 
-[ext_resource type="Script" path="res://Scripts/KnightUnitNav.gd" id="1_apm38"]
+[ext_resource type="Script" path="res://Scripts/UnitNav.gd" id="1_hxfmr"]
 [ext_resource type="Material" uid="uid://b0svmnbtos4go" path="res://Shaders/skin.tres" id="1_j0214"]
 [ext_resource type="Material" uid="uid://48lj57wdb4d4" path="res://Shaders/blue.tres" id="3_uqiff"]
 [ext_resource type="PackedScene" uid="uid://0c6jslptgrnr" path="res://Scenes/UI/HealthBar.tscn" id="4_4o5v5"]
@@ -61,9 +61,9 @@ viewport_path = NodePath("SubViewport")
 
 [node name="Knight" type="CharacterBody3D" groups=["allyunit", "knight"]]
 collision_layer = 2
-script = ExtResource("1_apm38")
+script = ExtResource("1_hxfmr")
 health = 100
-speed = 2
+attackModeRange = 10
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838395, 0)

@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://blnr4ti1585bx"]
+[gd_scene load_steps=10 format=3 uid="uid://blnr4ti1585bx"]
 
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_kuw0h"]
 [ext_resource type="Material" uid="uid://cok7uqxyjypk1" path="res://Shaders/orcskin.tres" id="1_r4j38"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_3e1qn"]
@@ -28,6 +29,7 @@ albedo_color = Color(0.294118, 0.294118, 0.294118, 1)
 radius = 1.76902
 
 [node name="Orc" type="CharacterBody3D" groups=["enemyunit", "orc"]]
+script = ExtResource("1_kuw0h")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

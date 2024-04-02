@@ -38,6 +38,7 @@ collision_layer = 2
 script = ExtResource("1_maasj")
 health = 50
 rubycost = 25
+canAttack = false
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 navigation_layers = 3

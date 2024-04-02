@@ -5,7 +5,8 @@ enum Task{
 	Selected,
 	GettingResources,
 	Walking,
-	Delivering
+	Delivering,
+	Attacking,
 }
 
 var currentTask = Task.Idle
@@ -13,6 +14,7 @@ var resourcesHolding = 0
 var Home
 
 var harvestUnit
+var targetUnit
 var runOnce = true
 @export var speed = 2
 
@@ -25,22 +27,38 @@ var runOnce = true
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var health_bar = $SubViewport/HealthBar
 
+@export var canAttack: bool = true
+@export var attackSpeed: float = 1.0
+@export var range: float = 2.0
+@export var attackDamage: float = 50
+@export var attackModeRange: int = 5
+
 func _ready() -> void:
 
 	health_bar.max_value = health 
-	
-	
-
+	health_bar.value = health
 
 func _physics_process(delta):
 	
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 		move_and_slide()
-		
+
+	if health <= 0:
+		God.Selected_Units.erase(self)
+		queue_free()
+
 	match currentTask:
 		Task.Idle:
-			pass
+			var enemyList = get_tree().get_nodes_in_group("enemy")
+			for enemy in enemyList:
+				if global_position.distance_to(enemy.global_position) < attackModeRange:
+					targetUnit = enemy
+					attack(targetUnit)
+					currentTask = Task.Attacking
+					#print("found another enemy")
+					break
+				
 		Task.Delivering:
 			if(global_position.distance_to(Home) > 1):
 				#print(position.distance_to(Home.global_position))
@@ -51,7 +69,7 @@ func _physics_process(delta):
 				resourcesHolding = 0
 				harvest(harvestUnit)
 		Task.GettingResources:
-			if(position.distance_to(harvestUnit.global_position) > 2):
+			if(global_position.distance_to(harvestUnit.global_position) > range):
 				#print(position.distance_to(harvestUnit.global_position))
 				walk()
 			else:
@@ -65,9 +83,22 @@ func _physics_process(delta):
 					print("Harvested!")
 		Task.Walking:
 			if(navAgent.is_navigation_finished()):
-				Task.Idle
-			
+				currentTask = Task.Idle
 			walk()
+		Task.Attacking:
+			if(targetUnit != null):
+				if global_position.distance_to(targetUnit.global_position) < range :
+					if runOnce:
+						runOnce = false
+						await get_tree().create_timer(attackSpeed).timeout
+						runOnce = true
+						attackUnit()
+						print("Attacked!")
+				else:
+					navAgent.set_target_position(targetUnit.global_position)
+					walk()
+			else:
+				currentTask = Task.Idle
 	
 	#print(currentTask)
 
@@ -95,6 +126,23 @@ func setDeliver():
 		return
 	moveTo(Home)
 	currentTask = Task.Delivering
+	
+
+func attack(enemy):
+	if canAttack:
+		targetUnit = enemy
+		moveTo(enemy.global_position)
+		currentTask = Task.Attacking
+
+func attackUnit():
+	if targetUnit != null :
+		targetUnit.hurt(attackDamage)
+	else:
+		targetUnit = null
+
+func hurt(damage):
+	health -= damage
+	health_bar.value = health
 
 func select():
 	$SelectionCircle.show()

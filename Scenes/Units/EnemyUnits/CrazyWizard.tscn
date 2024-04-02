@@ -1,6 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://bsgvrauwfwqr6"]
+[gd_scene load_steps=13 format=3 uid="uid://bsgvrauwfwqr6"]
 
 [ext_resource type="Material" uid="uid://b0svmnbtos4go" path="res://Shaders/skin.tres" id="1_okj8y"]
+[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_xy5jo"]
+[ext_resource type="PackedScene" uid="uid://0c6jslptgrnr" path="res://Scenes/UI/HealthBar.tscn" id="3_lj633"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_bc0mw"]
 radius = 0.3
@@ -29,7 +31,12 @@ height = 0.4
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uv4bq"]
 
-[node name="CrazyWizard" type="CharacterBody3D" groups=["crazywizard", "enemyunit"]]
+[sub_resource type="ViewportTexture" id="ViewportTexture_xv71t"]
+viewport_path = NodePath("SubViewport")
+
+[node name="CrazyWizard" type="CharacterBody3D" groups=["crazywizard", "enemy"]]
+collision_layer = 2
+script = ExtResource("1_xy5jo")
 
 [node name="Body" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.838395, 0)
@@ -70,3 +77,17 @@ surface_material_override/0 = ExtResource("1_okj8y")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.06874, 0)
 shape = SubResource("CapsuleShape3D_uv4bq")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="HealthDisplay" type="Sprite3D" parent="."]
+transform = Transform3D(0.663877, 0, 0, 0, 0.667339, 0, 0, 0, 0.707986, 0, 2.35081, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_xv71t")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+
+[node name="HealthBar" parent="SubViewport" instance=ExtResource("3_lj633")]
+value = 0.0
