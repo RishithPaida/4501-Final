@@ -42,7 +42,7 @@ func Spawn(unit):
 	var spawned = unit.instantiate()
 	get_tree().root.add_child(spawned)
 	spawned.global_position = God.Curr_Selected_Building.get_node("SpawnPoint").global_position
-	if spawned.is_in_group("goblin"):
+	if spawned.is_in_group("gatherer"):
 		spawned.Home = God.Curr_Selected_Building.get_node("SpawnPoint").global_position
 	
 func SayHi():
