@@ -12,6 +12,7 @@ enum Task{
 var currentTask = Task.Idle
 var resourcesHolding = 0
 var Home
+var rand_animation = RandomNumberGenerator.new()
 
 var harvestUnit
 var targetUnit
@@ -26,6 +27,7 @@ var runOnce = true
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var health_bar = $SubViewport/HealthBar
+@onready var animation_player = $AnimationPlayer
 
 @export var canAttack: bool = true
 @export var attackSpeed: float = 1.0
@@ -34,7 +36,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var attackModeRange: int = 5
 
 func _ready() -> void:
-
 	health_bar.max_value = health 
 	health_bar.value = health
 
@@ -50,6 +51,8 @@ func _physics_process(delta):
 
 	match currentTask:
 		Task.Idle:
+			animation_player.current_animation = "Idle"
+			#animate_either("Idle", "2H_Melee_Idle")
 			var enemyList = get_tree().get_nodes_in_group("enemy")
 			for enemy in enemyList:
 				if global_position.distance_to(enemy.global_position) < attackModeRange:
@@ -68,6 +71,7 @@ func _physics_process(delta):
 				deliver()
 				resourcesHolding = 0
 				harvest(harvestUnit)
+				
 		Task.GettingResources:
 			if(global_position.distance_to(harvestUnit.global_position) > range):
 				#print(position.distance_to(harvestUnit.global_position))
@@ -81,15 +85,19 @@ func _physics_process(delta):
 					moveTo(Home)
 					currentTask = Task.Delivering
 					print("Harvested!")
+					
 		Task.Walking:
 			if(navAgent.is_navigation_finished()):
 				currentTask = Task.Idle
 			walk()
+			animation_player.current_animation = "Running_A"
+			
 		Task.Attacking:
 			if(targetUnit != null):
 				if global_position.distance_to(targetUnit.global_position) < range :
 					if runOnce:
 						runOnce = false
+						animation_player.current_animation = "1H_Melee_Attack_Chop"
 						await get_tree().create_timer(attackSpeed).timeout
 						runOnce = true
 						attackUnit()
@@ -119,7 +127,6 @@ func walk():
 	look_at(global_position + direction * Vector3(1, 0, 1))
 	velocity = direction * speed
 	move_and_slide()
-	
 	
 
 func setDeliver():

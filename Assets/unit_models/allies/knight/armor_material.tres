@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bmitfved6r4tb"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_85hnv"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3hdwo"]
+noise = SubResource("FastNoiseLite_85hnv")
+
+[resource]
+disable_ambient_light = true
+disable_fog = true
+albedo_color = Color(0.223529, 0.223529, 0.223529, 1)
+metallic = 0.85
+roughness_texture = SubResource("NoiseTexture2D_3hdwo")
