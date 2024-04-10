@@ -51,7 +51,7 @@ func _physics_process(delta):
 
 	match currentTask:
 		Task.Idle:
-			animation_player.current_animation = "Idle"
+			#animation_player.current_animation = "Idle"
 			#animate_either("Idle", "2H_Melee_Idle")
 			var enemyList = get_tree().get_nodes_in_group("enemy")
 			for enemy in enemyList:
@@ -90,14 +90,14 @@ func _physics_process(delta):
 			if(navAgent.is_navigation_finished()):
 				currentTask = Task.Idle
 			walk()
-			animation_player.current_animation = "Running_A"
+			#animation_player.current_animation = "Running_A"
 			
 		Task.Attacking:
 			if(targetUnit != null):
 				if global_position.distance_to(targetUnit.global_position) < range :
 					if runOnce:
 						runOnce = false
-						animation_player.current_animation = "1H_Melee_Attack_Chop"
+						#animation_player.current_animation = "1H_Melee_Attack_Chop"
 						await get_tree().create_timer(attackSpeed).timeout
 						runOnce = true
 						attackUnit()
