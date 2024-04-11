@@ -21,6 +21,7 @@ God="*res://Scripts/God.gd"
 BuildingGod="*res://Scripts/BuildingGod.gd"
 ControlGod="*res://Scripts/ControlGod.gd"
 UnitGod="*res://Scripts/UnitGod.gd"
+EnemyGod="*res://Scripts/EnemyGod.gd"
 
 [display]
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bej3fdfwiy5em"]
+[gd_scene load_steps=10 format=3 uid="uid://bej3fdfwiy5em"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingDemiGod.gd" id="1_fuail"]
 [ext_resource type="PackedScene" uid="uid://duj0jarfvkgt3" path="res://Scenes/Units/AllyUnits/Goblin.tscn" id="2_tuhgu"]
 [ext_resource type="ArrayMesh" uid="uid://b4hb2ikntfjyo" path="res://Assets/building_models/buildings/castle.obj" id="3_kqmab"]
 [ext_resource type="Material" uid="uid://48lj57wdb4d4" path="res://Shaders/blue.tres" id="4_877oc"]
+[ext_resource type="PackedScene" uid="uid://0c6jslptgrnr" path="res://Scenes/UI/HealthBar.tscn" id="5_67ll0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_p26ri"]
 size = Vector3(0.5, 1, 0.5)
@@ -15,7 +16,10 @@ top_radius = 1.1
 bottom_radius = 1.1
 height = 0.01
 
-[node name="Townhall" type="StaticBody3D" groups=["building", "townhall"]]
+[sub_resource type="ViewportTexture" id="ViewportTexture_2su2x"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Townhall" type="StaticBody3D" groups=["allybuilding", "building", "townhall"]]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("1_fuail")
 health = 1000
@@ -47,6 +51,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
 visible = false
 mesh = SubResource("CylinderMesh_6gmxa")
 surface_material_override/0 = ExtResource("4_877oc")
+
+[node name="HealthDisplay" type="Sprite3D" parent="."]
+transform = Transform3D(0.663877, 0, 0, 0, 0.667339, 0, 0, 0, 0.707986, 0.0390726, 3.97925, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_2su2x")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+
+[node name="HealthBar" parent="SubViewport" instance=ExtResource("5_67ll0")]
+value = 0.0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

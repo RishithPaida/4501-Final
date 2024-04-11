@@ -12,9 +12,12 @@ var curr_building_collisions = 0
 
 @export var spawnable_units = []
 
+@onready var health_bar = $SubViewport/HealthBar
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	health_bar.max_value = health 
+	health_bar.value = health
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,3 +50,10 @@ func Spawn(unit):
 	
 func SayHi():
 	print("HI :3")
+
+func hit(damage):
+	health -= damage
+	health_bar.value = health
+	
+	if(health <= 0):
+		queue_free()

@@ -1,13 +1,14 @@
-[gd_scene load_steps=18 format=3 uid="uid://k2xfap81tes4"]
+[gd_scene load_steps=19 format=3 uid="uid://k2xfap81tes4"]
 
 [ext_resource type="PackedScene" uid="uid://bp7g3li82hkcv" path="res://Scenes/QOL/Environment.tscn" id="2_45h5i"]
 [ext_resource type="PackedScene" uid="uid://dwqdc3uym0exy" path="res://Scenes/UI/Camera.tscn" id="2_145ms"]
 [ext_resource type="PackedScene" uid="uid://x8tfgp16kvyg" path="res://Scenes/UI/Interface.tscn" id="3_arkqv"]
-[ext_resource type="PackedScene" uid="uid://8e2dxsytxibj" path="res://Scenes/Buildings/Tree.tscn" id="5_7mao5"]
+[ext_resource type="PackedScene" uid="uid://g14ci10p5g3a" path="res://Scenes/Buildings/Tree.tscn" id="5_7mao5"]
 [ext_resource type="PackedScene" uid="uid://bq4o0287mqije" path="res://Scenes/resources/RubyClump.tscn" id="6_ievp1"]
 [ext_resource type="Material" uid="uid://c11hcwrxcakjn" path="res://Assets/post_processing/pixelation_effect.tres" id="7_ehnja"]
 [ext_resource type="Shader" path="res://Shaders/water.gdshader" id="8_efh7p"]
 [ext_resource type="PackedScene" uid="uid://bm564i3o33xhg" path="res://Scenes/Maps/Heightmap.tscn" id="8_s71f8"]
+[ext_resource type="PackedScene" uid="uid://dbkmma3hl2b7f" path="res://Scenes/Buildings/EnemyBarracks.tscn" id="9_mynom"]
 
 [sub_resource type="Environment" id="Environment_7c0pw"]
 ssao_enabled = true
@@ -226,3 +227,6 @@ surface_material_override/0 = SubResource("ShaderMaterial_3ktiv")
 
 [node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="NavigationRegion3D/MeshInstance3D"]
 radius = 18.1
+
+[node name="EnemyBarracks" parent="." instance=ExtResource("9_mynom")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.4066, 2.09383, -61.2853)

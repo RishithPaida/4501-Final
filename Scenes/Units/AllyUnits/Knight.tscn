@@ -4,9 +4,8 @@
 [ext_resource type="Material" uid="uid://48lj57wdb4d4" path="res://Shaders/blue.tres" id="3_uqiff"]
 [ext_resource type="PackedScene" uid="uid://0c6jslptgrnr" path="res://Scenes/UI/HealthBar.tscn" id="4_4o5v5"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dhai4"]
-radius = 0.7
-height = 2.2
+[sub_resource type="SphereShape3D" id="SphereShape3D_w3150"]
+radius = 0.111159
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_kdxr8"]
 viewport_path = NodePath("SubViewport")
@@ -23,8 +22,8 @@ script = ExtResource("1_8pk16")
 health = 100
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.22672, 0)
-shape = SubResource("CapsuleShape3D_dhai4")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.334675, 0)
+shape = SubResource("SphereShape3D_w3150")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." groups=["allyUnit", "knight"]]
 avoidance_enabled = true

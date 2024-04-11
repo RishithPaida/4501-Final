@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://d5gys6o7ujqr"]
+[gd_scene load_steps=21 format=3 uid="uid://d5gys6o7ujqr"]
 
 [ext_resource type="Script" path="res://Scripts/BuildingDemiGod.gd" id="1_uf2p1"]
 [ext_resource type="PackedScene" uid="uid://mfonp38n8p1t" path="res://Scenes/Units/AllyUnits/Knight.tscn" id="2_lhgkh"]
 [ext_resource type="ArrayMesh" uid="uid://cfyivpkxo5p7v" path="res://Scenes/Buildings/barracks.obj" id="2_wyhnd"]
 [ext_resource type="Shader" path="res://Shaders/Highlight.gdshader" id="3_8gcb4"]
 [ext_resource type="PackedScene" uid="uid://by2f35dwgm0gt" path="res://Scenes/Units/AllyUnits/Wisp.tscn" id="3_m7c4a"]
+[ext_resource type="PackedScene" uid="uid://0c6jslptgrnr" path="res://Scenes/UI/HealthBar.tscn" id="6_dwk84"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_n3bvv"]
 render_priority = 0
@@ -69,9 +70,13 @@ metallic = 0.5
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_imjo3"]
 points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
 
-[node name="Barracks" type="StaticBody3D" groups=["barracks", "building"]]
+[sub_resource type="ViewportTexture" id="ViewportTexture_udh6d"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Barracks" type="StaticBody3D" groups=["allybuilding", "barracks", "building"]]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 script = ExtResource("1_uf2p1")
+health = 150
 spawnable_units = [ExtResource("2_lhgkh"), ExtResource("3_m7c4a")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -99,6 +104,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.772885)
 
 [node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="."]
 radius = 2.25
+
+[node name="HealthDisplay" type="Sprite3D" parent="."]
+transform = Transform3D(0.46, 0, 0, 0, 0.462, 0, 0, 0, 0.49, 0, 1.26682, 0)
+billboard = 1
+texture = SubResource("ViewportTexture_udh6d")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+
+[node name="HealthBar" parent="SubViewport" instance=ExtResource("6_dwk84")]
+value = 0.0
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

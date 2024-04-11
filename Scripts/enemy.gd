@@ -5,11 +5,13 @@ extends CharacterBody3D
 
 enum Task{
 	Idle,
-	Attacking
+	Attacking,
+	AttackingBuilding
 }
 
 var currentTask = Task.Idle
 var targetUnit
+var targetBuilding = null
 
 var runOnce = true
 @export var speed = 2
@@ -37,14 +39,9 @@ func _process(delta):
 		
 	match currentTask:
 		Task.Idle:
-			var enemyList = get_tree().get_nodes_in_group("allyunit")
-			var enemyFound = false
-			for enemy in enemyList:
-				if global_position.distance_to(enemy.global_position) < attackModeRange:
-					targetUnit = enemy
-					enemyFound = true
-					currentTask = Task.Attacking
-					break
+			if(targetBuilding != null):
+				currentTask =Task.AttackingBuilding
+			checkForEnemy()
 		Task.Attacking:
 			if(targetUnit != null):
 				if global_position.distance_to(targetUnit.global_position) < range :
@@ -64,6 +61,23 @@ func _process(delta):
 					walk()
 			else:
 				currentTask = Task.Idle
+		Task.AttackingBuilding:
+			checkForEnemy()
+			if(currentTask == Task.Attacking):
+				pass
+			elif(targetBuilding != null):
+				if global_position.distance_to(targetBuilding.global_position) < range * 2 :
+					if runOnce:
+						runOnce = false
+						await get_tree().create_timer(attackSpeed).timeout
+						runOnce = true
+						attackBuilding()
+						print("Attacked!")
+				else:
+					navAgent.set_target_position(targetBuilding.global_position)
+					walk()
+			else:
+				currentTask = Task.Idle
 
 func hurt(damage):
 	health -= damage
@@ -75,6 +89,10 @@ func attack():
 	else:
 		targetUnit = null
 
+func attackBuilding():
+	if(targetBuilding != null):
+		targetBuilding.hit(attackDamage)
+
 func walk():
 	var targetPos = navAgent.get_next_path_position()
 	var direction = global_position.direction_to(targetPos)
@@ -82,3 +100,29 @@ func walk():
 	velocity = direction * speed
 	
 	move_and_slide()
+
+func checkForEnemy():
+	var enemyList = get_tree().get_nodes_in_group("allyunit")
+	var enemyFound = false
+	for enemy in enemyList:
+		if global_position.distance_to(enemy.global_position) < attackModeRange:
+			targetUnit = enemy
+			enemyFound = true
+			currentTask = Task.Attacking
+			break
+	if(enemyFound == false):
+		checkForBuilding()
+
+func checkForBuilding():
+	var buildingList = get_tree().get_nodes_in_group("allybuilding")
+	var buildingFound = false
+	for building in buildingList:
+		if global_position.distance_to(building.global_position) < attackModeRange * 5:
+			targetBuilding = building
+			buildingFound = true
+			currentTask = Task.AttackingBuilding
+			break
+
+func setTargetBuilding(building):
+	targetBuilding = building
+	currentTask = Task.AttackingBuilding

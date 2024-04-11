@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbkmma3hl2b7f"]
 
-[ext_resource type="Script" path="res://Scenes/Buildings/EnemyBarracks.gd" id="1_o0cv4"]
+[ext_resource type="Script" path="res://Scripts/enemyBarracks.gd" id="1_o0cv4"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_r87el"]
 top_radius = 0.0
@@ -23,7 +23,6 @@ shape = SubResource("ConvexPolygonShape3D_gbyri")
 [node name="WaveTimer" type="Timer" parent="."]
 wait_time = 20.0
 one_shot = true
-autostart = true
 
 [node name="SpawnPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.56531)
