@@ -11,7 +11,9 @@ var Waves = [
 ]
 
 var curr_wave = []
+@export var health : int = 100
 @onready var spawn_timer = $WaveTimer
+@onready var health_bar = $SubViewport/HealthBar
 @onready var orc_training_time= 2.0
 @onready var wizard_training_time = 3.0
 
@@ -21,7 +23,8 @@ var Orc : PackedScene = ResourceLoader.load("res://Scenes/Units/EnemyUnits/Orc.t
 var Wizard : PackedScene = ResourceLoader.load("res://Scenes/Units/EnemyUnits/CrazyWizard.tscn")
 #Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	health_bar.max_value = health
+	health_bar.value = health
 
 
 #Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -60,6 +63,12 @@ func SpawnWave(num):
 	
 	curr_wave = []
 
+func hit(damage):
+	health -= damage
+	health_bar.value = health
+	
+	if(health <= 0):
+		queue_free()
 
 func _on_timer_timeout():
 	SpawnWave(min(EnemyGod.Curr_wave_index, Waves.size()))

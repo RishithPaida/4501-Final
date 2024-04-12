@@ -49,6 +49,8 @@ func _process(delta):
 						unit.setDeliver()
 					elif God.Curr_Hovered_Object.is_in_group("enemy"):
 						unit.attack(God.Curr_Hovered_Object)
+					elif God.Curr_Hovered_Object.is_in_group("enemybuilding"):
+						pass
 					else:
 						var variationSize = clamp(0.5 + 0.2 * God.Selected_Units.size(), 0.5, 2.0)
 						var variedPos = Vector3(rng.randf_range(-variationSize, variationSize), 0, rng.randf_range(-variationSize, variationSize))
