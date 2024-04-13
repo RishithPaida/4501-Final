@@ -34,6 +34,7 @@ func _process(delta):
 		
 		if(townhall != null):
 			started_spawning = true
+			await get_tree().create_timer(120.0).timeout
 			spawn_timer.start()
 
 func Spawn(unit : PackedScene):
