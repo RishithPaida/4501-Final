@@ -60,7 +60,7 @@ func update_labels(panel):
 					if value.get_name() == 'Health':
 						value.text = str(God.Selected_Object.health)
 					elif value.get_name() == 'ATK':
-						value.text = str(God.Selected_Object.attackSpeed)
+						value.text = str(God.Selected_Object.attack_speed)
 					elif value.get_name() == 'SPD':
 						value.text = str(God.Selected_Object.speed)
 					elif value.get_name() == 'RANGE':
