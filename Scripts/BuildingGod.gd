@@ -97,10 +97,9 @@ func DeHighlight_Hovered_Building():
 
 func Preview_Selected_Building():
 	var mouse_position_2d = God._get_curr_mouse_position_2D()
-	if mouse_position_2d.y >= 0:
-		off_map = false
-	else:
-		off_map = true
+	if mouse_position_2d == Vector3(0,-100,0):
+		Curr_Selected_Building_To_Build.queue_free()
+		God.Curr_State = God.State.Play
 	if(mouse_position_2d):
 		Curr_Selected_Building_To_Build.position = Vector3(round(mouse_position_2d.x), mouse_position_2d.y, round(mouse_position_2d.z))
 		

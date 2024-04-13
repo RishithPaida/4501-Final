@@ -71,4 +71,4 @@ func hit(damage):
 		queue_free()
 
 func _on_timer_timeout():
-	SpawnWave(min(EnemyGod.Curr_wave_index, Waves.size()))
+	SpawnWave(min(EnemyGod.Curr_wave_index, Waves.size() - 1 ))
