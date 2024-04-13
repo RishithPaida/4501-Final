@@ -10,6 +10,17 @@ enum Task{
 	AttackingBuilding,
 }
 
+var animations = {
+	"idle":"Idle",
+	"melee_attack":"1H_Melee_Attack_Chop",
+	"melee_atkbuild":"1H_Melee_Attack_Slice_Diagonal",
+	"ranged_attack":"1H_Ranged_Shoot",
+	"ranged_atkbuild":"2H_Ranged_Shoot",
+	"walking":"Running_A",
+	"hit":"Hit_A",
+	"death":"Death_C_Skeletons"
+}
+
 var current_task = Task.Idle
 var resources_holding = 0
 var Home
@@ -25,8 +36,7 @@ var run_once = true
 @export var manacost: int
 @export var woodcost: int
 @export var foodcost: int
-
-@onready var navAgent : NavigationAgent3D = $NavigationAgent3D
+@onready var nav_agent : NavigationAgent3D = $NavigationAgent3D
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @onready var health_bar = $SubViewport/HealthBar
@@ -37,6 +47,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 @export var range: float = 2.0
 @export var attack_damage: float = 50
 @export var attack_mode_range: int = 5
+@export_enum("melee", "ranged") var attack_type: String
 
 func _ready() -> void:
 	health_bar.max_value = health 
@@ -50,32 +61,28 @@ func _physics_process(delta):
 
 	if health <= 0:
 		God.Selected_Units.erase(self)
+		animate('death')
+		await get_tree().create_timer(4.0).timeout
 		queue_free()
 
 	match current_task:
 		Task.Idle:
-			animation_player.current_animation = "Idle"
-			#animate_either("Idle", "2H_Melee_Idle")
-			var enemyList = get_tree().get_nodes_in_group("enemy")
-			for enemy in enemyList:
+			var enemy_list = get_tree().get_nodes_in_group("enemy")
+			for enemy in enemy_list:
 				if global_position.distance_to(enemy.global_position) < attack_mode_range:
 					target_unit = enemy
 					attack(target_unit)
 					current_task = Task.Attacking
-					#print("found another enemy")
 					break
 		Task.Delivering:
 			if(global_position.distance_to(Home) > 1):
-				#print(position.distance_to(Home.global_position))
 				walk()
 			else:
-				print("Dropped off!")
 				deliver()
 				resources_holding = 0
 				harvest(harvest_unit)
 		Task.GettingResources:
 			if(global_position.distance_to(harvest_unit.global_position) > range):
-				#print(position.distance_to(harvest_unit.global_position))
 				walk()
 			else:
 				if run_once:
@@ -85,9 +92,8 @@ func _physics_process(delta):
 					resources_holding = harvest_unit.collect()
 					move_to(Home)
 					current_task = Task.Delivering
-					print("Harvested!")
 		Task.Walking:
-			if(navAgent.is_navigation_finished()):
+			if(nav_agent.is_navigation_finished()):
 				current_task = Task.Idle
 			walk()
 		Task.Attacking:
@@ -95,13 +101,11 @@ func _physics_process(delta):
 				if global_position.distance_to(target_unit.global_position) < range :
 					if run_once:
 						run_once = false
-						animation_player.current_animation = "1H_Melee_Attack_Chop"
 						await get_tree().create_timer(attack_speed).timeout
 						run_once = true
 						attack_unit()
-						print("Attacked!")
 				else:
-					navAgent.set_target_position(target_unit.global_position)
+					nav_agent.set_target_position(target_unit.global_position)
 					walk()
 			else:
 				current_task = Task.Idle
@@ -110,56 +114,53 @@ func _physics_process(delta):
 				if global_position.distance_to(target_unit.global_position) < range * 2 :
 					if run_once:
 						run_once = false
-						animation_player.current_animation = "1H_Melee_Attack_Chop"
 						await get_tree().create_timer(attack_speed).timeout
 						run_once = true
 						hit_building()
-						print("Attacked!")
 				else:
-					navAgent.set_target_position(target_unit.global_position)
+					nav_agent.set_target_position(target_unit.global_position)
 					walk()
 			else:
 				current_task = Task.Idle
 	
-	#print(current_task)
-
+	
+func animate(key):
+	animation_player.play(animations[key])
+	
 func move_to(pos : Vector3):
 	current_task = Task.Walking
-	navAgent.set_target_position(pos)
+	nav_agent.set_target_position(pos)
 	
 func harvest(resource):
 	harvest_unit = resource
 	move_to(harvest_unit.global_position)
 	current_task = Task.GettingResources
-	print("Going to harvest!")
 	
 func walk():
-	var targetPos = navAgent.get_next_path_position()
+	var targetPos = nav_agent.get_next_path_position()
 	var direction = global_position.direction_to(targetPos)
-	
+	animate("walking")
 	look_at(global_position + direction * Vector3(1, 0, 1))
 	velocity = direction * speed
 	move_and_slide()
-	animation_player.current_animation = "Running_A"
 	
-
 func set_deliver():
 	if(resources_holding == 0):
 		return
 	move_to(Home)
 	current_task = Task.Delivering
 	
-
 func attack(enemy):
 	if can_attack:
 		target_unit = enemy
+		var type = attack_type+'_attack'
+		animate(type)
 		move_to(enemy.global_position)
 		current_task = Task.Attacking
 
 func attack_unit():
 	if target_unit != null :
 		target_unit.hurt(attack_damage)
-
 	else:
 		target_unit = null
 
@@ -171,11 +172,14 @@ func hit_building():
 
 func attack_building(building):
 	if can_attack:
+		var type = attack_type+'_atkbuild'
+		animate(type)
 		target_unit = building
 		move_to(building.global_position)
 		current_task = Task.AttackingBuilding
 
 func hurt(damage):
+	animate('hit')
 	health -= damage
 	health_bar.value = health
 
