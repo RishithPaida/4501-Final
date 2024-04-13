@@ -14,6 +14,7 @@ var curr_building_collisions = 0
 
 @onready var health_bar = $SubViewport/HealthBar
 
+var is_built = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health_bar.max_value = health 

@@ -52,7 +52,7 @@ func _physics_process(delta):
 
 	match currentTask:
 		Task.Idle:
-			#animation_player.current_animation = "Idle"
+			animation_player.current_animation = "Idle"
 			#animate_either("Idle", "2H_Melee_Idle")
 			var enemyList = get_tree().get_nodes_in_group("enemy")
 			for enemy in enemyList:
@@ -91,14 +91,14 @@ func _physics_process(delta):
 			if(navAgent.is_navigation_finished()):
 				currentTask = Task.Idle
 			walk()
-			#animation_player.current_animation = "Running_A"
+
 			
 		Task.Attacking:
 			if(targetUnit != null):
 				if global_position.distance_to(targetUnit.global_position) < range :
 					if runOnce:
 						runOnce = false
-						#animation_player.current_animation = "1H_Melee_Attack_Chop"
+						animation_player.current_animation = "1H_Melee_Attack_Chop"
 						await get_tree().create_timer(attackSpeed).timeout
 						runOnce = true
 						attackUnit()
@@ -113,6 +113,7 @@ func _physics_process(delta):
 				if global_position.distance_to(targetUnit.global_position) < range * 2 :
 					if runOnce:
 						runOnce = false
+						animation_player.current_animation = "1H_Melee_Attack_Chop"
 						await get_tree().create_timer(attackSpeed).timeout
 						runOnce = true
 						hitBuilding()
@@ -142,6 +143,7 @@ func walk():
 	look_at(global_position + direction * Vector3(1, 0, 1))
 	velocity = direction * speed
 	move_and_slide()
+	animation_player.current_animation = "Running_A"
 	
 
 func setDeliver():
@@ -160,6 +162,7 @@ func attack(enemy):
 func attackUnit():
 	if targetUnit != null :
 		targetUnit.hurt(attackDamage)
+
 	else:
 		targetUnit = null
 

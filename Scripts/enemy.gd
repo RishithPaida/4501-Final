@@ -117,7 +117,7 @@ func checkForBuilding():
 	var buildingList = get_tree().get_nodes_in_group("allybuilding")
 	var buildingFound = false
 	for building in buildingList:
-		if global_position.distance_to(building.global_position) < attackModeRange * 5:
+		if global_position.distance_to(building.global_position) < attackModeRange * 5 and building.is_built:
 			targetBuilding = building
 			buildingFound = true
 			currentTask = Task.AttackingBuilding

@@ -25,9 +25,8 @@ points = PackedVector3Array(-0.29966, -0.0143305, 0, -0.298252, -0.0143305, 0.02
 [sub_resource type="ViewportTexture" id="ViewportTexture_j2khk"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_2l1rn"]
-height = 2.28674
-radius = 0.1
+[sub_resource type="SphereShape3D" id="SphereShape3D_mcuhs"]
+radius = 0.001
 
 [sub_resource type="TorusMesh" id="TorusMesh_yo8sn"]
 inner_radius = 0.253
@@ -64,8 +63,8 @@ transparent_bg = true
 [node name="HealthBar" parent="SubViewport" instance=ExtResource("1_hlm5u")]
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.653904, 0)
-shape = SubResource("CylinderShape3D_2l1rn")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0121523, -0.712398, 0)
+shape = SubResource("SphereShape3D_mcuhs")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
