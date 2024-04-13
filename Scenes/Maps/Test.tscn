@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://k2xfap81tes4"]
+[gd_scene load_steps=22 format=3 uid="uid://k2xfap81tes4"]
 
 [ext_resource type="PackedScene" uid="uid://bp7g3li82hkcv" path="res://Scenes/QOL/Environment.tscn" id="2_45h5i"]
 [ext_resource type="PackedScene" uid="uid://dwqdc3uym0exy" path="res://Scenes/UI/Camera.tscn" id="2_145ms"]
@@ -6,9 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://g14ci10p5g3a" path="res://Scenes/Buildings/Tree.tscn" id="5_7mao5"]
 [ext_resource type="PackedScene" uid="uid://bq4o0287mqije" path="res://Scenes/resources/RubyClump.tscn" id="6_ievp1"]
 [ext_resource type="Material" uid="uid://c11hcwrxcakjn" path="res://Assets/post_processing/pixelation_effect.tres" id="7_ehnja"]
+[ext_resource type="PackedScene" uid="uid://c2p2tdbbb2kdy" path="res://Scenes/Buildings/EnemyTownhall.tscn" id="8_5tog8"]
 [ext_resource type="Shader" path="res://Shaders/water.gdshader" id="8_efh7p"]
 [ext_resource type="PackedScene" uid="uid://bm564i3o33xhg" path="res://Scenes/Maps/Heightmap.tscn" id="8_s71f8"]
 [ext_resource type="PackedScene" uid="uid://dbkmma3hl2b7f" path="res://Scenes/Buildings/EnemyBarracks.tscn" id="9_mynom"]
+[ext_resource type="PackedScene" uid="uid://bsgvrauwfwqr6" path="res://Scenes/Units/EnemyUnits/CrazyWizard.tscn" id="11_1d38l"]
+[ext_resource type="PackedScene" uid="uid://blnr4ti1585bx" path="res://Scenes/Units/EnemyUnits/Orc.tscn" id="12_pcvbn"]
 
 [sub_resource type="Environment" id="Environment_7c0pw"]
 ssao_enabled = true
@@ -216,7 +219,100 @@ transform = Transform3D(1.225, 0, -2.26498e-06, 0, 1.225, 0, 2.26498e-06, 0, 1.2
 [node name="Tree30" parent="NavigationRegion3D/Resources" instance=ExtResource("5_7mao5")]
 transform = Transform3D(1, 0, -1.46031e-06, 0, 1, 0, 1.46031e-06, 0, 1, -11.8999, -2.07833, -28.773)
 
+[node name="Tree31" parent="NavigationRegion3D/Resources" instance=ExtResource("5_7mao5")]
+transform = Transform3D(1, 0, -1.57952e-06, 0, 1, 0, 1.57952e-06, 0, 1, 44.4159, -1.83574, -4.01239)
+
+[node name="Tree32" parent="NavigationRegion3D/Resources" instance=ExtResource("5_7mao5")]
+transform = Transform3D(1, 0, -8.9407e-07, 0, 1, 0, 8.9407e-07, 0, 1, 43.994, -1.71668, 0.28141)
+
+[node name="Tree33" parent="NavigationRegion3D/Resources" instance=ExtResource("5_7mao5")]
+transform = Transform3D(1, 0, -6.25849e-07, 0, 1, 0, 6.25849e-07, 0, 1, 48.5834, -1.81508, -1.92229)
+
+[node name="Tree34" parent="NavigationRegion3D/Resources" instance=ExtResource("5_7mao5")]
+transform = Transform3D(1, 0, -1.57952e-06, 0, 1, 0, 1.57952e-06, 0, 1, 48.9302, -2.41673, -9.13865)
+
+[node name="RubyClump7" parent="NavigationRegion3D/Resources" instance=ExtResource("6_ievp1")]
+transform = Transform3D(-0.709598, 0, 0.5536, 0, 0.899998, 0, -0.5536, 0, -0.709598, 5.96359, -2.24867, -47.9738)
+
+[node name="RubyClump8" parent="NavigationRegion3D/Resources" instance=ExtResource("6_ievp1")]
+transform = Transform3D(-0.66326, -0.0411558, 0.118402, -0.0655756, 0.657299, -0.138865, -0.10683, -0.147952, -0.649865, 3.53084, -1.87758, -47.6159)
+
+[node name="RubyClump9" parent="NavigationRegion3D/Resources" instance=ExtResource("6_ievp1")]
+transform = Transform3D(-0.0249734, -0.108096, 0.802366, -0.0873002, 0.798427, 0.104848, -0.804894, -0.0832449, -0.0362669, 8.18576, -1.71662, -45.5935)
+
+[node name="RubyClump10" parent="NavigationRegion3D/Resources" instance=ExtResource("6_ievp1")]
+transform = Transform3D(-0.68916, -0.169496, 0.553471, -0.213929, 0.874202, 0.00134397, -0.537861, -0.13053, -0.709696, 5.78842, -1.05092, -45.0612)
+
+[node name="RubyClump11" parent="NavigationRegion3D/Resources" instance=ExtResource("6_ievp1")]
+transform = Transform3D(-0.660455, -0.0868027, 0.109045, -0.0961958, 0.666049, -0.0524368, -0.100856, -0.066847, -0.664067, -15.3433, -2.2045, -42.8315)
+
+[node name="RubyClump12" parent="NavigationRegion3D/Resources" instance=ExtResource("6_ievp1")]
+transform = Transform3D(-0.0215165, -0.13598, 0.798215, -0.10982, 0.791608, 0.131894, -0.802232, -0.104719, -0.0394641, -13.4904, -2.31108, -43.744)
+
+[node name="Tree35" parent="NavigationRegion3D/Resources" instance=ExtResource("5_7mao5")]
+transform = Transform3D(1, 0, -1.57952e-06, 0, 1, 0, 1.57952e-06, 0, 1, -6.51342, -2.29053, -46.8797)
+
+[node name="Tree36" parent="NavigationRegion3D/Resources" instance=ExtResource("5_7mao5")]
+transform = Transform3D(1, 0, -8.9407e-07, 0, 1, 0, 8.9407e-07, 0, 1, -8.14354, -2.79685, -55.3769)
+
+[node name="Tree37" parent="NavigationRegion3D/Resources" instance=ExtResource("5_7mao5")]
+transform = Transform3D(1, 0, -6.25849e-07, 0, 1, 0, 6.25849e-07, 0, 1, -6.28922, -2.81495, -55.5388)
+
+[node name="Tree38" parent="NavigationRegion3D/Resources" instance=ExtResource("5_7mao5")]
+transform = Transform3D(1, 0, -1.57952e-06, 0, 1, 0, 1.57952e-06, 0, 1, -1.83187, -1.69584, -46.9812)
+
+[node name="Tree39" parent="NavigationRegion3D/Resources" instance=ExtResource("5_7mao5")]
+transform = Transform3D(1, 0, -1.57952e-06, 0, 1, 0, 1.57952e-06, 0, 1, 41.2173, -2.26284, -14.8595)
+
+[node name="Tree40" parent="NavigationRegion3D/Resources" instance=ExtResource("5_7mao5")]
+transform = Transform3D(1, 0, -8.9407e-07, 0, 1, 0, 8.9407e-07, 0, 1, 38.1986, -2.14378, -13.2051)
+
+[node name="Tree41" parent="NavigationRegion3D/Resources" instance=ExtResource("5_7mao5")]
+transform = Transform3D(1, 0, -6.25849e-07, 0, 1, 0, 6.25849e-07, 0, 1, 49.2361, -2.21704, -10.9717)
+
+[node name="Tree42" parent="NavigationRegion3D/Resources" instance=ExtResource("5_7mao5")]
+transform = Transform3D(1, 0, -1.57952e-06, 0, 1, 0, 1.57952e-06, 0, 1, 43.3078, -2.44187, -16.2566)
+
+[node name="RubyClump13" parent="NavigationRegion3D/Resources" instance=ExtResource("6_ievp1")]
+transform = Transform3D(0.889968, 0, 0.134008, 0, 0.899998, 0, -0.134008, 0, 0.889968, 24.6626, 0.215177, 27.0003)
+
+[node name="RubyClump14" parent="NavigationRegion3D/Resources" instance=ExtResource("6_ievp1")]
+transform = Transform3D(0.535385, 0, 0.411083, 0, 0.675, 0, -0.411083, 0, 0.535385, 31.0717, 0.0287952, 25.0217)
+
+[node name="RubyClump15" parent="NavigationRegion3D/Resources" instance=ExtResource("6_ievp1")]
+transform = Transform3D(0.608571, 0, -0.534548, 0, 0.81, 0, 0.534548, 0, 0.608571, 20.0386, 0.820939, 24.4213)
+
+[node name="RubyClump16" parent="NavigationRegion3D/Resources" instance=ExtResource("6_ievp1")]
+transform = Transform3D(-0.709598, 0, 0.5536, 0, 0.899998, 0, -0.5536, 0, -0.709598, -12.8409, -2.03746, 46.4464)
+
+[node name="RubyClump17" parent="NavigationRegion3D/Resources" instance=ExtResource("6_ievp1")]
+transform = Transform3D(-0.666681, 0, 0.105651, 0, 0.675, 0, -0.105651, 0, -0.666681, 10.5527, -1.03417, 26.4906)
+
+[node name="RubyClump18" parent="NavigationRegion3D/Resources" instance=ExtResource("6_ievp1")]
+transform = Transform3D(-0.0308405, 0, 0.809412, 0, 0.81, 0, -0.809412, 0, -0.0308405, -5.77154, -2.2436, 52.5595)
+
+[node name="Tree43" parent="NavigationRegion3D/Resources" instance=ExtResource("5_7mao5")]
+transform = Transform3D(-0.157712, 0, -0.987486, 0, 1, 0, 0.987486, 0, -0.157712, -10.3102, -2.21833, 48.241)
+
+[node name="Tree44" parent="NavigationRegion3D/Resources" instance=ExtResource("5_7mao5")]
+transform = Transform3D(-0.157711, 0, -0.987486, 0, 1, 0, 0.987486, 0, -0.157711, -14.8437, -2.09927, 44.3808)
+
+[node name="Tree45" parent="NavigationRegion3D/Resources" instance=ExtResource("5_7mao5")]
+transform = Transform3D(0.297309, 0, 0.954782, 0, 1, 0, -0.954782, 0, 0.297309, 10.6841, -1.35465, 28.7516)
+
+[node name="Tree46" parent="NavigationRegion3D/Resources" instance=ExtResource("5_7mao5")]
+transform = Transform3D(0.29731, 0, 0.954782, 0, 1, 0, -0.954782, 0, 0.29731, 8.46347, -1.55434, 26.5057)
+
 [node name="Buildings" type="Node3D" parent="NavigationRegion3D" groups=["buildingHolder"]]
+
+[node name="EnemyBarracks" parent="NavigationRegion3D/Buildings" instance=ExtResource("9_mynom")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.7109, 2.34195, -54.5236)
+
+[node name="EnemyBarracks2" parent="NavigationRegion3D/Buildings" instance=ExtResource("9_mynom")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.07, 2.0858, 47.2209)
+
+[node name="EnemyTownhall" parent="NavigationRegion3D/Buildings" instance=ExtResource("8_5tog8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.8955, 2.48, -60.9103)
 
 [node name="Heightmap" parent="NavigationRegion3D" instance=ExtResource("8_s71f8")]
 
@@ -228,5 +324,28 @@ surface_material_override/0 = SubResource("ShaderMaterial_3ktiv")
 [node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="NavigationRegion3D/MeshInstance3D"]
 radius = 18.1
 
-[node name="EnemyBarracks" parent="." instance=ExtResource("9_mynom")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.4066, 2.09383, -61.2853)
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="CrazyWizard" parent="Enemies" instance=ExtResource("11_1d38l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 39.2628, 2.48896, -59.0586)
+
+[node name="Orc" parent="Enemies" instance=ExtResource("12_pcvbn")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 28.7011, 2.36264, -51.3749)
+
+[node name="Orc2" parent="Enemies" instance=ExtResource("12_pcvbn")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 30.5623, 2.7497, -58.0196)
+
+[node name="Orc3" parent="Enemies" instance=ExtResource("12_pcvbn")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 36.4462, 2.36264, -56.7161)
+
+[node name="CrazyWizard2" parent="Enemies" instance=ExtResource("11_1d38l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.4219, 2.52887, -64.9939)
+
+[node name="CrazyWizard3" parent="Enemies" instance=ExtResource("11_1d38l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.9823, 2.52887, -64.9939)
+
+[node name="Orc4" parent="Enemies" instance=ExtResource("12_pcvbn")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 8.41505, 2.72446, 54.2957)
+
+[node name="CrazyWizard4" parent="Enemies" instance=ExtResource("11_1d38l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1456, 2.52887, 46.018)

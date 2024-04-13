@@ -7,6 +7,7 @@ enum Task{
 	Walking,
 	Delivering,
 	Attacking,
+	AttackingBuilding,
 }
 
 var currentTask = Task.Idle
@@ -107,6 +108,20 @@ func _physics_process(delta):
 					walk()
 			else:
 				currentTask = Task.Idle
+		Task.AttackingBuilding:
+			if(targetUnit != null):
+				if global_position.distance_to(targetUnit.global_position) < range * 2 :
+					if runOnce:
+						runOnce = false
+						await get_tree().create_timer(attackSpeed).timeout
+						runOnce = true
+						hitBuilding()
+						print("Attacked!")
+				else:
+					navAgent.set_target_position(targetUnit.global_position)
+					walk()
+			else:
+				currentTask = Task.Idle
 	
 	#print(currentTask)
 
@@ -147,6 +162,18 @@ func attackUnit():
 		targetUnit.hurt(attackDamage)
 	else:
 		targetUnit = null
+
+func hitBuilding():
+	if targetUnit != null :
+		targetUnit.hit(attackDamage)
+	else:
+		targetUnit = null
+
+func attackBuilding(building):
+	if canAttack:
+		targetUnit = building
+		moveTo(building.global_position)
+		currentTask = Task.AttackingBuilding
 
 func hurt(damage):
 	health -= damage

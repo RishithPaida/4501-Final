@@ -13,8 +13,9 @@ points = PackedVector3Array(0, 1, 0, 0.0978857, -1, 0.995106, 0.194988, -1, 0.98
 [sub_resource type="ViewportTexture" id="ViewportTexture_vnwvh"]
 viewport_path = NodePath("SubViewport")
 
-[node name="EnemyBarracks" type="StaticBody3D"]
+[node name="EnemyBarracks" type="StaticBody3D" groups=["enemybuilding"]]
 script = ExtResource("1_o0cv4")
+health = 800
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
