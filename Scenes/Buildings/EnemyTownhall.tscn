@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c2p2tdbbb2kdy"]
 
-[ext_resource type="Script" path="res://Scripts/building.gd" id="1_y8g4i"]
+[ext_resource type="Script" path="res://Scripts/Building.gd" id="1_y8g4i"]
 [ext_resource type="PackedScene" uid="uid://0c6jslptgrnr" path="res://Scenes/UI/HealthBar.tscn" id="2_54kkd"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_bytqv"]
