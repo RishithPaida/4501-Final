@@ -9,17 +9,17 @@ enum Task{
 	AttackingBuilding
 }
 
-var currentTask = Task.Idle
-var targetUnit
-var targetBuilding = null
+var current_task = Task.Idle
+var target_unit
+var target_building = null
 
-var runOnce = true
+var run_once = true
 @export var speed = 2
 @export var health : int = 100
-@export var attackSpeed: float = 1.0
+@export var attack_speed: float = 1.0
 @export var range: float = 2.0
-@export var attackDamage: float = 20
-@export var attackModeRange: int = 6
+@export var attack_damage: float = 20
+@export var attack_mode_range: int = 6
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 # Called when the node enters the scene tree for the first time.
@@ -37,61 +37,61 @@ func _process(delta):
 	if(health <= 0):
 		queue_free()
 		
-	match currentTask:
+	match current_task:
 		Task.Idle:
-			if(targetBuilding != null):
-				currentTask =Task.AttackingBuilding
-			checkForEnemy()
+			if(target_building != null):
+				current_task =Task.AttackingBuilding
+			check_for_enemy()
 		Task.Attacking:
-			if(targetUnit != null):
-				if global_position.distance_to(targetUnit.global_position) < range :
-					if runOnce:
-						runOnce = false
-						await get_tree().create_timer(attackSpeed).timeout
-						runOnce = true
+			if(target_unit != null):
+				if global_position.distance_to(target_unit.global_position) < range :
+					if run_once:
+						run_once = false
+						await get_tree().create_timer(attack_speed).timeout
+						run_once = true
 						attack()
 						
 						print("Attacked!")
 						
-				elif global_position.distance_to(targetUnit.global_position) > attackModeRange:
-					targetUnit = null
-					currentTask = Task.Idle
+				elif global_position.distance_to(target_unit.global_position) > attack_mode_range:
+					target_unit = null
+					current_task = Task.Idle
 				else:
-					navAgent.set_target_position(targetUnit.global_position)
+					navAgent.set_target_position(target_unit.global_position)
 					walk()
 			else:
-				currentTask = Task.Idle
+				current_task = Task.Idle
 		Task.AttackingBuilding:
-			checkForEnemy()
-			if(currentTask == Task.Attacking):
+			check_for_enemy()
+			if(current_task == Task.Attacking):
 				pass
-			elif(targetBuilding != null):
-				if global_position.distance_to(targetBuilding.global_position) < range * 2 :
-					if runOnce:
-						runOnce = false
-						await get_tree().create_timer(attackSpeed).timeout
-						runOnce = true
-						attackBuilding()
+			elif(target_building != null):
+				if global_position.distance_to(target_building.global_position) < range * 2 :
+					if run_once:
+						run_once = false
+						await get_tree().create_timer(attack_speed).timeout
+						run_once = true
+						attack_building()
 						print("Attacked!")
 				else:
-					navAgent.set_target_position(targetBuilding.global_position)
+					navAgent.set_target_position(target_building.global_position)
 					walk()
 			else:
-				currentTask = Task.Idle
+				current_task = Task.Idle
 
 func hurt(damage):
 	health -= damage
 	health_bar.value = health
 
 func attack():
-	if targetUnit != null :
-		targetUnit.hurt(attackDamage)
+	if target_unit != null :
+		target_unit.hurt(attack_damage)
 	else:
-		targetUnit = null
+		target_unit = null
 
-func attackBuilding():
-	if(targetBuilding != null):
-		targetBuilding.hit(attackDamage)
+func attack_building():
+	if(target_building != null):
+		target_building.hit(attack_damage)
 
 func walk():
 	var targetPos = navAgent.get_next_path_position()
@@ -101,28 +101,28 @@ func walk():
 	
 	move_and_slide()
 
-func checkForEnemy():
+func check_for_enemy():
 	var enemyList = get_tree().get_nodes_in_group("allyunit")
 	var enemyFound = false
 	for enemy in enemyList:
-		if global_position.distance_to(enemy.global_position) < attackModeRange:
-			targetUnit = enemy
+		if global_position.distance_to(enemy.global_position) < attack_mode_range:
+			target_unit = enemy
 			enemyFound = true
-			currentTask = Task.Attacking
+			current_task = Task.Attacking
 			break
 	if(enemyFound == false):
-		checkForBuilding()
+		check_for_building()
 
-func checkForBuilding():
+func check_for_building():
 	var buildingList = get_tree().get_nodes_in_group("allybuilding")
 	var buildingFound = false
 	for building in buildingList:
-		if global_position.distance_to(building.global_position) < attackModeRange * 5 and building.is_built:
-			targetBuilding = building
+		if global_position.distance_to(building.global_position) < attack_mode_range * 5 and building.is_built:
+			target_building = building
 			buildingFound = true
-			currentTask = Task.AttackingBuilding
+			current_task = Task.AttackingBuilding
 			break
 
-func setTargetBuilding(building):
-	targetBuilding = building
-	currentTask = Task.AttackingBuilding
+func set_target_building(building):
+	target_building = building
+	current_task = Task.AttackingBuilding

@@ -46,13 +46,13 @@ func _process(delta):
 					if(God.Curr_Hovered_Object.is_in_group("resource") and unit.is_in_group("gatherer")):
 						unit.harvest(God.Curr_Hovered_Object)
 					elif (God.Curr_Hovered_Object.is_in_group("townhall") and unit.is_in_group("gatherer")):
-						unit.setDeliver()
+						unit.set_deliver()
 					elif God.Curr_Hovered_Object.is_in_group("enemy"):
 						unit.attack(God.Curr_Hovered_Object)
 					elif God.Curr_Hovered_Object.is_in_group("enemybuilding"):
-						unit.attackBuilding(God.Curr_Hovered_Object)
+						unit.attack_building(God.Curr_Hovered_Object)
 					else:
-						var variationSize = clamp(0.5 + 0.2 * God.Selected_Units.size(), 0.5, 2.0)
-						var variedPos = Vector3(rng.randf_range(-variationSize, variationSize), 0, rng.randf_range(-variationSize, variationSize))
-						unit.moveTo(mouse_position_2d + variedPos)
+						var variation_Size = clamp(0.5 + 0.2 * God.Selected_Units.size(), 0.5, 2.0)
+						var varied_Pos = Vector3(rng.randf_range(-variation_Size, variation_Size), 0, rng.randf_range(-variation_Size, variation_Size))
+						unit.move_to(mouse_position_2d + varied_Pos)
 						print("Move Unit")

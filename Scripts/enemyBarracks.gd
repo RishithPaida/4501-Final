@@ -17,7 +17,7 @@ var curr_wave = []
 @onready var orc_training_time= 2.0
 @onready var wizard_training_time = 3.0
 
-var startedSpawning = false
+var started_spawning = false
 
 var Orc : PackedScene = ResourceLoader.load("res://Scenes/Units/EnemyUnits/Orc.tscn")
 var Wizard : PackedScene = ResourceLoader.load("res://Scenes/Units/EnemyUnits/CrazyWizard.tscn")
@@ -29,11 +29,11 @@ func _ready():
 
 #Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if(startedSpawning == false):
+	if(started_spawning == false):
 		var townhall = get_tree().get_first_node_in_group("townhall")
 		
 		if(townhall != null):
-			startedSpawning = true
+			started_spawning = true
 			spawn_timer.start()
 
 func Spawn(unit : PackedScene):
@@ -59,7 +59,7 @@ func SpawnWave(num):
 	
 	if(townhall != null):
 		for unit in curr_wave:
-			unit.setTargetBuilding(townhall)
+			unit.set_target_building(townhall)
 	
 	curr_wave = []
 
