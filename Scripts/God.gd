@@ -74,7 +74,11 @@ func _get_curr_mouse_position_2D():
 		query.exclude = [self]
 		query.collision_mask = 2
 		var result = space_state.intersect_ray(query)
-		return result.position
+		
+		if(!result.is_empty()):
+			return result.position
+		else:
+			return Vector3(0.0, -100, 0.0)
 	
 	
 func _get_object_under_mouse_position(mouse_position):
