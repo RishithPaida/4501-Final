@@ -65,5 +65,11 @@ Full game mechanics - Youre able to build. gather resources with units. train yo
 Feedback - There is a ui that shows you your current resources and gives you various options based on the state of the game and whats selected
 
 
+We organized our code into a controller and a subclass and used a lot of exports variables and states to prevent redundancy.
+We went into a bit of detail about this structure in our presentation. 
+We added highlight to the buildings when hovered and to show whether or not they can be built.
+
+
+
 
 

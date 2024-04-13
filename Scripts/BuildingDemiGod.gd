@@ -9,7 +9,7 @@ var curr_building_collisions = 0
 @export var foodcost : int
 @export var rubycost : int
 @export var manacost : int
-
+@export var is_ally_townhall : bool
 @export var spawnable_units = []
 
 @onready var health_bar = $SubViewport/HealthBar
@@ -62,4 +62,6 @@ func hit(damage):
 	health_bar.value = health
 	
 	if(health <= 0):
-		queue_free()
+		if is_ally_townhall:	
+			queue_free()
+			#YOU WIN!

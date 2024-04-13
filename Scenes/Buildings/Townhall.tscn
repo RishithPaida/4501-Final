@@ -25,8 +25,9 @@ script = ExtResource("1_fuail")
 health = 1000
 woodcost = 100
 foodcost = 50
-rubycost = 600
+rubycost = 250
 manacost = 250
+is_ally_townhall = true
 spawnable_units = [ExtResource("2_tuhgu")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

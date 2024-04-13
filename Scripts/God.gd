@@ -7,7 +7,7 @@ enum State  {
 }
 
 var wood := 200
-var ruby := 700
+var ruby := 350
 var mana := 250
 var food := 50
 
