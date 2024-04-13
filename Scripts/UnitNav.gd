@@ -62,7 +62,7 @@ func _physics_process(delta):
 	if health <= 0:
 		God.Selected_Units.erase(self)
 		animate('death')
-		await get_tree().create_timer(4.0).timeout
+		await get_tree().create_timer(0.5).timeout
 		queue_free()
 
 	match current_task:

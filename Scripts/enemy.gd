@@ -49,7 +49,7 @@ func _process(delta):
 	if(health <= 0):
 		God.mana += 5
 		animate('death')
-		await get_tree().create_timer(4.0).timeout
+		await get_tree().create_timer(0.5).timeout
 		queue_free()
 		
 	match current_task:
