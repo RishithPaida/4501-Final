@@ -6,10 +6,10 @@ enum State  {
 	Combat,
 }
 
-var wood := 3000
-var ruby := 3000
-var mana := 3000
-var food := 3000
+var wood := 200
+var ruby := 700
+var mana := 250
+var food := 50
 
 var RAY_LENGTH = 1000
 var Curr_State = State.Play

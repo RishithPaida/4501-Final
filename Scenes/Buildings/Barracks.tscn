@@ -77,6 +77,7 @@ viewport_path = NodePath("SubViewport")
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 script = ExtResource("1_uf2p1")
 health = 150
+woodcost = 100
 spawnable_units = [ExtResource("2_lhgkh"), ExtResource("3_m7c4a")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

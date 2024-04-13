@@ -21,7 +21,7 @@ var run_once = true
 @export var speed = 2
 
 @export var health: int
-@export var rubycost: int
+@export var rubycost: int = 45
 @export var manacost: int
 
 @onready var navAgent : NavigationAgent3D = $NavigationAgent3D
@@ -62,7 +62,6 @@ func _physics_process(delta):
 					current_task = Task.Attacking
 					#print("found another enemy")
 					break
-				
 		Task.Delivering:
 			if(global_position.distance_to(Home) > 1):
 				#print(position.distance_to(Home.global_position))
@@ -72,7 +71,6 @@ func _physics_process(delta):
 				deliver()
 				resources_holding = 0
 				harvest(harvest_unit)
-				
 		Task.GettingResources:
 			if(global_position.distance_to(harvest_unit.global_position) > range):
 				#print(position.distance_to(harvest_unit.global_position))
@@ -86,13 +84,10 @@ func _physics_process(delta):
 					move_to(Home)
 					current_task = Task.Delivering
 					print("Harvested!")
-					
 		Task.Walking:
 			if(navAgent.is_navigation_finished()):
 				current_task = Task.Idle
 			walk()
-
-			
 		Task.Attacking:
 			if(target_unit != null):
 				if global_position.distance_to(target_unit.global_position) < range :
