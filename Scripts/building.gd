@@ -1,7 +1,8 @@
 extends Node
 
 @onready var health_bar = $SubViewport/HealthBar
-@export var health = 500
+@export var health : int 
+@export var is_enemy_townhall : bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,4 +20,6 @@ func hit(damage):
 	health_bar.value = health
 	
 	if(health <= 0):
-		queue_free()
+		if is_enemy_townhall:
+			queue_free()
+			#YOU LOSE

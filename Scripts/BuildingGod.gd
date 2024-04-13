@@ -3,7 +3,7 @@ extends Node3D
 #Load the shaders
 var green_glow_shader = load("res://Shaders/GreenGlow.gdshader")
 var red_glow_shader = load("res://Shaders/RedGlow.gdshader")
-
+@onready var ally_townhall_built = false
 var green_shade = ShaderMaterial
 var red_shade = ShaderMaterial
 var original_material
@@ -104,6 +104,9 @@ func Preview_Selected_Building():
 		Curr_Selected_Building_To_Build.position = Vector3(round(mouse_position_2d.x), mouse_position_2d.y, round(mouse_position_2d.z))
 		
 func Check_If_Affordable(building) -> bool:
+	
+	if not ally_townhall_built and not building.is_in_group("townhall"):
+		return false
 	if God.wood - building.woodcost < 0:
 		return false
 	if God.food - building.foodcost < 0:
@@ -112,7 +115,11 @@ func Check_If_Affordable(building) -> bool:
 		return false
 	if God.mana - building.manacost < 0:
 		return false
-		
+	if building.is_in_group("townhall"):
+		if not ally_townhall_built:
+			ally_townhall_built = true
+		else:
+			return false
 	return true
 	
 func Purchase_Building(building):
