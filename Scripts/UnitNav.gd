@@ -189,8 +189,8 @@ func deliver():
 	elif harvest_unit.is_in_group("tree"):
 		God.wood += resources_holding
 	
-	var randomFood = randi_range(10, 15)
-	God.food += randomFood
+	var random_food = randi_range(10, 15)
+	God.food += random_food
 
 func select():
 	$SelectionCircle.show()
