@@ -21,8 +21,10 @@ var run_once = true
 @export var speed = 2
 
 @export var health: int
-@export var rubycost: int = 45
+@export var rubycost: int
 @export var manacost: int
+@export var woodcost: int
+@export var foodcost: int
 
 @onready var navAgent : NavigationAgent3D = $NavigationAgent3D
 

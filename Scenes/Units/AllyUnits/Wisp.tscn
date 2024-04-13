@@ -36,7 +36,9 @@ outer_radius = 0.326
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.803554, 0)
 script = ExtResource("1_sikac")
 health = 100
-rubycost = 85
+rubycost = 40
+manacost = 10
+woodcost = 20
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74883, 0)

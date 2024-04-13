@@ -35,6 +35,7 @@ func _process(delta):
 		move_and_slide()
 	
 	if(health <= 0):
+		God.mana += 5
 		queue_free()
 		
 	match current_task:

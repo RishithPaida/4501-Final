@@ -276,8 +276,8 @@ viewport_path = NodePath("SubViewport")
 collision_layer = 2
 script = ExtResource("1_maasj")
 health = 50
+rubycost = 45
 range = 3.0
-attack_damage = 15.0
 
 [node name="Rig" type="Node3D" parent="."]
 transform = Transform3D(-0.6, 0, -5.24537e-08, 0, 0.6, 0, 5.24537e-08, 0, -0.6, 0, 0.5, 0)
