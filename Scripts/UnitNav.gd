@@ -188,6 +188,9 @@ func deliver():
 		God.ruby += resources_holding
 	elif harvest_unit.is_in_group("tree"):
 		God.wood += resources_holding
+	
+	var randomFood = randi_range(10, 15)
+	God.food += randomFood
 
 func select():
 	$SelectionCircle.show()
